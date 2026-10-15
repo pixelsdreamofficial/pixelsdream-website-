@@ -70,10 +70,9 @@
 
   <section class="gal-sec" id="gallery"><div class="wrap">
     <h2 class="display">See each style</h2>
-    <div class="tabs" id="tabs" role="tablist" aria-label="Maternity styles"></div>
-    <p class="tabdesc" id="tabdesc"></p>
-    <div class="gal" id="gal"></div>
-    <div style="margin-top:28px"><a class="btn btn-tur" href="#build">Pick your styles</a></div>
+    <p class="lede">Tap a style to see all its photos. You can add it to your shoot right from there.</p>
+    <div class="tiles" id="tiles"></div>
+    <div style="margin-top:32px"><a class="btn btn-tur" href="#build">Pick your styles</a></div>
   </div></section>
 
   <section class="bld" id="build"><div class="wrap">
@@ -219,15 +218,11 @@ var ADDS=[
   bill();
 
   /* gallery */
-  var groups=STYLES.concat([BACKLIT,PROPS]),cur=0,idx=0,tabs=$('tabs');
-  groups.forEach(function(g,k){var b=document.createElement('button');b.type='button';b.className='tab';b.setAttribute('role','tab');b.textContent=g.name;b.onclick=function(){show(k);};tabs.appendChild(b);});
-  function show(k){cur=k;var g=groups[k];
-    tabs.querySelectorAll('.tab').forEach(function(t,j){t.setAttribute('aria-selected',j===k);});
-    $('tabdesc').textContent=g.desc;var gal=$('gal');gal.innerHTML='';
-    g.photos.forEach(function(p,i){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Open '+g.name+' photo '+(i+1));
-      var im=document.createElement('img');im.src=src(p);im.alt=g.name+' maternity photo by Pixels Dream';im.loading='lazy';im.decoding='async';b.appendChild(im);
-      b.onclick=function(){idx=i;lbShow();lb.classList.add('open');document.body.style.overflow='hidden';};gal.appendChild(b);});
-  }
+  var groups=STYLES.concat([BACKLIT,PROPS]),cur=0,idx=0;
+  function tiles(){var box=$('tiles');groups.forEach(function(g,k){var b=document.createElement('button');b.type='button';b.className='tile';
+    b.setAttribute('aria-label','See '+g.photos.length+' '+g.name+' photos');var c=g.cover||g.photos[0];
+    b.innerHTML='<div class="tile-ph"><img src="'+src(c)+'" alt="'+g.name+' maternity photo by Pixels Dream" loading="lazy" decoding="async"><span class="tile-n">'+g.photos.length+' photos</span></div><h3>'+g.name+'</h3><p>'+g.desc+'</p>';
+    b.onclick=function(){openLb(k,Math.max(0,g.photos.indexOf(c)));};box.appendChild(b);});}
   var lb=$('lb'),li=lb.querySelector('img'),c=lb.querySelector('.c'),lbAdd=lb.querySelector('.lb-add');
   function syncLb(){var g=groups[cur],ok=STYLES.indexOf(g)>=0;lbAdd.classList.toggle('show',ok);if(ok){lbAdd.setAttribute('aria-pressed',!!g.on);lbAdd.textContent=g.on?g.name+' added ✓':'Add '+g.name+' to my shoot';}}
   lbAdd.onclick=function(){var g=groups[cur];if(STYLES.indexOf(g)>=0)toggle(g);};
@@ -240,7 +235,7 @@ var ADDS=[
   document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')step(-1);if(e.key==='ArrowRight')step(1);});
   var sx=0;lb.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
   lb.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>45)step(dx<0?1:-1);});
-  show(0);
+  tiles();
 
   document.querySelectorAll('.wa').forEach(function(a){if(a.dataset.msg)a.href=wa(a.dataset.msg);a.target='_blank';a.rel='noopener';});
 })();
