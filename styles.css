@@ -1,0 +1,62 @@
+/* Pixels Dream – shared styles */
+:root{--plum:#3b1530;--plum2:#4f1d40;--turmeric:#f2b632;--leaf:#2f6b3f;--rose:#f9ece9;--rose2:#f1dcd8;--ink:#24101e;--muted:#6e5466;--wa:#1a9e55;
+  --toran:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='34'%3E%3Ccircle cx='22' cy='5' r='5' fill='%23f2b632'/%3E%3Cpath d='M22 10c7 6 7 16 0 23c-7-7-7-17 0-23z' fill='%232f6b3f'/%3E%3C/svg%3E")}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font:400 17px/1.6 'Hind',system-ui,sans-serif;color:var(--ink);background:var(--rose);overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--turmeric);outline-offset:3px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+.display{font-family:'Rozha One',serif;font-weight:400;letter-spacing:-.01em}
+h2.display{font-size:clamp(34px,6.4vw,56px);line-height:1.05}
+.lede{font-size:18px;color:var(--muted);max-width:34em;margin-top:12px}
+.toran{height:34px;background:var(--toran) repeat-x;background-size:44px 34px;border-top:3px solid var(--turmeric)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border-radius:999px;font-weight:600;font-size:17px;border:0;transition:transform .15s}
+.btn:active{transform:scale(.97)}
+.btn svg{width:22px;height:22px;fill:currentColor;flex:none}
+a.btn-wa,.btn-wa{background:var(--wa);color:#fff}
+a.btn-tur,.btn-tur{background:var(--turmeric);color:var(--plum)}
+.btn-ghost{background:transparent;box-shadow:inset 0 0 0 2px currentColor}
+
+/* header */
+.hdr{position:sticky;top:0;z-index:50;background:rgba(249,236,233,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--rose2)}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:20px}
+.logo{font-family:'Rozha One',serif;font-size:26px;color:var(--plum);line-height:1}
+.logo small{display:block;font-family:'Hind',sans-serif;font-size:12px;color:var(--muted);letter-spacing:.06em;margin-top:2px}
+.nav{display:flex;gap:26px;font-weight:500}
+.nav a:hover,.nav a[aria-current]{color:var(--plum);box-shadow:inset 0 -2px 0 var(--turmeric)}
+.hdr .btn{min-height:44px;padding:0 18px;font-size:15px}
+.menu-btn{display:none;background:none;border:0;font-weight:600;color:var(--plum);padding:8px}
+
+/* footer */
+.ftr{background:var(--ink);color:#e6cfdc;padding:56px 0 110px;font-size:16px}
+.ftr .wrap{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:32px}
+.ftr h3{font-family:'Rozha One',serif;font-weight:400;color:#fff;font-size:22px;margin-bottom:10px}
+.ftr a{display:block;padding:3px 0}
+.ftr a:hover{color:var(--turmeric)}
+.ftr .copy{grid-column:1/-1;border-top:1px solid #4a2a3f;padding-top:18px;font-size:14px;color:#a98a9c}
+
+/* floating + bottom bar */
+.float-wa{position:fixed;right:22px;bottom:24px;z-index:60;width:62px;height:62px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(36,16,30,.35)}
+.float-wa svg{width:32px;height:32px;fill:#fff}
+.bar{display:none}
+
+@media (max-width:900px){
+  .nav{display:none;position:absolute;top:68px;left:0;right:0;background:var(--rose);flex-direction:column;gap:0;padding:8px 20px 20px;border-bottom:1px solid var(--rose2)}
+  .nav.open{display:flex}
+  .nav a{padding:12px 0;border-bottom:1px solid var(--rose2)}
+  .menu-btn{display:block}
+  .hdr .btn{display:none}
+  .ftr .wrap{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  .float-wa{display:none}
+  .bar{display:grid;grid-template-columns:1fr 1.5fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--rose);box-shadow:0 -6px 20px rgba(36,16,30,.18);padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
+  .bar .btn{min-height:50px;padding:0 12px;font-size:16px}
+  .bar .btn-ghost{color:var(--plum)}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}

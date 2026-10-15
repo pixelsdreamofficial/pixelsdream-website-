@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pixels Dream Photography | Maternity, Newborn & Baby Photographer in Electronic City, Bangalore</title>
+<meta name="description" content="Maternity, newborn, baby and family photoshoots in a private, baby-safe studio in Electronic City, Bangalore. Rated 4.9 on Google by 269 families. Book on WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Hind:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* HERO: photo-led split */
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 68px)}
+.hero-copy{display:flex;flex-direction:column;justify-content:center;padding:56px 56px 56px max(20px,calc((100vw - 1160px)/2 + 20px))}
+.hero h1{font-family:'Rozha One',serif;font-weight:400;font-size:clamp(46px,6.6vw,92px);line-height:.98;letter-spacing:-.015em;color:var(--plum)}
+.hero p{font-size:19px;color:var(--muted);max-width:28em;margin:22px 0 30px}
+.hero-btns{display:flex;flex-wrap:wrap;gap:12px}
+.hero-btns .btn-ghost{color:var(--plum)}
+.hero-rate{margin-top:28px;display:flex;align-items:center;gap:12px;font-size:16px;color:var(--muted)}
+.hero-rate b{font-family:'Rozha One',serif;font-weight:400;font-size:34px;color:var(--plum);line-height:1}
+.hero-photo{position:relative;background:var(--turmeric)}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+
+/* SERVICES: arches */
+.svc{padding:96px 0 72px}
+.arches{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:40px}
+.arch{display:block}
+.arch-ph{aspect-ratio:3/4.2;border-radius:200px 200px 16px 16px;overflow:hidden;background:linear-gradient(160deg,var(--plum2),var(--plum))}
+.arch-ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.arch:hover .arch-ph img{transform:scale(1.04)}
+.arch h3{font-family:'Rozha One',serif;font-weight:400;font-size:26px;line-height:1.1;margin-top:14px;color:var(--plum)}
+.arch p{font-size:15px;color:var(--muted)}
+.arch .price{display:inline-block;margin-top:6px;font-weight:600;border-bottom:2px solid var(--turmeric)}
+.arch-empty{display:flex;align-items:center;justify-content:center;color:#d9bfcf;font-size:14px;text-align:center;padding:20px}
+
+/* TALLY sentence */
+.tally{background:var(--plum);color:#f6e7ee;padding:80px 0 88px}
+.tally p{font-family:'Rozha One',serif;font-size:clamp(30px,5vw,54px);line-height:1.18;max-width:20ch}
+.tally b{font-weight:400;color:var(--turmeric)}
+.tally small{display:block;font-family:'Hind',sans-serif;font-size:17px;color:#d9bfcf;margin-top:22px;max-width:36em}
+
+/* STUDIO */
+.studio{padding:96px 0}
+.studio .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.studio-ph{border-radius:16px 200px 16px 16px;overflow:hidden;aspect-ratio:4/4.4}
+.studio-ph img{width:100%;height:100%;object-fit:cover}
+.points{list-style:none;margin-top:26px}
+.points li{padding:16px 0;border-top:1px solid var(--rose2)}
+.points b{display:block;font-family:'Rozha One',serif;font-weight:400;font-size:23px;color:var(--plum);line-height:1.2}
+.points span{color:var(--muted)}
+
+/* WORK reel */
+.work{padding:0 0 96px}
+.work-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+.reel{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 20px;padding:32px 20px 8px;scrollbar-width:none;max-width:1160px;margin:0 auto}
+.reel::-webkit-scrollbar{display:none}
+.reel img{flex:none;height:min(62vh,440px);width:auto;border-radius:12px;scroll-snap-align:start;background:var(--rose2)}
+
+/* REVIEWS */
+.rev{padding:0 0 96px}
+.rev .wrap{display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:center;background:#fff;border-radius:28px;padding-top:44px;padding-bottom:44px}
+.rev-big{font-family:'Rozha One',serif;font-size:clamp(96px,16vw,160px);line-height:.85;color:var(--plum);padding-left:20px}
+.rev h2{font-size:clamp(28px,4vw,40px)!important}
+
+/* STEPS */
+.steps-sec{padding:0 0 96px}
+.steps{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:34px;counter-reset:s}
+.steps li{counter-increment:s;border-top:3px solid var(--plum);padding-top:16px}
+.steps li:before{content:counter(s);font-family:'Rozha One',serif;font-size:40px;color:var(--turmeric);-webkit-text-stroke:1px var(--plum);display:block;line-height:1;margin-bottom:6px}
+.steps h3{font-size:19px;font-weight:600}
+.steps p{color:var(--muted)}
+
+/* FINAL */
+.final{background:var(--plum);color:#fff}
+.final .wrap{padding-top:64px;padding-bottom:84px}
+.final h2{font-size:clamp(40px,8vw,80px)!important;max-width:13ch}
+.final p{color:#e6cfdc;margin:16px 0 28px;font-size:18px;max-width:32em}
+.final .btn-ghost{color:#fff}
+
+@media (max-width:1000px){.arches{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;min-height:0}
+  .hero-photo{order:-1;aspect-ratio:4/3.4}
+  .hero-copy{padding:36px 20px 52px}
+  .studio .wrap,.rev .wrap{grid-template-columns:1fr;gap:28px}
+  .rev-big{padding-left:0}
+  .steps{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  .arches{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:32px -20px 0;padding:0 20px;scroll-padding:0 20px;scrollbar-width:none}
+  .arches::-webkit-scrollbar{display:none}
+  .arch{flex:0 0 68vw;scroll-snap-align:start}
+  .hero-btns .btn{flex:1 1 100%}
+  .svc,.studio{padding:64px 0}
+  .rev .wrap{border-radius:0}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr"><div class="wrap">
+  <a href="/" class="logo">Pixels Dream<small>Photography, Electronic City</small></a>
+  <nav class="nav" id="nav">
+    <a href="maternity.html">Maternity</a><a href="newborn.html">Newborn</a><a href="baby.html">Baby shoots</a><a href="family.html">Family</a><a href="events.html">Events</a><a href="contact.html">Contact</a>
+  </nav>
+  <a class="btn btn-wa wa" data-msg="Hi Pixels Dream, I'd like to book a shoot." href="https://wa.me/919035454533">WhatsApp us</a>
+  <button class="menu-btn" aria-expanded="false" aria-controls="nav" onclick="var n=document.getElementById('nav');n.classList.toggle('open');this.setAttribute('aria-expanded',n.classList.contains('open'))">Menu</button>
+</div></header>
+
+<main>
+  <section class="hero">
+    <div class="hero-copy">
+      <h1>Bumps, babies and the family days in between.</h1>
+      <p>A private, air-conditioned studio in Electronic City, Bangalore. We shoot one family at a time, handle newborns gently, and send your photos beautifully edited.</p>
+      <div class="hero-btns">
+        <a class="btn btn-wa wa" data-msg="Hi Pixels Dream, I'd like to book a shoot. Type of shoot: ___ Preferred date: ___" href="https://wa.me/919035454533"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.7 15.6 2.2 13.8 2.2 12 2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zM20.5 3.5C18.2 1.2 15.2 0 12 0 5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6c1.8 1 3.8 1.5 5.8 1.5 6.6 0 12-5.4 12-12 0-3.2-1.3-6.2-3.5-8.4z"/></svg>Book on WhatsApp</a>
+        <a class="btn btn-ghost" href="#shoots">See shoots and prices</a>
+      </div>
+      <div class="hero-rate"><b>4.9</b> Google rating from 269 families</div>
+    </div>
+    <div class="hero-photo"><img src="img/home-hero.jpg" alt="Smiling newborn on a yellow setup at Pixels Dream studio" fetchpriority="high"></div>
+  </section>
+
+  <section class="svc" id="shoots"><div class="wrap">
+    <h2 class="display">Choose your shoot</h2>
+    <p class="lede">Every shoot is booked on WhatsApp. Pick one to see setups, themes and prices.</p>
+    <div class="arches">
+      <a class="arch" href="maternity.html"><div class="arch-ph arch-empty">Maternity photo coming</div><h3>Maternity</h3><p>Studio styles, gowns and backlit shots</p><span class="price">₹4,999 per style</span></a>
+      <a class="arch" href="newborn.html"><div class="arch-ph"><img src="img/newborn-sunflower.jpg" alt="Newborn on a sunflower setup" loading="lazy"></div><h3>Newborn</h3><p>Best between 5 and 28 days old</p><span class="price">From ₹6,999</span></a>
+      <a class="arch" href="baby.html"><div class="arch-ph"><img src="img/swing-teal.jpg" alt="Baby on a moon and cloud swing setup" loading="lazy"></div><h3>Baby shoots</h3><p>19 themes, costumes and cake smash</p><span class="price">From ₹3,000</span></a>
+      <a class="arch" href="family.html"><div class="arch-ph"><img src="img/family-newborn.jpg" alt="Parents holding their newborn" loading="lazy"></div><h3>Family</h3><p>Studio and outdoor family portraits</p><span class="price">Ask for price</span></a>
+      <a class="arch" href="events.html"><div class="arch-ph arch-empty">Event photo coming</div><h3>Events</h3><p>Birthdays, ceremonies, housewarmings</p><span class="price">From ₹7,000</span></a>
+    </div>
+  </div></section>
+
+  <section class="tally"><div class="wrap">
+    <p>So far: <b>350</b> maternity shoots, <b>200</b> newborns and <b>500</b> baby shoots.</p>
+    <small>Most of our families come back for the next milestone, from the bump to the first birthday.</small>
+  </div></section>
+
+  <section class="studio"><div class="wrap">
+    <div class="studio-ph"><img src="img/mother-newborn.jpg" alt="Mother holding her newborn in the studio" loading="lazy"></div>
+    <div>
+      <h2 class="display">One family at a time</h2>
+      <p class="lede">Your shoot has the whole studio to itself, so the baby sets the pace and nobody is rushed.</p>
+      <ul class="points">
+        <li><b>Warm, private and air-conditioned</b><span>Kept comfortable for newborns, with space for mum to feed and rest.</span></li>
+        <li><b>Gentle newborn handling</b><span>Safe posing, clean wraps and props for every shoot.</span></li>
+        <li><b>Props and costumes included</b><span>Themes, outfits and setups are ready. Just bring the baby.</span></li>
+      </ul>
+    </div>
+  </div></section>
+
+  <section class="work">
+    <div class="wrap work-head">
+      <div><h2 class="display">Recent work</h2><p class="lede">Swipe through a few favourites from the studio.</p></div>
+      <a class="btn btn-ghost" style="color:var(--plum)" href="https://www.instagram.com/pixelsdreams.in/" target="_blank" rel="noopener">More on Instagram</a>
+    </div>
+    <div class="reel">
+      <img src="img/newborn-peacock.jpg" alt="Newborn with peacock feathers" loading="lazy">
+      <img src="img/twins.jpg" alt="Twin babies" loading="lazy">
+      <img src="img/newborn-moon.jpg" alt="Twins on a moon setup" loading="lazy">
+      <img src="img/silhouette.jpg" alt="Silhouette of parents with their newborn" loading="lazy">
+      <img src="img/newborn-bowl.jpg" alt="Newborn in a wooden bowl with flowers" loading="lazy">
+      <img src="img/baby-swing.jpg" alt="Baby on a swing" loading="lazy">
+      <img src="img/newborn-winter.jpg" alt="Newborn in a winter themed setup" loading="lazy">
+      <img src="img/newborn-red-heart.jpg" alt="Newborn in a red heart setup" loading="lazy">
+      <img src="img/newborn-bunny.jpg" alt="Sleeping newborn with a bunny toy" loading="lazy">
+    </div>
+  </section>
+
+  <section class="rev"><div class="wrap">
+    <div class="rev-big">4.9</div>
+    <div>
+      <h2 class="display" style="color:var(--plum)">Rated by 269 families on Google</h2>
+      <p class="lede">Read what parents say about their maternity, newborn and baby shoots with us.</p>
+      <a class="btn btn-tur" style="margin-top:20px" href="https://www.google.com/search?q=Pixels+Dream+Photography+Electronic+City+Bangalore+reviews" target="_blank" rel="noopener">Read Google reviews</a>
+    </div>
+  </div></section>
+
+  <section class="steps-sec"><div class="wrap">
+    <h2 class="display">How booking works</h2>
+    <ol class="steps">
+      <li><h3>Pick your shoot</h3><p>Choose the styles, themes or package you like.</p></li>
+      <li><h3>Send it on WhatsApp</h3><p>Tell us your choice and preferred date.</p></li>
+      <li><h3>Get your slot</h3><p>We confirm your date and time and share what to bring.</p></li>
+    </ol>
+  </div></section>
+
+  <div class="toran"></div>
+  <section class="final"><div class="wrap">
+    <h2 class="display">Ready to book your shoot?</h2>
+    <p>Message us on WhatsApp with the shoot you want and a preferred date. We usually reply within minutes.</p>
+    <div class="hero-btns">
+      <a class="btn btn-tur wa" data-msg="Hi Pixels Dream, I'd like to book a shoot. Type of shoot: ___ Preferred date: ___" href="https://wa.me/919035454533">Book on WhatsApp</a>
+      <a class="btn btn-ghost" href="tel:+919035454533">Call 90354 54533</a>
+    </div>
+  </div></section>
+</main>
+
+<footer class="ftr"><div class="wrap">
+  <div><h3>Pixels Dream Photography</h3><p>Electronic City, Bangalore</p><a href="tel:+919035454533">+91 90354 54533</a></div>
+  <div><h3>Shoots</h3><a href="maternity.html">Maternity</a><a href="newborn.html">Newborn</a><a href="baby.html">Baby shoots</a><a href="family.html">Family</a><a href="events.html">Events</a></div>
+  <div><h3>Follow</h3><a href="https://www.instagram.com/pixelsdreams.in/" target="_blank" rel="noopener">Instagram @pixelsdreams.in</a><a href="https://www.instagram.com/pixelsdream_kids/" target="_blank" rel="noopener">Instagram @pixelsdream_kids</a><a href="privacy.html">Privacy policy</a></div>
+  <p class="copy">© 2026 Pixels Dream Photography, Bangalore</p>
+</div></footer>
+
+<a class="float-wa wa" aria-label="Chat on WhatsApp" data-msg="Hi Pixels Dream, I'd like to book a shoot." href="https://wa.me/919035454533"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.7 15.6 2.2 13.8 2.2 12 2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zM20.5 3.5C18.2 1.2 15.2 0 12 0 5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6c1.8 1 3.8 1.5 5.8 1.5 6.6 0 12-5.4 12-12 0-3.2-1.3-6.2-3.5-8.4z"/></svg></a>
+<div class="bar"><a class="btn btn-ghost" href="tel:+919035454533">Call</a><a class="btn btn-wa wa" data-msg="Hi Pixels Dream, I'd like to book a shoot." href="https://wa.me/919035454533">WhatsApp us</a></div>
+
+<script>
+document.querySelectorAll('.wa').forEach(function(a){if(a.dataset.msg)a.href='https://wa.me/919035454533?text='+encodeURIComponent(a.dataset.msg);a.target='_blank';a.rel='noopener';});
+</script>
+</body>
+</html>
