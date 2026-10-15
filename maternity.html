@@ -359,6 +359,16 @@ details[open] summary::after{transform:rotate(45deg)}
 <div id="styles"></div>
 
 
+<section class="wrap gowns" id="gowns">
+  <header>
+    <div class="eyebrow">Gown wardrobe 2026 · 26 gowns</div>
+    <h2>Choose your gowns</h2>
+    <p>Choose your favourite gowns from our studio wardrobe and mention them at checkout. Each gown is shown on our own clients, photographed by our team. Tap a gown to see both photos and ask about it on WhatsApp.</p>
+  </header>
+  <div class="gown-grid" id="gownGrid"></div>
+  <p class="gown-note">Availability can change between bookings, so add your favourites in the checkout note and we'll confirm them.</p>
+</section>
+
 <section class="studio" id="studio">
   <div class="wrap">
     <div class="eyebrow">Studio space · Electronic City</div>
@@ -406,7 +416,7 @@ details[open] summary::after{transform:rotate(45deg)}
       <label for="cName">Your name<input id="cName" autocomplete="name" placeholder="e.g. Priya"></label>
       <label for="cDate">Preferred shoot date<input id="cDate" type="date"></label>
       <div class="slotpick"><span class="sl">Preferred shoot time (2-hour slot)</span><div class="slots" id="cSlots"></div></div>
-      <label for="cNote">Anything else? (optional)<textarea id="cNote" rows="2" placeholder="Due date, outfit ideas, flower ring or gold cage props…"></textarea></label>
+      <label for="cNote">Anything else? (optional)<textarea id="cNote" rows="2" placeholder="Due date, favourite gowns, flower ring or gold cage props…"></textarea></label>
       <a class="pbtn" id="cGo" href="#" aria-disabled="true">Checkout on WhatsApp</a>
       <p class="hint" id="cHint">Pick at least one style to check out.</p>
       <div class="quote">
@@ -493,7 +503,7 @@ const GOWNS=[
  ["g06","Dairy Blossom",""],["g07","Bold Black","Standard"],["g08","Blue Berry",""],["g09","Snow White","Standard"],
  ["g10","Bold Red","Standard"],["g11","Wine Wonder","Standard",1],["g12","Mehndi Green","Premium"],["g13","Crushy Pink","Standard"],
  ["g14","Blossomy Bliss",""],["g15","Choco Brown","Standard"],["g17","Cherry Blossom",""],["g18","Hydra",""],
- ["g20","Royal Blue Cinderella",""],["g21","BW Barbie",""],["g01","Teal Lace",""],["g16","White Bow",""],
+ ["g20","Royal Blue Cinderella",""],["g21","BW Barbie",""],["g01","Teal Lace","",1],["g16","White Bow",""],
  ["g19","Lavender Dream",""],["g22","Barbie Pink",""],["g23","Sky Blue",""],["g24","Silver Mist",""],
  ["g25","Emerald",""],["g26","Blush Knit",""],
 ];
@@ -517,8 +527,10 @@ document.getElementById("styles").innerHTML=STYLES.map((s,k)=>`
  <div class="swipe">Swipe · tap to enlarge</div>
  ${s.extra?`<div class="wrap"><div class="extra">${s.extra}</div></div>`:""}
 </section>`).join("");
+document.getElementById("gownGrid").innerHTML=GOWNS.map(([id,n,t,c=2])=>{const i=all.push({id:`${id}_0`,label:n,gown:1,ph:c>1?"1 of 2":"1 photo"})-1;if(c>1)all.push({id:`${id}_1`,label:n,gown:1,ph:"2 of 2"});
+ return `<figure class="gown"><button class="shot" type="button" data-i="${i}" aria-label="View ${n} gown photos"><img src="${IMG}${id}_0.jpg" alt="${n} maternity gown" loading="lazy" decoding="async"><span class="wm">© Pixels Dream</span>${c>1?'<span class="cnt">2 photos</span>':""}</button><figcaption><b>${n}</b>${t?`<span class="tier-tag ${t.toLowerCase()}">${t} gown</span>`:""}</figcaption></figure>`}).join("");
 document.querySelector('[data-set="studio"]').innerHTML=STUDIO.map((id,k)=>shot(id,"Studio",0,k,STUDIO.length)).join("");
-document.getElementById("chips").innerHTML=STYLES.map(s=>`<a class="chip" href="#${s.id}">${s.name.replace(" Silhouettes","").replace("Signature Concept AI Artwork","AI Artwork")}</a>`).join("")+`<a class="chip" href="#studio">Studio</a><a class="chip pk" href="#packages">Build your shoot</a>`;
+document.getElementById("chips").innerHTML=STYLES.map(s=>`<a class="chip" href="#${s.id}">${s.name.replace(" Silhouettes","").replace("Signature Concept AI Artwork","AI Artwork")}</a>`).join("")+`<a class="chip" href="#gowns">Gowns</a><a class="chip" href="#studio">Studio</a><a class="chip pk" href="#packages">Build your shoot</a>`;
 document.getElementById("optStyles").innerHTML=STYLES.filter(st=>sp(st)>0).map(st=>`<button class="opt" type="button" data-style="${st.id}" aria-pressed="false"><img src="${IMG}${st.img[0]}.jpg" alt="" loading="lazy"><div><b>${st.name}</b><span class="d">${si(st)} edited images · ${st.tag}</span></div><div><div class="pr">${pl(sp(st))}</div><div class="tick">✓</div></div></button>`).join("");
 document.getElementById("optExtras").innerHTML=STYLES.filter(st=>sp(st)===0).map(st=>`<button class="opt" type="button" data-style="${st.id}" aria-pressed="false"><img src="${IMG}${st.img[0]}.jpg" alt="" loading="lazy"><div><b>Backlit shots</b><span class="d">Up to ${si(st)} silhouette images, free with every shoot.</span></div><div><div class="pr">Free</div><div class="tick">✓</div></div></button>`).join("")+EXTRAS.map(x=>x.qty?
  `<div class="opt frame" data-extra="${x.id}" aria-pressed="false"><div class="ic" aria-hidden="true">${x.ic}</div><div><b>${x.name}</b><span class="d">${x.d}</span></div><div><div class="pr">${inr(x.p)}<small>from · each</small></div><div class="qty"><button type="button" data-q="-1" aria-label="Fewer frames">−</button><output id="frameQty">0</output><button type="button" data-q="1" aria-label="More frames">+</button></div></div></div>`:
