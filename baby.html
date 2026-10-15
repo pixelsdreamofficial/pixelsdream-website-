@@ -15,9 +15,7 @@
 <link rel="stylesheet" href="page.css">
 <style>
 .styles{grid-template-columns:repeat(4,1fr)}
-.st img{aspect-ratio:1/1}
-.st .badge{position:absolute;top:10px;left:10px;background:var(--turmeric);color:var(--plum);font-size:13px;font-weight:600;padding:2px 10px;border-radius:999px;display:none}
-.st[aria-pressed=true] .badge{display:block}
+.st-pics{aspect-ratio:1/1}
 .price-rule{display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:22px;color:#e6cfdc}
 .price-rule b{font-family:var(--serif);font-weight:400;color:var(--turmeric);font-size:24px;margin-right:6px}
 @media (max-width:1000px){.styles{grid-template-columns:repeat(3,1fr)}}
@@ -163,11 +161,12 @@
   <p class="copy">© 2026 Pixels Dream Photography, Bangalore</p>
 </div></footer>
 
-<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer"><button class="x" aria-label="Close">×</button><button class="p" aria-label="Previous photo">‹</button><img alt=""><button class="n" aria-label="Next photo">›</button><div class="c"></div></div>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer"><button class="x" aria-label="Close">×</button><button class="p" aria-label="Previous photo">‹</button><img alt=""><button class="n" aria-label="Next photo">›</button><button class="lb-add" type="button" aria-pressed="false">Add to my shoot</button><div class="c"></div></div>
 
 <a class="float-wa wa" aria-label="Chat on WhatsApp" data-msg="Hi Pixels Dream, I'd like to book a baby shoot." href="https://wa.me/919035454533"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.7 15.6 2.2 13.8 2.2 12 2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zM20.5 3.5C18.2 1.2 15.2 0 12 0 5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6c1.8 1 3.8 1.5 5.8 1.5 6.6 0 12-5.4 12-12 0-3.2-1.3-6.2-3.5-8.4z"/></svg></a>
 <div class="bar"><a class="btn btn-ghost" href="tel:+919035454533">Call</a><a class="btn btn-wa wa" data-msg="Hi Pixels Dream, I'd like to book a baby shoot." href="https://wa.me/919035454533">WhatsApp us</a></div>
 
+<script src="stylecard.js"></script>
 <script>
 /* THEMES & PRICES — edit here. FIRST = first theme price, NEXT = each additional theme. */
 var FIRST=3000, NEXT=2500;
@@ -207,11 +206,9 @@ var ADDS=[
   function src(p){return "img/baby/"+p+".jpg";}
   var tick='<svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3L13 4.5"/></svg>',order=[];
 
-  THEMES.forEach(function(t){
-    var b=document.createElement('button');b.type='button';b.className='st';b.setAttribute('aria-pressed','false');
-    b.innerHTML='<img src="'+src(t.cover)+'" alt="" loading="lazy"><span class="badge"></span><span class="tick">'+tick+'</span><div><h3>'+t.name+'</h3><p>'+t.photos.length+' sample photos</p></div>';
-    b.onclick=function(){var i=order.indexOf(t);if(i<0)order.push(t);else order.splice(i,1);b.setAttribute('aria-pressed',i<0);bill();};
-    t.btn=b;$('styles').appendChild(b);
+  function toggle(t){var i=order.indexOf(t);if(i<0)order.push(t);else order.splice(i,1);t.card.setOn(i<0);bill();syncLb();}
+  THEMES.forEach(function(t,k){
+    t.card=PDCard($('styles'),t,{src:src,meta:'Up to 10 edited photos',onToggle:function(){toggle(t);},onOpen:function(i){openLb(k,i);}});
   });
   ADDS.forEach(function(a){
     var b=document.createElement('button');b.type='button';b.className='add';b.setAttribute('aria-pressed','false');
@@ -220,8 +217,8 @@ var ADDS=[
   });
   function bill(){
     var ad=ADDS.filter(function(a){return a.on;}),tot=0,ul=$('billList'),lines=[];ul.innerHTML='';
-    order.forEach(function(t,i){var pr=i===0?FIRST:NEXT;tot+=pr;t.btn.querySelector('.badge').textContent=rs(pr);lines.push([t.name,rs(pr)]);});
-    THEMES.forEach(function(t){if(order.indexOf(t)<0)t.btn.querySelector('.badge').textContent='';});
+    order.forEach(function(t,i){var pr=i===0?FIRST:NEXT;tot+=pr;t.card.setBadge(rs(pr));lines.push([t.name,rs(pr)]);});
+    THEMES.forEach(function(t){if(order.indexOf(t)<0)t.card.setBadge('');});
     ad.forEach(function(a){tot+=a.price;lines.push([a.name,a.ask?'Ask':rs(a.price)]);});
     lines.forEach(function(l){var li=document.createElement('li');li.innerHTML='<span>'+l[0]+'</span><span>'+l[1]+'</span>';ul.appendChild(li);});
     if(!lines.length)ul.innerHTML='<li class="none">Tap a theme to add it</li>';
@@ -245,8 +242,11 @@ var ADDS=[
       var im=document.createElement('img');im.src=src(p);im.alt=g.name+' theme baby photo by Pixels Dream';im.loading='lazy';im.decoding='async';b.appendChild(im);
       b.onclick=function(){idx=i;lbShow();lb.classList.add('open');document.body.style.overflow='hidden';};gal.appendChild(b);});
   }
-  var lb=$('lb'),li=lb.querySelector('img'),c=lb.querySelector('.c');
-  function lbShow(){var ps=THEMES[cur].photos;li.src=src(ps[idx]);li.alt=THEMES[cur].name+' photo';c.textContent=THEMES[cur].name+', '+(idx+1)+' of '+ps.length;}
+  var lb=$('lb'),li=lb.querySelector('img'),c=lb.querySelector('.c'),lbAdd=lb.querySelector('.lb-add');
+  function syncLb(){var g=THEMES[cur],on=order.indexOf(g)>=0;lbAdd.classList.add('show');lbAdd.setAttribute('aria-pressed',on);lbAdd.textContent=on?g.name+' added ✓':'Add '+g.name+' to my shoot';}
+  lbAdd.onclick=function(){toggle(THEMES[cur]);};
+  function openLb(k,i){cur=k;idx=i;lbShow();lb.classList.add('open');document.body.style.overflow='hidden';}
+  function lbShow(){var ps=THEMES[cur].photos;li.src=src(ps[idx]);li.alt=THEMES[cur].name+' photo';c.textContent=THEMES[cur].name+', '+(idx+1)+' of '+ps.length;syncLb();}
   function close(){lb.classList.remove('open');document.body.style.overflow='';}
   function step(d){var n=THEMES[cur].photos.length;idx=(idx+d+n)%n;lbShow();}
   lb.querySelector('.x').onclick=close;lb.querySelector('.p').onclick=function(){step(-1)};lb.querySelector('.n').onclick=function(){step(1)};
