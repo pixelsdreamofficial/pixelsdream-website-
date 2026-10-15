@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Maternity Photoshoot in Electronic City, Bangalore | ₹4,999 per Style | Pixels Dream</title>
+<meta name="description" content="Maternity photoshoots in a private AC studio in Electronic City, Bangalore, plus outdoor lake shoots. Pick your styles at ₹4,999 each with 10 edited photos, 26 gowns and free backlit shots. Book on WhatsApp.">
+<link rel="canonical" href="https://www.pixelsdream.in/maternity.html">
+<meta property="og:title" content="Maternity Photoshoot in Electronic City, Bangalore | Pixels Dream">
+<meta property="og:description" content="Pick your maternity styles at ₹4,999 each, with 10 edited photos per style.">
+<meta property="og:image" content="https://www.pixelsdream.in/img/maternity/texture-2-1.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Hind:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.crumbs{font-size:14px;color:var(--muted);padding-top:18px}
+.crumbs a{border-bottom:1px solid var(--rose2)}
+
+/* hero: triptych of three styles */
+.m-hero{padding:24px 0 72px}
+.m-hero h1{font-family:'Rozha One',serif;font-weight:400;font-size:clamp(42px,6.4vw,84px);line-height:1;color:var(--plum);letter-spacing:-.015em;max-width:15ch}
+.m-hero-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:48px;align-items:end}
+.m-hero p{font-size:19px;color:var(--muted);margin:20px 0 28px;max-width:30em}
+.m-hero .btns{display:flex;flex-wrap:wrap;gap:12px}
+.m-hero .btn-ghost{color:var(--plum)}
+.trip{display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:10px;align-items:end}
+.trip img{width:100%;object-fit:cover;border-radius:120px 120px 12px 12px}
+.trip img:nth-child(1),.trip img:nth-child(3){aspect-ratio:3/4.4}
+.trip img:nth-child(2){aspect-ratio:3/4.9}
+.facts{display:flex;gap:28px;margin-top:30px;flex-wrap:wrap}
+.facts div{border-left:3px solid var(--turmeric);padding-left:12px}
+.facts b{display:block;font-family:'Rozha One',serif;font-weight:400;font-size:28px;color:var(--plum);line-height:1.1}
+.facts span{font-size:15px;color:var(--muted)}
+
+/* builder */
+.bld{background:var(--plum);color:#fff;padding:88px 0 96px}
+.bld .lede{color:#e6cfdc}
+.bgrid{display:grid;grid-template-columns:1.35fr .85fr;gap:36px;margin-top:40px;align-items:start}
+.styles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.st{position:relative;border:0;padding:0;background:var(--plum2);border-radius:16px;overflow:hidden;text-align:left;color:#fff}
+.st img{width:100%;aspect-ratio:3/3.6;object-fit:cover}
+.st div{padding:12px 14px 14px}
+.st h3{font-size:17px;font-weight:600;line-height:1.25}
+.st p{font-size:14px;color:#d9bfcf;margin-top:2px}
+.st .tick{position:absolute;top:10px;right:10px;width:32px;height:32px;border-radius:50%;background:rgba(36,16,30,.55);box-shadow:inset 0 0 0 2px #fff;display:flex;align-items:center;justify-content:center}
+.st .tick svg{width:16px;height:16px;fill:none;stroke:var(--plum);stroke-width:3;opacity:0}
+.st[aria-pressed=true]{box-shadow:0 0 0 3px var(--turmeric)}
+.st[aria-pressed=true] .tick{background:var(--turmeric);box-shadow:none}
+.st[aria-pressed=true] .tick svg{opacity:1}
+.addh{font-family:'Rozha One',serif;font-weight:400;font-size:26px;margin:36px 0 6px}
+.add{display:grid;grid-template-columns:28px 1fr auto;gap:14px;align-items:start;width:100%;text-align:left;border:0;background:transparent;color:#fff;padding:16px 2px;border-top:1px solid rgba(255,255,255,.14)}
+.add:last-of-type{border-bottom:1px solid rgba(255,255,255,.14)}
+.add .box{width:26px;height:26px;border-radius:7px;box-shadow:inset 0 0 0 2px var(--turmeric);display:flex;align-items:center;justify-content:center;margin-top:2px}
+.add .box svg{width:15px;height:15px;fill:none;stroke:var(--plum);stroke-width:3;opacity:0}
+.add[aria-pressed=true] .box{background:var(--turmeric)}
+.add[aria-pressed=true] .box svg{opacity:1}
+.add h4{font-size:17px;font-weight:600}
+.add p{font-size:14px;color:#d9bfcf}
+.add strong{font-family:'Rozha One',serif;font-weight:400;font-size:22px;color:var(--turmeric);white-space:nowrap}
+.free{margin-top:16px;color:#e6cfdc;font-size:15px}
+.free b{color:var(--turmeric);font-weight:600}
+.bill{position:sticky;top:88px;background:var(--rose);color:var(--ink);border-radius:22px;padding:28px 26px}
+.bill h3{font-family:'Rozha One',serif;font-weight:400;font-size:28px}
+.bill ul{list-style:none;margin:14px 0;border-top:2px dashed var(--rose2)}
+.bill li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:2px dashed var(--rose2);font-size:16px}
+.bill li.none{color:var(--muted)}
+.bill .tot{display:flex;justify-content:space-between;align-items:baseline;margin:6px 0 4px}
+.bill .tot span{font-weight:600}
+.bill .tot b{font-family:'Rozha One',serif;font-weight:400;font-size:40px;color:var(--plum);line-height:1}
+.bill .imgs{font-size:15px;color:var(--muted);margin-bottom:18px}
+.bill .btn{width:100%}
+.bill small{display:block;font-size:14px;color:var(--muted);margin-top:12px;line-height:1.5}
+
+/* gallery */
+.gal-sec{padding:92px 0}
+.tabs{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:26px 0 22px;padding-bottom:4px}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;border:0;background:var(--rose2);color:var(--plum);font-weight:600;font-size:16px;padding:10px 18px;border-radius:999px;white-space:nowrap}
+.tab[aria-selected=true]{background:var(--plum);color:#fff}
+.tabdesc{color:var(--muted);max-width:40em;margin-bottom:22px}
+.gal{columns:4 200px;column-gap:12px}
+.gal button{display:block;width:100%;border:0;padding:0;margin:0 0 12px;break-inside:avoid;border-radius:10px;overflow:hidden;background:var(--rose2);cursor:zoom-in}
+.gal img{width:100%;height:auto}
+
+/* studio */
+.studio{padding:0 0 92px}
+.studio .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.studio-ph{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.studio-ph img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:12px}
+.studio-ph img:first-child{border-radius:120px 120px 12px 12px}
+.points{list-style:none;margin-top:22px}
+.points li{padding:14px 0;border-top:1px solid var(--rose2)}
+.points b{display:block;font-family:'Rozha One',serif;font-weight:400;font-size:22px;color:var(--plum);line-height:1.2}
+.points span{color:var(--muted)}
+
+/* know before */
+.know{padding:0 0 92px}
+.know .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px}
+.check{list-style:none;columns:2 260px;column-gap:28px}
+.check li{break-inside:avoid;padding:12px 0 12px 34px;border-top:1px solid var(--rose2);position:relative}
+.check li:before{content:"";position:absolute;left:0;top:14px;width:20px;height:20px;border-radius:6px;box-shadow:inset 0 0 0 2px var(--leaf)}
+.check li:after{content:"";position:absolute;left:6px;top:17px;width:6px;height:11px;border:solid var(--leaf);border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
+
+.faq{padding:0 0 96px}
+.faq details{border-top:1px solid var(--rose2);max-width:820px}
+.faq details:last-child{border-bottom:1px solid var(--rose2)}
+.faq summary{cursor:pointer;list-style:none;padding:20px 40px 20px 0;font-size:19px;font-weight:600;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"+";position:absolute;right:6px;top:12px;font-size:30px;color:var(--plum);font-weight:400}
+.faq details[open] summary:after{content:"−"}
+.faq details p{padding:0 0 20px;color:var(--muted);max-width:40em}
+.faq h2{margin-bottom:24px}
+
+.final{background:var(--plum);color:#fff}
+.final .wrap{padding-top:64px;padding-bottom:84px}
+.final h2{font-size:clamp(38px,7vw,72px)!important;max-width:14ch}
+.final p{color:#e6cfdc;margin:16px 0 28px;font-size:18px;max-width:32em}
+.final .btns{display:flex;flex-wrap:wrap;gap:12px}
+.final .btn-ghost{color:#fff}
+
+.lb{position:fixed;inset:0;z-index:100;background:rgba(36,16,30,.97);display:none;align-items:center;justify-content:center}
+.lb.open{display:flex}
+.lb img{max-width:92vw;max-height:80vh;border-radius:8px}
+.lb button{position:absolute;background:none;border:0;color:#fff;font-size:44px;padding:8px 16px;line-height:1}
+.lb .x{top:8px;right:8px}.lb .p{left:4px;top:50%;transform:translateY(-50%)}.lb .n{right:4px;top:50%;transform:translateY(-50%)}
+.lb .c{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:#e6cfdc;font-size:15px}
+
+@media (max-width:1000px){.bgrid{grid-template-columns:1fr}.bill{position:static}}
+@media (max-width:900px){
+  .m-hero-grid,.studio .wrap,.know .wrap{grid-template-columns:1fr;gap:28px}
+  .trip{order:-1}
+}
+@media (max-width:600px){
+  .styles{grid-template-columns:1fr 1fr;gap:10px}
+  .st h3{font-size:15px}.st p{font-size:13px}
+  .m-hero .btn{flex:1 1 100%}
+  .gal{columns:2;column-gap:8px}.gal button{margin-bottom:8px}
+  .lb .p,.lb .n{display:none}
+}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"LocalBusiness","@id":"https://www.pixelsdream.in/#business","name":"Pixels Dream Photography","url":"https://www.pixelsdream.in/","telephone":"+91-9035454533","image":"https://www.pixelsdream.in/img/home-hero.jpg","priceRange":"₹₹",
+  "address":{"@type":"PostalAddress","addressLocality":"Electronic City, Bengaluru","addressRegion":"Karnataka","postalCode":"560100","addressCountry":"IN"},
+  "openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"09:00","closes":"20:00"},
+  "sameAs":["https://www.instagram.com/pixelsdreams.in/","https://www.instagram.com/pixelsdream_kids/"]},
+ {"@type":"Service","name":"Maternity photoshoot","serviceType":"Maternity photography","provider":{"@id":"https://www.pixelsdream.in/#business"},"areaServed":"Bengaluru",
+  "offers":{"@type":"Offer","name":"Maternity style","price":"4999","priceCurrency":"INR","description":"Per style, with 10 edited photos"}},
+ {"@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"How much does a maternity photoshoot cost?","acceptedAnswer":{"@type":"Answer","text":"₹4,999 per style, with 10 edited photos each. The Signature AI concept artwork is ₹5,000 with 5 images. Up to 2 backlit shots are free."}},
+  {"@type":"Question","name":"Do you provide maternity gowns?","acceptedAnswer":{"@type":"Answer","text":"Yes. Our 2026 wardrobe has 26 gowns. Tell us your favourites when you book and we'll confirm availability."}},
+  {"@type":"Question","name":"Can my husband and children join the shoot?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can be photographed alone or with your partner, children or parents."}},
+  {"@type":"Question","name":"When will I get my photos?","acceptedAnswer":{"@type":"Answer","text":"Edited photos are delivered within 7 to 9 working days."}},
+  {"@type":"Question","name":"Where are outdoor maternity shoots done?","acceptedAnswer":{"@type":"Answer","text":"At a lake near our Electronic City studio, from 6 to 9 AM or 3 to 6 PM. Weekdays are quieter than weekend evenings, and outdoor shoots depend on the weather."}}]}
+]}
+</script>
+</head>
+<body>
+
+<header class="hdr"><div class="wrap">
+  <a href="index.html" class="logo">Pixels Dream<small>Photography, Electronic City</small></a>
+  <nav class="nav" id="nav">
+    <a href="maternity.html" aria-current="page">Maternity</a><a href="newborn.html">Newborn</a><a href="baby.html">Baby shoots</a><a href="family.html">Family</a><a href="events.html">Events</a><a href="contact.html">Contact</a>
+  </nav>
+  <a class="btn btn-wa wa" data-msg="Hi Pixels Dream, I'd like to book a maternity shoot." href="https://wa.me/919035454533">WhatsApp us</a>
+  <button class="menu-btn" aria-expanded="false" aria-controls="nav" onclick="var n=document.getElementById('nav');n.classList.toggle('open');this.setAttribute('aria-expanded',n.classList.contains('open'))">Menu</button>
+</div></header>
+
+<main>
+  <div class="wrap">
+    <p class="crumbs"><a href="index.html">Home</a> / Maternity</p>
+    <section class="m-hero">
+      <div class="m-hero-grid">
+        <div>
+          <h1>Maternity photoshoot in Electronic City, Bangalore</h1>
+          <p>Choose the looks you love, from flowing gowns on painted backdrops to a silk saree or a golden evening by the lake. Every style is ₹4,999 with 10 edited photos.</p>
+          <div class="btns">
+            <a class="btn btn-wa" href="#build">Pick your styles</a>
+            <a class="btn btn-ghost wa" data-msg="Hi Pixels Dream, I'd like to know more about maternity shoots." href="https://wa.me/919035454533">Ask on WhatsApp</a>
+          </div>
+          <div class="facts">
+            <div><b>₹4,999</b><span>Per style</span></div>
+            <div><b>26 gowns</b><span>In our wardrobe</span></div>
+            <div><b>350+</b><span>Maternity shoots</span></div>
+          </div>
+        </div>
+        <div class="trip">
+          <img src="img/maternity/vogue-1-2.jpg" alt="Mother-to-be in a white ruffled gown on a turquoise backdrop" fetchpriority="high">
+          <img src="img/maternity/texture-2-1.jpg" alt="Mother-to-be in a green gown on a painted texture backdrop">
+          <img src="img/maternity/traditional-1-2.jpg" alt="Mother-to-be in a pink silk saree on a traditional set">
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="bld" id="build"><div class="wrap">
+    <h2 class="display">Pick your styles</h2>
+    <p class="lede">Tap the styles you'd like and any extras. Your total updates as you go. Send it to us on WhatsApp and we'll confirm your date.</p>
+    <div class="bgrid">
+      <div>
+        <div class="styles" id="styles"></div>
+        <p class="free">Up to <b>2 backlit silhouette shots are free</b> with any style.</p>
+        <h3 class="addh">Extras</h3>
+        <div id="adds"></div>
+      </div>
+      <aside class="bill" aria-live="polite">
+        <h3>Your shoot</h3>
+        <ul id="billList"></ul>
+        <div class="tot"><span>Estimated total</span><b id="tot">₹0</b></div>
+        <div class="imgs" id="imgs">Pick at least one style</div>
+        <a class="btn btn-wa" id="send" target="_blank" rel="noopener" href="https://wa.me/919035454533">Send on WhatsApp</a>
+        <small>Want a discount or a final quote? Call us on 90354 54533 before booking.</small>
+      </aside>
+    </div>
+  </div></section>
+
+  <section class="gal-sec" id="gallery"><div class="wrap">
+    <h2 class="display">See each style</h2>
+    <div class="tabs" id="tabs" role="tablist" aria-label="Maternity styles"></div>
+    <p class="tabdesc" id="tabdesc"></p>
+    <div class="gal" id="gal"></div>
+  </div></section>
+
+  <section class="studio"><div class="wrap">
+    <div class="studio-ph"><img src="img/maternity/studio-3.jpg" alt="Boho arch setup in the Pixels Dream studio" loading="lazy"><img src="img/maternity/studio-2.jpg" alt="Inside the Pixels Dream studio in Electronic City" loading="lazy"></div>
+    <div>
+      <h2 class="display">A studio made for you</h2>
+      <p class="lede">Only one family is in the studio at a time, so you can take it slow and rest between looks.</p>
+      <ul class="points">
+        <li><b>Fully air-conditioned</b><span>Comfortable even in the third trimester.</span></li>
+        <li><b>Private changing and makeup rooms</b><span>Plus an in-studio bathroom.</span></li>
+        <li><b>Bring your family</b><span>Be photographed alone, or with your partner, children or parents.</span></li>
+      </ul>
+    </div>
+  </div></section>
+
+  <section class="know"><div class="wrap">
+    <div>
+      <h2 class="display">Good to know</h2>
+      <p class="lede">The details that help your shoot day go smoothly.</p>
+    </div>
+    <ul class="check">
+      <li>Booked makeup? Arrive 2 hours before your slot so the artist has time.</li>
+      <li>Arrive on time so we can cover every style you chose.</li>
+      <li>Outdoor shoots are at a nearby lake, 6–9 AM or 3–6 PM.</li>
+      <li>Weekdays are quieter outdoors. Weekend evenings get crowded.</li>
+      <li>Outdoor shoots depend on the weather.</li>
+      <li>For traditional looks, a 5–7 metre silk saree drapes best.</li>
+      <li>Choose your favourite photos for editing, or let us pick for you.</li>
+      <li>Edited photos arrive in 7–9 working days. Extra edits are ₹200 each.</li>
+      <li>Full payment is due once the shoot is complete.</li>
+      <li>Prefer your photos kept private? Tell us before the shoot.</li>
+    </ul>
+  </div></section>
+
+  <section class="faq"><div class="wrap">
+    <h2 class="display">Questions mums ask</h2>
+    <details><summary>How much does a maternity photoshoot cost?</summary><p>₹4,999 per style, with 10 edited photos each. The Signature AI concept artwork is ₹5,000 with 5 images. Up to 2 backlit shots are free.</p></details>
+    <details><summary>Do you provide maternity gowns?</summary><p>Yes. Our 2026 wardrobe has 26 gowns. Tell us your favourites when you book and we'll confirm availability.</p></details>
+    <details><summary>Can my husband and children join the shoot?</summary><p>Yes. You can be photographed alone or with your partner, children or parents.</p></details>
+    <details><summary>When will I get my photos?</summary><p>Edited photos are delivered within 7 to 9 working days.</p></details>
+    <details><summary>Where are outdoor maternity shoots done?</summary><p>At a lake near our Electronic City studio, from 6 to 9 AM or 3 to 6 PM. Weekdays are quieter than weekend evenings, and outdoor shoots depend on the weather.</p></details>
+  </div></section>
+
+  <div class="toran"></div>
+  <section class="final"><div class="wrap">
+    <h2 class="display">Ready to plan your maternity shoot?</h2>
+    <p>Send us your due date, the styles you like and a preferred date. We'll confirm your slot on WhatsApp.</p>
+    <div class="btns">
+      <a class="btn btn-tur wa" data-msg="Hi Pixels Dream, I'd like to book a maternity shoot. Due date: ___ Styles: ___ Preferred date: ___" href="https://wa.me/919035454533">Book on WhatsApp</a>
+      <a class="btn btn-ghost" href="tel:+919035454533">Call 90354 54533</a>
+    </div>
+  </div></section>
+</main>
+
+<footer class="ftr"><div class="wrap">
+  <div><h3>Pixels Dream Photography</h3><p>Electronic City, Bengaluru 560100</p><p>Open every day, 9 AM to 8 PM</p><a href="tel:+919035454533">+91 90354 54533</a></div>
+  <div><h3>Shoots</h3><a href="maternity.html">Maternity</a><a href="newborn.html">Newborn</a><a href="baby.html">Baby shoots</a><a href="family.html">Family</a><a href="events.html">Events</a></div>
+  <div><h3>Follow</h3><a href="https://www.instagram.com/pixelsdreams.in/" target="_blank" rel="noopener">Instagram @pixelsdreams.in</a><a href="https://www.instagram.com/pixelsdream_kids/" target="_blank" rel="noopener">Instagram @pixelsdream_kids</a><a href="privacy.html">Privacy policy</a></div>
+  <p class="copy">© 2026 Pixels Dream Photography, Bangalore</p>
+</div></footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer"><button class="x" aria-label="Close">×</button><button class="p" aria-label="Previous photo">‹</button><img alt=""><button class="n" aria-label="Next photo">›</button><div class="c"></div></div>
+
+<a class="float-wa wa" aria-label="Chat on WhatsApp" data-msg="Hi Pixels Dream, I'd like to book a maternity shoot." href="https://wa.me/919035454533"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.7 15.6 2.2 13.8 2.2 12 2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zM20.5 3.5C18.2 1.2 15.2 0 12 0 5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6c1.8 1 3.8 1.5 5.8 1.5 6.6 0 12-5.4 12-12 0-3.2-1.3-6.2-3.5-8.4z"/></svg></a>
+<div class="bar"><a class="btn btn-ghost" href="tel:+919035454533">Call</a><a class="btn btn-wa wa" data-msg="Hi Pixels Dream, I'd like to book a maternity shoot." href="https://wa.me/919035454533">WhatsApp us</a></div>
+
+<script>
+/* STYLES & PRICES — edit here */
+var STYLES=[
+ {id:"vogue",name:"Studio Vogue",price:4999,imgs:10,cover:"vogue-3-1",desc:"Elegant solid backdrops matched to your outfit, for a clean, magazine-style look.",
+  photos:["vogue-1-1","vogue-1-2","vogue-1-3","vogue-2-1","vogue-2-2","vogue-2-3","vogue-3-1","vogue-3-2","vogue-3-3","vogue-4-1","vogue-4-2","vogue-4-3"]},
+ {id:"texture",name:"Artistic Texture",price:4999,imgs:10,cover:"texture-2-1",desc:"Handpicked painted and designer backdrops for bold, cinematic portraits.",
+  photos:["texture-1-1","texture-1-2","texture-1-3","texture-2-1","texture-2-2","texture-2-3","texture-3-1","texture-3-2","texture-3-3","texture-4-1","texture-4-2","texture-4-3"]},
+ {id:"boho",name:"Boho Bliss",price:4999,imgs:10,cover:"boho-1",desc:"A warm bohemian set with natural textures, dried florals and soft light.",
+  photos:["boho-1","boho-2","boho-3","boho-4","boho-5"]},
+ {id:"traditional",name:"Traditional",price:4999,imgs:10,cover:"traditional-1-2",desc:"Silk sarees, temple-style sets, diyas and flowers, with family welcome in the frame.",
+  photos:["traditional-single","traditional-1-1","traditional-1-2","traditional-1-3","traditional-2-1","traditional-2-2","traditional-2-3","traditional-3-1","traditional-3-2","traditional-3-3"]},
+ {id:"outdoor",name:"Nature Glow Outdoor",price:4999,imgs:10,cover:"outdoor-solo-3",desc:"Soft morning or evening light by the lake near our studio.",
+  photos:["outdoor-solo-1","outdoor-solo-2","outdoor-solo-3","outdoor-1-1","outdoor-1-2","outdoor-1-3","outdoor-2-1","outdoor-2-2","outdoor-2-3"]},
+ {id:"ai",name:"Signature AI Artwork",price:5000,imgs:5,cover:"ai-1-2",desc:"Your photos turned into dreamy concept art, like butterfly wings and flowing fabric.",
+  photos:["ai-1-1","ai-1-2","ai-1-3","ai-b-1","ai-b-2","ai-w-1","ai-w-2"]}
+];
+var BACKLIT={name:"Backlit (free)",desc:"Up to 2 silhouette shots come free with any style.",photos:["backlit-single","backlit-a-1","backlit-a-2"]};
+var ADDS=[
+ {id:"makeup",name:"Makeup and hairstyle",price:3000,info:"By a professional artist. Arrive 2 hours early."},
+ {id:"album",name:"Photo album",price:5000,info:"Holds up to 30 photos."},
+ {id:"frame",name:"Photo frame",price:1000,from:true,info:"From ₹1,000. Sizes shared on WhatsApp."}
+];
+
+(function(){
+  var NUM="919035454533";function wa(m){return "https://wa.me/"+NUM+"?text="+encodeURIComponent(m);}
+  function rs(n){return "₹"+n.toLocaleString('en-IN');}
+  function $(i){return document.getElementById(i);}
+  function src(p){return "img/maternity/"+p+".jpg";}
+  var tick='<svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3L13 4.5"/></svg>';
+
+  /* builder */
+  STYLES.forEach(function(s){
+    var b=document.createElement('button');b.type='button';b.className='st';b.setAttribute('aria-pressed','false');
+    b.innerHTML='<img src="'+src(s.cover)+'" alt="" loading="lazy"><span class="tick">'+tick+'</span><div><h3>'+s.name+'</h3><p>'+rs(s.price)+' · '+s.imgs+' photos</p></div>';
+    b.onclick=function(){s.on=!s.on;b.setAttribute('aria-pressed',!!s.on);bill();};$('styles').appendChild(b);
+  });
+  ADDS.forEach(function(a){
+    var b=document.createElement('button');b.type='button';b.className='add';b.setAttribute('aria-pressed','false');
+    b.innerHTML='<span class="box">'+tick+'</span><span><h4>'+a.name+'</h4><p>'+a.info+'</p></span><strong>'+(a.from?'from ':'')+rs(a.price)+'</strong>';
+    b.onclick=function(){a.on=!a.on;b.setAttribute('aria-pressed',!!a.on);bill();};$('adds').appendChild(b);
+  });
+  function bill(){
+    var st=STYLES.filter(function(s){return s.on;}),ad=ADDS.filter(function(a){return a.on;}),tot=0,n=0,ul=$('billList');ul.innerHTML='';
+    st.concat(ad).forEach(function(x){tot+=x.price;if(x.imgs)n+=x.imgs;var li=document.createElement('li');li.innerHTML='<span>'+x.name+'</span><span>'+(x.from?'from ':'')+rs(x.price)+'</span>';ul.appendChild(li);});
+    if(!st.length&&!ad.length)ul.innerHTML='<li class="none">Tap a style to add it</li>';
+    $('tot').textContent=rs(tot);
+    $('imgs').textContent=st.length?(n+' edited photos, plus up to 2 free backlit shots'):'Pick at least one style';
+    var msg="Hi Pixels Dream, I'd like to book a maternity shoot:\n"+
+      (st.length?st.map(function(s){return "- "+s.name+" ("+rs(s.price)+")";}).join("\n"):"- Styles: not sure yet, please suggest")+
+      (ad.length?"\nExtras:\n"+ad.map(function(a){return "- "+a.name+" ("+(a.from?"from ":"")+rs(a.price)+")";}).join("\n"):"")+
+      (tot?"\nEstimated total: "+rs(tot):"")+"\n\nDue date: ___\nPreferred shoot date: ___";
+    $('send').href=wa(msg);
+  }
+  bill();
+
+  /* gallery */
+  var groups=STYLES.concat([BACKLIT]),cur=0,idx=0,tabs=$('tabs');
+  groups.forEach(function(g,k){var b=document.createElement('button');b.type='button';b.className='tab';b.setAttribute('role','tab');b.textContent=g.name;b.onclick=function(){show(k);};tabs.appendChild(b);});
+  function show(k){cur=k;var g=groups[k];
+    tabs.querySelectorAll('.tab').forEach(function(t,j){t.setAttribute('aria-selected',j===k);});
+    $('tabdesc').textContent=g.desc;var gal=$('gal');gal.innerHTML='';
+    g.photos.forEach(function(p,i){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Open '+g.name+' photo '+(i+1));
+      var im=document.createElement('img');im.src=src(p);im.alt=g.name+' maternity photo by Pixels Dream';im.loading='lazy';im.decoding='async';b.appendChild(im);
+      b.onclick=function(){idx=i;lbShow();lb.classList.add('open');document.body.style.overflow='hidden';};gal.appendChild(b);});
+  }
+  var lb=$('lb'),li=lb.querySelector('img'),c=lb.querySelector('.c');
+  function lbShow(){var ps=groups[cur].photos;li.src=src(ps[idx]);li.alt=groups[cur].name+' photo';c.textContent=groups[cur].name+', '+(idx+1)+' of '+ps.length;}
+  function close(){lb.classList.remove('open');document.body.style.overflow='';}
+  function step(d){var n=groups[cur].photos.length;idx=(idx+d+n)%n;lbShow();}
+  lb.querySelector('.x').onclick=close;lb.querySelector('.p').onclick=function(){step(-1)};lb.querySelector('.n').onclick=function(){step(1)};
+  lb.addEventListener('click',function(e){if(e.target===lb)close();});
+  document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')step(-1);if(e.key==='ArrowRight')step(1);});
+  var sx=0;lb.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
+  lb.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>45)step(dx<0?1:-1);});
+  show(0);
+
+  document.querySelectorAll('.wa').forEach(function(a){if(a.dataset.msg)a.href=wa(a.dataset.msg);a.target='_blank';a.rel='noopener';});
+})();
+</script>
+</body>
+</html>
