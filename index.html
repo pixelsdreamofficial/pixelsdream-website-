@@ -118,6 +118,21 @@
 .reel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:32px;justify-items:center}
 .reel-grid iframe{width:100%;max-width:340px;aspect-ratio:9/16;height:auto;min-height:480px;border:0;border-radius:18px;background:var(--rose2)}
 .reels .more{display:flex;justify-content:center;margin-top:30px}
+.visit{padding:0 0 88px}
+.visit .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:stretch}
+.visit-map{border-radius:22px;overflow:hidden;min-height:380px;background:var(--rose2)}
+.visit-map iframe{width:100%;height:100%;min-height:380px;border:0;display:block}
+.visit-info{background:#fff;border-radius:22px;padding:34px 30px;display:flex;flex-direction:column;gap:18px}
+.visit-info h2{font-family:var(--serif);font-weight:400;font-size:clamp(28px,4vw,38px);color:var(--plum);line-height:1.1}
+.visit-info .row{display:flex;gap:14px;align-items:flex-start;color:var(--ink,#2b1524);font-size:16px;line-height:1.5}
+.visit-info .row b{display:block;font-weight:600}
+.visit-info .row span{color:#5a4a55}
+.visit-info .ic{flex:none;width:36px;height:36px;border-radius:50%;background:var(--rose2);display:grid;place-items:center;color:var(--plum);font-size:16px}
+.visit-info .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:6px}
+.visit-info .acts a{padding:12px 20px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none}
+.visit-info .acts .dir{background:var(--plum);color:#fff}
+.visit-info .acts .wa{background:#1a9e55;color:#fff}
+@media(max-width:860px){.visit .wrap{grid-template-columns:1fr}.visit-map{min-height:300px}.visit-map iframe{min-height:300px}}
 </style>
 </head>
 <body>
@@ -243,6 +258,20 @@
     </div>
   </div></section>
 </main>
+
+  <section class="visit"><div class="wrap">
+    <div class="visit-map"><iframe title="Map to Pixels Dream Photography, Electronic City" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Pixels+Dream+Photography+Electronic+City+Bangalore&amp;output=embed"></iframe></div>
+    <div class="visit-info">
+      <h2>Visit the studio</h2>
+      <div class="row"><div class="ic">&#9679;</div><div><b>Pixels Dream Photography</b><span>Electronic City Phase 2, Bengaluru 560100</span></div></div>
+      <div class="row"><div class="ic">&#9719;</div><div><b>Open every day</b><span>9 AM to 8 PM</span></div></div>
+      <div class="row"><div class="ic">&#9742;</div><div><b>Call us</b><a href="tel:+919035454533" style="color:var(--plum)">+91 90354 54533</a></div></div>
+      <div class="acts">
+        <a class="dir" href="https://www.google.com/maps/search/?api=1&amp;query=Pixels+Dream+Photography+Electronic+City+Bangalore" target="_blank" rel="noopener">Get directions</a>
+        <a class="wa" href="https://wa.me/919035454533?text=Hi%20Pixels%20Dream%2C%20I%27d%20like%20to%20visit%20the%20studio" target="_blank" rel="noopener">WhatsApp us</a>
+      </div>
+    </div>
+  </div></section>
 
 <footer class="ftr"><div class="wrap">
   <div><h3>Pixels Dream Photography</h3><p>Electronic City Phase 2, Bengaluru 560100</p><p>Open every day, 9 AM to 8 PM</p><a href="tel:+919035454533">+91 90354 54533</a><a href="#" data-callback>Request a call back</a></div>
