@@ -12,7 +12,283 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="page.css">
+<style>
+/* Layout: a night-gallery frame. Full-bleed hero portrait, then each shoot style as a swipeable film strip, then priced collections. */
+:root{
+  --bg:#f6f0ed; --surface:#ffffff; --sunk:#ede4e0;
+  --fg:#1e1118; --muted:#6e5d66; --line:rgba(43,21,36,.13);
+  --accent:#6b2c55; --accent-ink:#ffffff; --glow:rgba(107,44,85,.08);
+  --wa:#1a9e55; --logo-fx:none;
+  --display:"Bodoni Moda",Didot,Georgia,serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"Figtree",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:20px}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;margin:0;letter-spacing:.01em}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+p{margin:0}
+
+/* HERO */
+.bhero{position:relative;min-height:min(88svh,820px);display:grid;align-items:end;overflow:hidden;background:#120d12}
+.bhero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 25%}
+.bhero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,8,12,.15) 0%,rgba(12,8,12,0) 35%,rgba(12,8,12,.82) 100%)}
+.bhero .side{display:none}
+.hero-in{position:relative;z-index:1;color:#F7EEF1;padding-block:28px 40px;padding-inline:20px;display:grid;gap:14px}
+.brand{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.brand img{display:block;width:clamp(170px,46vw,240px);height:auto}
+.brand .loc{font-family:var(--mono);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;opacity:.85}
+.plate{display:inline-block;background:transparent;padding:0}
+.plate img,.own-mark img{filter:var(--logo-fx)}
+.bhero .plate{background:transparent;padding:0}
+.bhero .plate img{filter:drop-shadow(0 1px 3px rgba(0,0,0,.45))}
+@media(min-width:900px){.bhero .plate img{filter:var(--logo-fx)}}
+.plate.end img{display:block;width:200px;height:auto}
+.lb .hint{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.65;text-align:center;padding:6px 0 0}
+.lbl{display:flex;align-items:center;gap:12px}.lbl img{width:96px;height:auto;display:block}
+.bhero h1{font-size:clamp(48px,13vw,120px);line-height:.92}
+.bhero h1 em{font-style:normal;color:#c8a46b}
+.bhero p.lede{max-width:34ch;color:rgba(247,238,241,.86);font-size:17px}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.pbtn{display:inline-flex;align-items:center;gap:8px;padding:13px 20px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid transparent;transition:transform .2s ease}
+.pbtn:hover{transform:translateY(-1px)}
+.pbtn:focus-visible,.chip:focus-visible,.shot:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.pbtn.wa{background:#25D366;color:#0B2A17}
+.pbtn.ghost{border-color:rgba(247,238,241,.5);color:#F7EEF1}
+.pbtn svg{width:18px;height:18px}
+@media(min-width:900px){
+  .bhero{grid-template-columns:1.1fr 1fr;min-height:760px;background:var(--bg)}
+  .bhero>img.main{position:relative;inset:auto;grid-column:2;grid-row:1;height:760px;width:100%}
+  .bhero::after{display:none}
+  .hero-in{grid-column:1;grid-row:1;color:var(--fg);padding:60px 56px 60px max(20px,calc((100vw - 1180px)/2 + 20px));align-self:center}
+  .bhero h1 em{color:var(--accent)}
+  .bhero p.lede{color:var(--muted)}
+  .pbtn.ghost{border-color:var(--line);color:var(--fg)}
+  .bhero .side{display:block;position:absolute;z-index:2;left:calc(55% - 120px);bottom:48px;width:200px;height:260px;object-fit:cover;border:6px solid var(--bg);box-shadow:0 20px 50px rgba(0,0,0,.25)}
+}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}
+.stat{padding:22px 8px;text-align:center;display:grid;gap:2px}
+.stat+.stat{border-left:1px solid var(--line)}
+.stat b{font-family:var(--display);font-weight:400;font-size:clamp(30px,7vw,46px);line-height:1}
+.stat span{font-size:12.5px;color:var(--muted);line-height:1.3}
+
+/* NAV CHIPS */
+.secnav{position:sticky;top:68px;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.secnav .row{display:flex;gap:8px;overflow-x:auto;padding:10px 20px;scrollbar-width:none;max-width:1180px;margin:0 auto}
+.secnav .row::-webkit-scrollbar{display:none}
+.chip{flex:none;font-size:13.5px;font-weight:500;padding:7px 14px;border-radius:999px;border:1px solid var(--line);text-decoration:none;color:var(--fg);white-space:nowrap}
+.chip.pk{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+
+/* INTRO */
+.intro{padding-block:56px 24px;display:grid;gap:28px}
+.intro h2{font-size:clamp(34px,7vw,56px);line-height:1.05}
+.intro .txt{display:grid;gap:14px;color:var(--muted);max-width:62ch}
+.intro figure{margin:0}
+.intro figure img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+.intro figcaption{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin-top:8px;letter-spacing:.06em}
+@media(min-width:800px){.intro{grid-template-columns:1.3fr 1fr;align-items:center;gap:56px}}
+
+/* STYLE SECTIONS */
+.style{padding-block:44px 8px}
+.style header{display:grid;gap:8px;margin-bottom:18px}
+.style header .n{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.1em}
+.style h2{font-size:clamp(34px,8vw,60px);line-height:1}
+.style header p{color:var(--muted);max-width:56ch}
+.strip{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:4px 20px 10px;max-width:1180px;margin:0 auto}
+@media(min-width:760px){.strip{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}}
+.shot{width:100%;aspect-ratio:3/4;padding:0;border:0;background:var(--sunk);cursor:pointer;overflow:hidden;position:relative;display:block}
+.strip .shot:nth-child(n+9){display:none}
+.more{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:2px;background:rgba(15,10,15,.42);color:#fff;font-family:var(--display);font-size:34px;line-height:1;pointer-events:none}
+.more small{font-family:var(--body);font-size:13px;letter-spacing:.02em}
+.shot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.shot:hover img{transform:scale(1.035)}
+.swipe{display:none;font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;padding-inline:20px;max-width:1180px;margin:0 auto}
+.extra{margin-top:16px;display:grid;gap:10px;color:var(--muted);font-size:15px;max-width:62ch}
+.extra b{color:var(--fg);font-weight:600}
+
+/* STUDIO */
+.studio{margin-top:56px;background:var(--sunk);padding-block:56px}
+.studio h2{font-size:clamp(34px,8vw,60px)}
+.why{display:grid;gap:0;margin-top:28px;border-top:1px solid var(--line)}
+.why div{padding:16px 0;border-bottom:1px solid var(--line);display:grid;gap:2px}
+.why b{font-weight:600}
+.why span{color:var(--muted);font-size:15px}
+@media(min-width:760px){.why{grid-template-columns:1fr 1fr;column-gap:40px}}
+.studio .strip{padding-inline:20px;margin-top:28px}
+
+/* PACKAGES */
+.packs{padding-block:64px 24px}
+.packs>header{display:grid;gap:10px;margin-bottom:28px}
+.packs h2{font-size:clamp(38px,9vw,68px);line-height:1}
+.packs>header p{color:var(--muted)}
+.grid{display:grid;gap:14px}
+@media(min-width:700px){.grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1080px){.grid{grid-template-columns:repeat(4,1fr)}}
+.pk-card{background:var(--surface);border:1px solid var(--line);padding:24px 22px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.pk-card .tier{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.pk-card h3{font-size:30px;line-height:1.05}
+.price{font-family:var(--display);font-size:46px;line-height:1;font-variant-numeric:tabular-nums}
+.price small{font-family:var(--body);font-size:14px;color:var(--muted);margin-left:4px}
+.pk-card ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:14.5px;flex:1}
+.pk-card li{padding-left:18px;position:relative}
+.pk-card li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:1px;background:var(--accent)}
+.pk-card li.minus{color:var(--muted)}
+.meta{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:13px;padding-top:14px;border-top:1px solid var(--line)}
+.meta dt{color:var(--muted);font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;padding-top:2px}
+.meta dd{margin:0}
+.pk-card .pbtn{justify-content:center;background:var(--fg);color:var(--bg)}
+.pk-card.sig{background:linear-gradient(160deg,#3b2133,#2b1524);color:#F6ECEF;border-color:transparent;position:relative}
+.pk-card.sig .tier,.pk-card.sig .price small,.pk-card.sig .meta dt{color:#CDB4C3}
+.pk-card.sig li::before{background:#c8a46b}
+.pk-card.sig .meta{border-color:rgba(255,255,255,.14)}
+.pk-card.sig .pbtn{background:#c8a46b;color:#2A1418}
+.badge{position:absolute;top:18px;right:18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(200,164,107,.6);color:#c8a46b;padding:4px 8px}
+.notes{margin-top:22px;display:grid;gap:8px;font-size:14.5px;color:var(--muted);background:var(--glow);padding:18px 20px;border-left:2px solid var(--accent)}
+.notes b{color:var(--fg)}
+
+/* BUILDER */
+.build{padding-block:64px 24px}
+.build>header{display:grid;gap:10px;margin-bottom:26px}
+.build h2{font-size:clamp(38px,9vw,68px);line-height:1}
+.build>header p{color:var(--muted);max-width:60ch}
+.bgroup{margin-top:28px}
+.bgroup h3{font-size:26px;display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.bgroup h3 small{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.opts{display:grid;gap:10px;margin-top:14px}
+@media(min-width:700px){.opts{grid-template-columns:1fr 1fr}}
+@media(min-width:1080px){.opts.st{grid-template-columns:repeat(3,1fr)}}
+.opt{display:grid;grid-template-columns:72px 1fr auto;gap:14px;align-items:center;background:var(--surface);border:1px solid var(--line);padding:10px 14px 10px 10px;cursor:pointer;text-align:left;font:inherit;color:inherit;width:100%;transition:border-color .2s,background .2s}
+.opt:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.opt img{width:72px;height:72px;object-fit:cover;display:block}
+.opt .ic{width:72px;height:72px;display:grid;place-items:center;background:var(--sunk);font-family:var(--display);font-size:30px;color:var(--accent)}
+.opt b{display:block;font-weight:600;font-size:15.5px}
+.opt span.d{display:block;color:var(--muted);font-size:13px;line-height:1.35;margin-top:2px}
+.opt .pr{font-family:var(--display);font-size:22px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.opt .pr small{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:right}
+.opt .tick{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;margin-left:auto;margin-top:6px;font-size:14px;color:transparent}
+.opt[aria-pressed="true"]{border-color:var(--accent);background:var(--glow)}
+.opt[aria-pressed="true"] .tick{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.qty{display:flex;align-items:center;gap:6px;margin-top:6px;justify-content:flex-end}
+.qty button{width:30px;height:30px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--fg);font-size:17px;cursor:pointer;line-height:1}
+.qty output{min-width:22px;text-align:center;font-variant-numeric:tabular-nums;font-weight:600}
+.opt.frame{cursor:default}
+.summary{margin-top:34px;background:linear-gradient(160deg,#3b2133,#2b1524);color:#F6ECEF;padding:26px 22px;display:grid;gap:16px}
+@media(min-width:900px){.summary{grid-template-columns:1.2fr 1fr;gap:36px;padding:34px}}
+.summary h3{font-size:30px}
+.lines{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:8px;font-size:14.5px}
+.lines li{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed rgba(255,255,255,.14);padding-bottom:8px}
+.lines li span:last-child{font-variant-numeric:tabular-nums;white-space:nowrap}
+.lines .empty{color:#CDB4C3;border:0}
+.total{display:flex;justify-content:space-between;align-items:baseline;margin-top:14px}
+.total span{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#CDB4C3}
+.total b{font-family:var(--display);font-weight:400;font-size:44px;font-variant-numeric:tabular-nums}
+.form{display:grid;gap:12px;align-content:start}
+.form label{display:grid;gap:5px;font-size:13px;color:#CDB4C3}
+.form input,.form textarea{color-scheme:dark;font:inherit;font-size:15px;color:#F6ECEF;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);padding:11px 12px;border-radius:4px;width:100%}
+.form input:focus,.form textarea:focus{outline:2px solid #c8a46b;outline-offset:1px}
+.form .pbtn{justify-content:center;background:#25D366;color:#0B2A17;font-size:16px;padding:15px}
+.form .pbtn[aria-disabled="true"]{opacity:.45;pointer-events:none}
+.form .hint{font-size:12.5px;color:#CDB4C3}
+.slotpick{display:grid;gap:8px;margin-top:4px}
+.slotpick .sl{font-size:13px;color:#CDB4C3}
+.days,.slots{display:flex;flex-wrap:wrap;gap:6px}
+.days button,.slots button{font:inherit;font-size:13px;padding:7px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.28);background:transparent;color:#F6ECEF;cursor:pointer}
+.slotpick{margin-top:-4px}
+.slots button:disabled{opacity:.35;cursor:not-allowed}
+.days button[aria-pressed="true"],.slots button[aria-pressed="true"]{background:#F6ECEF;color:#1b1418;border-color:#F6ECEF}
+.days button:focus-visible,.slots button:focus-visible{outline:2px solid #F6ECEF;outline-offset:2px}
+.quote{margin-top:6px;padding-top:16px;border-top:1px solid rgba(255,255,255,.14);display:grid;gap:8px;font-size:14px;color:#CDB4C3}
+.quote b{color:#F6ECEF;font-weight:600;font-size:15px}
+.quote .qnum{color:#c8a46b;font-family:var(--mono);white-space:nowrap}
+.form .qbtn{background:transparent;color:#F6ECEF;border:1px solid rgba(255,255,255,.35);font-size:15px;padding:12px;justify-content:center}
+.addstyle{margin-top:6px;justify-self:start;font:inherit;font-size:14px;font-weight:600;padding:9px 16px;border-radius:999px;border:1px solid var(--accent);background:transparent;color:var(--accent);cursor:pointer}
+.addstyle[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.addstyle:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.incl{font-size:13px;color:var(--muted)}
+.sbar .tot{display:grid;align-content:center;line-height:1.15;font-size:12px;color:var(--muted);min-width:84px}
+.sbar .tot b{font-family:var(--display);font-weight:400;font-size:22px;color:var(--fg);font-variant-numeric:tabular-nums}
+
+/* TERMS */
+.terms{padding-block:32px 24px}
+details{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;padding:20px 0;display:flex;justify-content:space-between;align-items:center;font-family:var(--display);font-size:30px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--body);font-size:26px;color:var(--accent);transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+.tc{display:grid;gap:0;padding-bottom:16px}
+.tc div{display:grid;grid-template-columns:150px 1fr;gap:14px;padding:12px 0;border-top:1px dashed var(--line);font-size:14.5px}
+.tc dt{font-weight:600}
+.tc dd{margin:0;color:var(--muted)}
+@media(max-width:560px){.tc div{grid-template-columns:1fr;gap:2px}}
+
+/* CLOSING */
+.closing{padding-block:64px 120px;text-align:left;display:grid;gap:18px}
+.closing h2{font-size:clamp(44px,11vw,96px);line-height:.95}
+.closing p{color:var(--muted);max-width:56ch}
+.contact{display:grid;gap:6px;font-size:15px;margin-top:6px}
+.contact .num{font-family:var(--mono);font-size:18px;letter-spacing:.04em;user-select:all}
+.copy{font:inherit;font-size:13px;background:none;border:1px solid var(--line);color:var(--fg);padding:4px 10px;border-radius:999px;cursor:pointer;margin-left:8px}
+.closing .pbtn.ghost{border-color:var(--line);color:var(--fg)}
+.bfoot{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.08em;padding-block:0 110px}
+
+/* GOWNS */
+.gowns{padding-block:56px 8px}
+.gowns header{display:grid;gap:8px;margin-bottom:22px}
+.gowns h2{font-size:clamp(34px,8vw,60px);line-height:1}
+.gowns header p{color:var(--muted);max-width:60ch}
+.gown-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 12px}
+@media(min-width:760px){.gown-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:26px 18px}}
+.gown{margin:0;display:grid;gap:8px;min-width:0}
+.gown .shot{width:100%;aspect-ratio:3/4}
+.gown figcaption{display:grid;gap:1px}
+.gown figcaption b{font-family:var(--display);font-weight:400;font-size:20px;line-height:1.15}
+.gown figcaption{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px}
+.tier-tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);padding:2px 6px;border-radius:3px}
+.tier-tag.premium{color:var(--accent);border-color:var(--accent)}
+.cnt{position:absolute;left:8px;top:8px;font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:#fff;background:rgba(15,10,15,.45);padding:3px 7px;border-radius:3px;pointer-events:none}
+.gown-note{margin-top:20px;font-size:14px;color:var(--muted)}
+
+/* OWNERSHIP */
+.own{display:grid;grid-template-columns:1fr;gap:18px;align-items:start;padding-block:28px;border-bottom:1px solid var(--line)}
+.own-mark{background:transparent;width:170px}.own-mark img{display:block;width:100%;height:auto}
+@media(max-width:520px){.own{grid-template-columns:1fr}}
+.own-h{font-family:var(--display);font-size:clamp(22px,4.6vw,30px);line-height:1.2;margin-top:6px;text-wrap:balance}
+.own-s{color:var(--muted);font-size:15px;margin-top:8px;max-width:62ch}
+.wm{position:absolute;right:8px;bottom:8px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:rgba(255,255,255,.88);background:rgba(15,10,15,.38);padding:3px 7px;border-radius:3px;pointer-events:none}
+.pbtn.ig{border-color:var(--line);color:var(--fg)}
+
+/* STICKY BAR */
+.sbar{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line);display:flex;gap:10px;justify-content:center}
+.sbar .pbtn{flex:1;max-width:420px;justify-content:center;padding:12px 16px}
+.sbar .pbtn.pkg{flex:0 0 auto;background:transparent;border-color:var(--line);color:var(--fg)}
+
+/* LIGHTBOX */
+.lb{position:fixed;inset:0;z-index:200;background:#0D090D;display:grid;grid-template-rows:auto 1fr auto auto;color:#F4EAEE}
+.lb-top{display:flex;justify-content:space-between;align-items:center;padding:calc(12px + env(safe-area-inset-top,0px)) 16px 12px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.lb-stage{position:relative;min-height:0;display:grid;place-items:center;padding:0 8px}
+.lb-stage{overflow:hidden}
+.lb-stage img{max-width:100%;max-height:calc(100svh - 190px);width:auto;height:auto;object-fit:contain}
+.lb button{background:none;border:0;color:inherit;cursor:pointer;font:inherit}
+.lb .x{font-size:28px;line-height:1;padding:4px 8px}
+.lb .nv{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.1);font-size:22px}
+.lb .pv{left:12px}.lb .nx{right:12px}
+.lb-bot{padding:12px 16px calc(16px + env(safe-area-inset-bottom,0px));display:flex;justify-content:center}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media(min-width:900px){.sbar{display:none!important}.closing,.bfoot{padding-bottom:48px}}
+.rise{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.rise.d2{animation-delay:.12s}.rise.d3{animation-delay:.24s}
+@keyframes rise{from{transform:translateY(14px)}to{transform:none}}
+
+.bp-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.hdr{z-index:60}
+@media(min-width:900px){.bhero h1{font-size:clamp(56px,7vw,98px)}}
+
+</style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
  {"@type":"LocalBusiness","@id":"https://www.pixelsdream.in/#business","name":"Pixels Dream Photography","url":"https://www.pixelsdream.in/","telephone":"+91-9035454533","image":"https://www.pixelsdream.in/img/home-hero.jpg","priceRange":"₹₹",
@@ -31,7 +307,6 @@
 </script>
 </head>
 <body>
-
 <header class="hdr"><div class="wrap">
   <a href="index.html" class="logo">Pixels Dream<small>Photography, Electronic City</small></a>
   <nav class="nav" id="nav">
@@ -40,206 +315,281 @@
   <a class="btn btn-wa wa" data-msg="Hi Pixels Dream, I'd like to book a maternity shoot." href="https://wa.me/919035454533">WhatsApp us</a>
   <button class="menu-btn" aria-expanded="false" aria-controls="nav" onclick="var n=document.getElementById('nav');n.classList.toggle('open');this.setAttribute('aria-expanded',n.classList.contains('open'))">Menu</button>
 </div></header>
-
 <main>
+<section class="bhero">
+  <img class="main" src="img/maternity/texture-1-2.jpg" alt="Expectant mother in a royal blue gown with flowing fabric" fetchpriority="high">
+  <img class="side" src="img/maternity/texture-2-3.jpg" alt="Maternity portrait in an olive gown against a textured backdrop">
+  <div class="hero-in">
+    <div class="brand rise"><span class="loc">Pixels Dream Photography · Bangalore</span></div>
+    <h1 class="rise d2">Maternity<br><em>Packages</em><br>2026<span class="bp-sr"> for maternity photoshoots in Electronic City, Bangalore</span></h1>
+    <p class="lede rise d3">Shoot styles from ₹4,999 each, with 10 edited images per style, in our private studio in Electronic City. Pick the looks you love, add what you need, and book on WhatsApp.</p>
+    <div class="btns rise d3">
+      <a class="pbtn wa" data-wa="Hi Pixels Dream! I saw your Maternity Packages 2026 and would like to book a shoot." href="#"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.5 4c1.7.7 2.4.8 3.2.6a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>Book on WhatsApp</a>
+      <a class="pbtn ghost" href="#packages">Build your shoot</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap stats">
+  <div class="stat"><b>7+</b><span>years behind<br>the camera</span></div>
+  <div class="stat"><b>350+</b><span>maternity shoots<br>completed</span></div>
+  <div class="stat"><b>4.9★</b><span>rating on<br>Google</span></div>
+</div>
+
+<section class="wrap own">
+    <div>
+    <div class="eyebrow">100% our own work</div>
+    <p class="own-h">Every photograph in this catalogue was captured by the Pixels Dream team.</p>
+    <p class="own-s">No stock images and no borrowed portfolios. These are real mothers and families we photographed in our studio and at our outdoor locations, edited in-house. What you see here is what you get.</p>
+  </div>
+</section>
+
+<nav class="secnav" aria-label="Sections"><div class="row" id="chips"></div></nav>
+
+<section class="wrap intro">
+  <div class="txt">
+    <div class="eyebrow">The maternity photoshoot</div>
+    <h2>A portrait of the months before you meet them</h2>
+    <p>A maternity session celebrates the changing body and the anticipation of a new baby. We photograph the mother alone, and with her partner, children or parents if she wants them in the frame.</p>
+    <p>Our team keeps the session relaxed and unhurried, so the photographs feel like you. Every image in this catalogue is our own work, shot in our studio or at the lake nearby.</p>
+  </div>
+  <figure><img src="img/maternity/petal.jpg" alt="Mother in a white gown framed by a sculpted mint petal backdrop" loading="lazy"><figcaption>Signature petal backdrop · studio</figcaption></figure>
+</section>
+
+<div id="styles"></div>
+
+
+<section class="studio" id="studio">
   <div class="wrap">
-    <p class="crumbs"><a href="index.html">Home</a> / Maternity</p>
-    <section class="m-hero">
-      <div class="m-hero-grid">
-        <div>
-          <h1>Maternity photoshoot in Electronic City, Bangalore</h1>
-          <p>Choose the looks you love, from flowing gowns on painted backdrops to a silk saree or a golden evening by the lake. Every style is ₹4,999 with 10 edited photos.</p>
-          <div class="btns">
-            <a class="btn btn-wa" href="#build">Pick your styles</a>
-            <a class="btn btn-ghost wa" data-msg="Hi Pixels Dream, I'd like to know more about maternity shoots." href="https://wa.me/919035454533">Ask on WhatsApp</a>
-          </div>
-          <div class="facts">
-            <div><b>₹4,999</b><span>Per style</span></div>
-            <div><b>26 gowns</b><span>In our wardrobe</span></div>
-            <div><b>350+</b><span>Maternity shoots</span></div>
-          </div>
-        </div>
-        <div class="trip">
-          <img src="img/maternity/vogue-1-2.jpg" alt="Mother-to-be in a white ruffled gown on a turquoise backdrop" fetchpriority="high">
-          <img src="img/maternity/texture-2-1.jpg" alt="Mother-to-be in a green gown on a painted texture backdrop">
-          <img src="img/maternity/traditional-1-2.jpg" alt="Mother-to-be in a pink silk saree on a traditional set">
-        </div>
-      </div>
-    </section>
+    <div class="eyebrow">Studio space · Electronic City</div>
+    <h2>Your own studio for the day</h2>
+    <p style="color:var(--muted);max-width:60ch;margin-top:12px">A private space built for maternity, newborn, baby and family photography, with professional lighting and air-conditioned comfort.</p>
+    <div class="why">
+      <div><b>One shoot at a time</b><span>We host only one client session at a time, for full privacy and attention.</span></div>
+      <div><b>Fully air-conditioned</b><span>A cool, comfortable room through the whole session.</span></div>
+      <div><b>Private changing room</b><span>A dedicated space to change outfits and prepare.</span></div>
+      <div><b>In-studio bathroom</b><span>Clean, convenient facilities for you and your family.</span></div>
+      <div><b>Dedicated makeup room</b><span>Get ready and perfect your look before the session.</span></div>
+      <div><b>Professional setups</b><span>Designed themes, creative backdrops, lighting and arranged props.</span></div>
+      <div><b>Baby &amp; family friendly</b><span>Calm and welcoming for parents and little ones.</span></div>
+      <div><b>Personal attention</b><span>Our team focuses entirely on your family, so nothing feels rushed.</span></div>
+    </div>
+  </div>
+  <div class="strip" data-set="studio" aria-label="Studio photos"></div>
+</section>
+
+<section class="wrap build" id="packages">
+  <header>
+    <div class="eyebrow">Build your shoot · 2026</div>
+    <h2>Choose what you want</h2>
+    <p>No fixed packages. Pick the styles you love, add makeup, an album or frames, and see your total as you go. When you're ready, send your selection to us on WhatsApp and we'll confirm your date.</p>
+  </header>
+
+  <div class="bgroup">
+    <h3>1 · Pick your styles <small>10 edited images per style</small></h3>
+    <div class="opts st" id="optStyles"></div>
   </div>
 
-  <section class="gal-sec" id="gallery"><div class="wrap">
-    <h2 class="display">See each style</h2>
-    <p class="lede">Tap a style to see all its photos. You can add it to your shoot right from there.</p>
-    <div class="tiles" id="tiles"></div>
-    <div style="margin-top:32px"><a class="btn btn-tur" href="#build">Pick your styles</a></div>
-  </div></section>
+  <div class="bgroup">
+    <h3>2 · Add extras <small>optional</small></h3>
+    <div class="opts" id="optExtras"></div>
+  </div>
 
-  <section class="bld" id="build"><div class="wrap">
-    <h2 class="display">Pick your styles</h2>
-    <p class="lede">Tap the styles you'd like and any extras. Your total updates as you go. Send it to us on WhatsApp and we'll confirm your date.</p>
-    <div class="bgrid">
-      <div>
-        <div class="styles" id="styles"></div>
-        <p class="free">Free with any style: <b>up to 2 backlit silhouette shots</b>, and our <b>flower ring</b> and <b>gold cage</b> props if you'd like them.</p>
-        <h3 class="addh">Extras</h3>
-        <div id="adds"></div>
+  <div class="summary" id="summary">
+    <div>
+      <div class="eyebrow" style="color:#F2C1AE">Your shoot</div>
+      <h3>Booking summary</h3>
+      <ul class="lines" id="lines"></ul>
+      <div class="total"><span>Total</span><b id="total">₹0</b></div>
+    </div>
+    <form class="form" id="checkout" novalidate>
+      <label for="cName">Your name<input id="cName" autocomplete="name" placeholder="e.g. Priya"></label>
+      <label for="cDate">Preferred shoot date<input id="cDate" type="date"></label>
+      <div class="slotpick"><span class="sl">Preferred shoot time (2-hour slot)</span><div class="slots" id="cSlots"></div></div>
+      <label for="cNote">Anything else? (optional)<textarea id="cNote" rows="2" placeholder="Due date, outfit ideas, flower ring or gold cage props…"></textarea></label>
+      <a class="pbtn" id="cGo" href="#" aria-disabled="true">Checkout on WhatsApp</a>
+      <p class="hint" id="cHint">Pick at least one style to check out.</p>
+      <div class="quote">
+        <b>Want a discount or a final quote?</b>
+        <span>Talk to us before you book. Call <a href="tel:+919035454533" class="qnum">+91 90354 54533</a>, or send your selection and we'll call you back to discuss the final price.</span>
+        <a class="pbtn qbtn" id="cCall" href="#">Request a call back</a>
       </div>
-      <aside class="bill" aria-live="polite">
-        <h3>Your shoot</h3>
-        <ul id="billList"></ul>
-        <div class="tot"><span>Estimated total</span><b id="tot">₹0</b></div>
-        <div class="imgs" id="imgs">Pick at least one style</div>
-        <a class="btn btn-wa" id="send" target="_blank" rel="noopener" href="https://wa.me/919035454533">Send on WhatsApp</a>
-        <small>Want a discount or a final quote? Call us on 90354 54533 before booking.</small>
-      </aside>
-    </div>
-  </div></section>
+    </form>
+  </div>
 
-  <section class="studio"><div class="wrap">
-    <div class="studio-ph"><img src="img/maternity/studio-3.jpg" alt="Boho arch setup in the Pixels Dream studio" loading="lazy"><img src="img/maternity/studio-2.jpg" alt="Inside the Pixels Dream studio in Electronic City" loading="lazy"></div>
-    <div>
-      <h2 class="display">A studio made for you</h2>
-      <p class="lede">Only one family is in the studio at a time, so you can take it slow and rest between looks.</p>
-      <ul class="points">
-        <li><b>Fully air-conditioned</b><span>Comfortable even in the third trimester.</span></li>
-        <li><b>Private changing and makeup rooms</b><span>Plus an in-studio bathroom.</span></li>
-        <li><b>Bring your family</b><span>Be photographed alone, or with your partner, children or parents.</span></li>
-      </ul>
-    </div>
-  </div></section>
+  <div class="notes">
+    <p><b>Outdoor shoots</b> happen at a lake near the studio. Weekend evenings can be crowded, so weekdays are quieter and preferred.</p>
+    <p><b>Weather:</b> outdoor sessions depend on the weather on the day.</p>
+    <p><b>Albums and photo frames</b> are collected from the studio. Larger frame sizes cost more; we'll share options on WhatsApp.</p>
+  </div>
+</section>
 
-  <section class="know"><div class="wrap">
-    <div>
-      <h2 class="display">Good to know</h2>
-      <p class="lede">The details that help your shoot day go smoothly.</p>
-    </div>
-    <ul class="check">
-      <li>Booked makeup? Arrive 2 hours before your slot so the artist has time.</li>
-      <li>Arrive on time so we can cover every style you chose.</li>
-      <li>Want the flower ring or gold cage props? They're free, just ask.</li>
-      <li>Outdoor shoots are at a nearby lake, 6–9 AM or 3–6 PM.</li>
-      <li>Weekdays are quieter outdoors. Weekend evenings get crowded.</li>
-      <li>Outdoor shoots depend on the weather.</li>
-      <li>For traditional looks, a 5–7 metre silk saree drapes best.</li>
-      <li>Choose your favourite photos for editing, or let us pick for you.</li>
-      <li>Edited photos arrive in 7–9 working days. Extra edits are ₹200 each.</li>
-      <li>Full payment is due once the shoot is complete.</li>
-      <li>Prefer your photos kept private? Tell us before the shoot.</li>
-    </ul>
-  </div></section>
+<section class="wrap terms">
+  <details>
+    <summary>Terms &amp; conditions</summary>
+    <dl class="tc">
+      <div><dt>Punctuality</dt><dd>Please arrive on time so we can cover everything in your package.</dd></div>
+      <div><dt>Makeup</dt><dd>Our professional makeup artists need up to 2 hours. Please arrive at the studio 2 hours before your slot.</dd></div>
+      <div><dt>Editing</dt><dd>High-end skin retouching, colour and light correction, and background enhancement (background changes for indoor shoots, corrections for outdoor).</dd></div>
+      <div><dt>Extra edits</dt><dd>Additional edited images at ₹200 per photo.</dd></div>
+      <div><dt>Delivery</dt><dd>Edited photos within 7–9 working days.</dd></div>
+      <div><dt>Photo selection</dt><dd>Choose your favourites after the shoot, or we can choose for you. Please match the number of images in your package.</dd></div>
+      <div><dt>Raw data</dt><dd>Raw files are shared as per the studio's terms.</dd></div>
+      <div><dt>Privacy</dt><dd>We love to showcase our work. If you'd like your images kept private, just tell us in advance.</dd></div>
+      <div><dt>Payment</dt><dd>Full payment is due when the shoot is complete.</dd></div>
+    </dl>
+  </details>
+</section>
 
-  <section class="faq"><div class="wrap">
-    <h2 class="display">Questions mums ask</h2>
-    <details><summary>How much does a maternity photoshoot cost?</summary><p>₹4,999 per style, with 10 edited photos each. The Signature AI concept artwork is ₹5,000 with 5 images. Up to 2 backlit shots, and the flower ring and gold cage props, are free.</p></details>
-    <details><summary>Do you provide maternity gowns?</summary><p>Yes. Our 2026 wardrobe has 26 gowns. Tell us your favourites when you book and we'll confirm availability.</p></details>
-    <details><summary>Can my husband and children join the shoot?</summary><p>Yes. You can be photographed alone or with your partner, children or parents.</p></details>
-    <details><summary>When will I get my photos?</summary><p>Edited photos are delivered within 7 to 9 working days.</p></details>
-    <details><summary>Where are outdoor maternity shoots done?</summary><p>At a lake near our Electronic City studio, from 6 to 9 AM or 3 to 6 PM. Weekdays are quieter than weekend evenings, and outdoor shoots depend on the weather.</p></details>
-  </div></section>
+<section class="wrap closing">
+  <div class="eyebrow">Thank you</div>
+  <h2>Let's create something you'll keep forever</h2>
+  <p>Thank you for considering us for your maternity shoot. If you have questions or want to talk through ideas, message us and we'll help you plan it.</p>
+  <div class="contact">
+    <div><span class="num" id="num">+91 90354 54533</span><button class="copy" id="copy" type="button">Copy</button></div>
+    <div style="color:var(--muted)">Pixels Dream Photography · Electronic City, Bangalore · <a href="https://www.pixelsdream.in" target="_blank" rel="noopener">pixelsdream.in</a> · <a href="https://www.instagram.com/pixelsdreams.in/" target="_blank" rel="noopener">@pixelsdreams.in</a></div>
+  </div>
+  <div class="btns"><a class="pbtn wa" data-wa="Hi Pixels Dream! I saw your Maternity Packages 2026 and have a few questions." href="#">Chat on WhatsApp</a><a class="pbtn ig" href="https://www.instagram.com/pixelsdreams.in/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>See more on Instagram</a></div>
+</section>
+<p class="wrap bfoot">© 2026 Pixels Dream Photography. All photographs were captured and edited by Pixels Dream and may not be copied or reused without written permission.</p>
 
-  <div class="toran"></div>
-  <section class="final"><div class="wrap">
-    <h2 class="display">Ready to plan your maternity shoot?</h2>
-    <p>Send us your due date, the styles you like and a preferred date. We'll confirm your slot on WhatsApp.</p>
-    <div class="btns">
-      <a class="btn btn-tur wa" data-msg="Hi Pixels Dream, I'd like to book a maternity shoot. Due date: ___ Styles: ___ Preferred date: ___" href="https://wa.me/919035454533">Book on WhatsApp</a>
-      <a class="btn btn-ghost" href="tel:+919035454533">Call 90354 54533</a>
-    </div>
-  </div></section>
+<div class="sbar">
+  <div class="tot"><span id="barCount">0 items</span><b id="barTotal">₹0</b></div>
+  <a class="pbtn wa" href="#summary" id="barGo">Build your shoot</a>
+</div>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <div class="lb-top"><span class="lbl"><span id="lbt"></span></span><button class="x" id="lbx" aria-label="Close">×</button></div>
+  <div class="lb-stage"><img id="lbi" alt=""><button class="nv pv" id="lbp" aria-label="Previous">‹</button><button class="nv nx" id="lbn" aria-label="Next">›</button></div>
+  <div class="hint">Swipe or tap ‹ › to see more</div>
+  <div class="lb-bot"><a class="pbtn wa" id="lbwa" href="#" data-wa="">I'd like this look</a></div>
+</div>
+
 </main>
-
 <footer class="ftr"><div class="wrap">
   <div><h3>Pixels Dream Photography</h3><p>Electronic City Phase 2, Bengaluru 560100</p><p>Open every day, 9 AM to 8 PM</p><a href="tel:+919035454533">+91 90354 54533</a><a href="#" data-callback>Request a call back</a></div>
   <div><h3>Shoots</h3><a href="maternity.html">Maternity</a><a href="newborn.html">Newborn</a><a href="baby.html">Baby shoots</a><a href="family.html">Family</a><a href="events.html">Events</a></div>
   <div><h3>Follow</h3><a href="https://www.instagram.com/pixelsdreams.in/" target="_blank" rel="noopener">Instagram @pixelsdreams.in</a><a href="https://www.instagram.com/pixelsdream_kids/" target="_blank" rel="noopener">Instagram @pixelsdream_kids</a><a href="privacy.html">Privacy policy</a></div>
   <p class="copy">© 2026 Pixels Dream Photography, Bangalore</p>
 </div></footer>
-
-<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer"><button class="x" aria-label="Close">×</button><button class="p" aria-label="Previous photo">‹</button><img alt=""><button class="n" aria-label="Next photo">›</button><button class="lb-add" type="button" aria-pressed="false">Add to my shoot</button><div class="c"></div></div>
-
 <a class="float-wa wa" aria-label="Chat on WhatsApp" data-msg="Hi Pixels Dream, I'd like to book a maternity shoot." href="https://wa.me/919035454533"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.7 15.6 2.2 13.8 2.2 12 2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zM20.5 3.5C18.2 1.2 15.2 0 12 0 5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6c1.8 1 3.8 1.5 5.8 1.5 6.6 0 12-5.4 12-12 0-3.2-1.3-6.2-3.5-8.4z"/></svg></a>
-<div class="bar"><a class="btn btn-ghost" href="tel:+919035454533">Call</a><a class="btn btn-wa wa" data-msg="Hi Pixels Dream, I'd like to book a maternity shoot." href="https://wa.me/919035454533">WhatsApp us</a></div>
-
-<script src="stylecard.js"></script>
 <script>
-/* STYLES & PRICES — edit here */
-var STYLES=[
- {id:"vogue",name:"Studio Vogue",price:4999,imgs:10,cover:"vogue-3-1",desc:"Elegant solid backdrops matched to your outfit, for a clean, magazine-style look.",
-  photos:["vogue-1-1","vogue-1-2","vogue-1-3","vogue-2-1","vogue-2-2","vogue-2-3","vogue-3-1","vogue-3-2","vogue-3-3","vogue-4-1","vogue-4-2","vogue-4-3"]},
- {id:"texture",name:"Artistic Texture",price:4999,imgs:10,cover:"texture-2-1",desc:"Handpicked painted and designer backdrops for bold, cinematic portraits.",
-  photos:["texture-1-1","texture-1-2","texture-1-3","texture-2-1","texture-2-2","texture-2-3","texture-3-1","texture-3-2","texture-3-3","texture-4-1","texture-4-2","texture-4-3"]},
- {id:"boho",name:"Boho Bliss",price:4999,imgs:10,cover:"boho-1",desc:"A warm bohemian set with natural textures, dried florals and soft light.",
-  photos:["boho-1","boho-2","boho-3","boho-4","boho-5"]},
- {id:"traditional",name:"Traditional",price:4999,imgs:10,cover:"traditional-1-2",desc:"Silk sarees, temple-style sets, diyas and flowers, with family welcome in the frame.",
-  photos:["traditional-single","traditional-1-1","traditional-1-2","traditional-1-3","traditional-2-1","traditional-2-2","traditional-2-3","traditional-3-1","traditional-3-2","traditional-3-3"]},
- {id:"outdoor",name:"Nature Glow Outdoor",price:4999,imgs:10,cover:"outdoor-solo-3",desc:"Soft morning or evening light by the lake near our studio.",
-  photos:["outdoor-solo-1","outdoor-solo-2","outdoor-solo-3","outdoor-1-1","outdoor-1-2","outdoor-1-3","outdoor-2-1","outdoor-2-2","outdoor-2-3"]},
- {id:"ai",name:"Signature AI Artwork",price:5000,imgs:5,cover:"ai-1-2",desc:"Your photos turned into dreamy concept art, like butterfly wings and flowing fabric.",
-  photos:["ai-1-1","ai-1-2","ai-1-3","ai-b-1","ai-b-2","ai-w-1","ai-w-2"]}
+const IMG="img/maternity/";
+const WA="919035454533";
+const wa=t=>`https://wa.me/${WA}?text=${encodeURIComponent(t)}`;
+const r=(p,a,b)=>Array.from({length:b-a+1},(_,i)=>`${p}_${a+i}`);
+const STYLES=[
+ {id:"texture",name:"Artistic Texture",tag:"Studio",d:"Handpicked textured and designer backdrops for a bold, elegant, cinematic feel.",img:["texture-1-1","texture-1-2","texture-1-3","texture-2-1","texture-2-2","texture-2-3","texture-3-1","texture-3-2","texture-3-3","texture-4-1","texture-4-2","texture-4-3"]},
+ {id:"vogue",name:"Studio Vogue",tag:"Studio · solid colour",d:"Timeless solid backdrops chosen to match your outfit. Clean, modern and magazine-inspired.",img:["vogue-1-1","vogue-1-2","vogue-1-3","vogue-2-1","vogue-2-2","vogue-2-3","vogue-3-1","vogue-3-2","vogue-3-3","vogue-4-1","vogue-4-2","vogue-4-3"]},
+ {id:"traditional",name:"Traditional",tag:"Studio · saree",d:"Silk sarees, painted heritage backdrops and family together in the frame. A celebration of motherhood rooted in tradition.",img:["traditional-single","traditional-1-1","traditional-1-2","traditional-1-3","traditional-2-1","traditional-2-2","traditional-2-3","traditional-3-1","traditional-3-2","traditional-3-3"],
+  extra:`<p><b>Attire:</b> a soft silk saree (5–7 metres) works best. Lehengas and salwar kameez are welcome too.</p><p><b>Family:</b> spouses, parents, in-laws and older siblings can join the photographs.</p><p><b>Props:</b> diyas, flowers and other meaningful symbols, depending on your family's traditions.</p>`},
+ {id:"boho",name:"Boho Bliss",tag:"Studio",d:"Natural textures, dried florals and soft window light for warm, intimate moments.",img:["boho-1","boho-2","boho-3","boho-4","boho-5"]},
+ {id:"outdoor",name:"Nature Glow",tag:"Outdoor · lakeside",d:"Soft natural light by the lake and in the garden, close to our studio.",img:["outdoor-solo-1","outdoor-solo-2","outdoor-solo-3","outdoor-1-1","outdoor-1-2","outdoor-1-3","outdoor-2-1","outdoor-2-2","outdoor-2-3"]},
+ {id:"ai",name:"Signature Concept AI Artwork",tag:"Studio · signature",price:5000,imgs:5,d:"Sculptural butterfly wings and couture gowns, finished as one-of-a-kind artwork.",img:["ai-1-1","ai-1-2","ai-1-3","ai-b-1","ai-b-2","ai-w-1","ai-w-2"]},
+ {id:"backlit",name:"Backlit Silhouettes",tag:"Complimentary with every shoot",price:0,imgs:2,d:"Light from behind turns your profile into a graphic, artistic silhouette. Up to 2 backlit images are free with every shoot, if you'd like them. Our flower ring and gold cage props are free to use too.",img:["backlit-single","backlit-a-1","backlit-a-2"]},
 ];
-var BACKLIT={name:"Backlit (free)",desc:"Up to 2 silhouette shots come free with any style.",photos:["backlit-single","backlit-a-1","backlit-a-2"]};
-var PROPS={name:"Free props",desc:"Our flower ring and gold cage are free to use in any style. Just ask.",photos:["studio-5","studio-4","boho-3"]};
-var ADDS=[
- {id:"makeup",name:"Makeup and hairstyle",price:3000,info:"By a professional artist. Arrive 2 hours early."},
- {id:"album",name:"Photo album",price:5000,info:"Holds up to 30 photos."},
- {id:"frame",name:"Photo frame",price:1000,from:true,info:"From ₹1,000. Sizes shared on WhatsApp."}
+const GOWNS=[
+ ["g02","Tulip","Premium"],["g03","Royal Red",""],["g04","Mango Yellow","Standard"],["g05","Peacock Blue","Standard"],
+ ["g06","Dairy Blossom",""],["g07","Bold Black","Standard"],["g08","Blue Berry",""],["g09","Snow White","Standard"],
+ ["g10","Bold Red","Standard"],["g11","Wine Wonder","Standard",1],["g12","Mehndi Green","Premium"],["g13","Crushy Pink","Standard"],
+ ["g14","Blossomy Bliss",""],["g15","Choco Brown","Standard"],["g17","Cherry Blossom",""],["g18","Hydra",""],
+ ["g20","Royal Blue Cinderella",""],["g21","BW Barbie",""],["g01","Teal Lace",""],["g16","White Bow",""],
+ ["g19","Lavender Dream",""],["g22","Barbie Pink",""],["g23","Sky Blue",""],["g24","Silver Mist",""],
+ ["g25","Emerald",""],["g26","Blush Knit",""],
 ];
+const STUDIO=["studio-1","studio-2","studio-3","studio-4","studio-5"];
+const PRICE_STYLE=4999;
+const pl=p=>p?inr(p):"Free";
+const sp=st=>st.price!=null?st.price:PRICE_STYLE, si=st=>st.imgs||10;
+const EXTRAS=[
+ {id:"makeup",name:"Makeup & hairstyle",d:"Professional makeup artist and hairstyling. Arrive 2 hours before your slot.",p:3000,ic:"✦"},
+ {id:"album",name:"Photo album",d:"Your own design · 12 sheets · up to 30 of your photos.",p:5000,ic:"▤"},
+ {id:"frame",name:"Photo frame",d:"Framed print. Price from ₹1,000; larger sizes cost more.",p:1000,from:1,qty:1,ic:"▢"},
+];
+const cart={styles:new Set(),extras:{makeup:0,album:0,frame:0}};
+const inr=n=>"₹"+n.toLocaleString("en-IN");
+const all=[];
+const shot=(id,label,gown,k=0,n=0)=>{const i=all.push({id,label,gown,k,n})-1;return `<button class="shot" type="button" data-i="${i}" aria-label="View ${label} photo"><img src="${IMG}${id}.jpg" alt="${label} maternity portrait" loading="lazy" decoding="async"><span class="wm">© Pixels Dream</span>${k===7&&n>8?`<span class="more">+${n-8}<small>more photos</small></span>`:""}</button>`};
+document.getElementById("styles").innerHTML=STYLES.map((s,k)=>`
+<section class="style" id="${s.id}">
+ <div class="wrap"><header><div class="n">${s.tag} · ${s.img.length} photos</div><h2>${s.name}</h2><p>${s.d}</p><button class="addstyle" type="button" data-style="${s.id}" aria-pressed="false">${sp(s)?`+ Add this style · ${inr(sp(s))}`:"+ Add free backlit shots"}</button><span class="incl">${sp(s)?`Includes ${si(s)} edited images`:`Up to ${si(s)} images · complimentary`}</span></header></div>
+ <div class="strip">${s.img.map((id,k)=>shot(id,s.name,0,k,s.img.length)).join("")}</div>
+ <div class="swipe">Swipe · tap to enlarge</div>
+ ${s.extra?`<div class="wrap"><div class="extra">${s.extra}</div></div>`:""}
+</section>`).join("");
+document.querySelector('[data-set="studio"]').innerHTML=STUDIO.map((id,k)=>shot(id,"Studio",0,k,STUDIO.length)).join("");
+document.getElementById("chips").innerHTML=STYLES.map(s=>`<a class="chip" href="#${s.id}">${s.name.replace(" Silhouettes","").replace("Signature Concept AI Artwork","AI Artwork")}</a>`).join("")+`<a class="chip" href="#studio">Studio</a><a class="chip pk" href="#packages">Build your shoot</a>`;
+document.getElementById("optStyles").innerHTML=STYLES.filter(st=>sp(st)>0).map(st=>`<button class="opt" type="button" data-style="${st.id}" aria-pressed="false"><img src="${IMG}${st.img[0]}.jpg" alt="" loading="lazy"><div><b>${st.name}</b><span class="d">${si(st)} edited images · ${st.tag}</span></div><div><div class="pr">${pl(sp(st))}</div><div class="tick">✓</div></div></button>`).join("");
+document.getElementById("optExtras").innerHTML=STYLES.filter(st=>sp(st)===0).map(st=>`<button class="opt" type="button" data-style="${st.id}" aria-pressed="false"><img src="${IMG}${st.img[0]}.jpg" alt="" loading="lazy"><div><b>Backlit shots</b><span class="d">Up to ${si(st)} silhouette images, free with every shoot.</span></div><div><div class="pr">Free</div><div class="tick">✓</div></div></button>`).join("")+EXTRAS.map(x=>x.qty?
+ `<div class="opt frame" data-extra="${x.id}" aria-pressed="false"><div class="ic" aria-hidden="true">${x.ic}</div><div><b>${x.name}</b><span class="d">${x.d}</span></div><div><div class="pr">${inr(x.p)}<small>from · each</small></div><div class="qty"><button type="button" data-q="-1" aria-label="Fewer frames">−</button><output id="frameQty">0</output><button type="button" data-q="1" aria-label="More frames">+</button></div></div></div>`:
+ `<button class="opt" type="button" data-extra="${x.id}" aria-pressed="false"><div class="ic" aria-hidden="true">${x.ic}</div><div><b>${x.name}</b><span class="d">${x.d}</span></div><div><div class="pr">${inr(x.p)}</div><div class="tick">✓</div></div></button>`).join("");
+const styleName=id=>STYLES.find(x=>x.id===id).name;
+const ok0=()=>[...cart.styles].some(id=>sp(STYLES.find(x=>x.id===id))>0);
+const SLOTS=["8 – 10 AM","10 AM – 12 PM","12 – 2 PM","2 – 4 PM","4 – 6 PM","6 – 8 PM"],END=[10,12,14,16,18,20];
+let shootSlot="";
+const isToday=()=>{const v=document.getElementById("cDate").value;return v&&v===new Date().toISOString().slice(0,10)};
+function renderSlots(){const h=new Date().getHours(),t=isToday();
+ if(t&&shootSlot&&END[SLOTS.indexOf(shootSlot)]<=h+1)shootSlot="";
+ document.getElementById("cSlots").innerHTML=SLOTS.map((x,i)=>`<button type="button" data-cslot="${x}" aria-pressed="${shootSlot===x}"${t&&END[i]<=h+1?" disabled":""}>${x}</button>`).join("")}
+document.addEventListener("click",e=>{const x=e.target.closest("[data-cslot]");if(x){shootSlot=shootSlot===x.dataset.cslot?"":x.dataset.cslot;renderSlots();render()}});
+document.getElementById("cDate").addEventListener("change",()=>{renderSlots();render()});
+function render(){
+ const lines=[];let total=0,count=0;
+ STYLES.forEach(st=>{if(cart.styles.has(st.id)){lines.push([sp(st)?`${st.name} style (${si(st)} edited images)`:`Backlit shots (up to ${si(st)} images)`,sp(st)]);total+=sp(st);count++}});
+ EXTRAS.forEach(x=>{const q=cart.extras[x.id];if(q){const amt=x.p*q;lines.push([x.qty?`${x.name} × ${q}${x.from?" (from)":""}`:x.name,amt]);total+=amt;count+=q}});
+ document.querySelectorAll("[data-style]").forEach(el=>{const on=cart.styles.has(el.dataset.style);el.setAttribute("aria-pressed",on);if(el.classList.contains("addstyle")){const st=STYLES.find(x=>x.id===el.dataset.style);el.textContent=sp(st)?(on?`✓ Added · ${inr(sp(st))}`:`+ Add this style · ${inr(sp(st))}`):(on?"✓ Free backlit shots added":"+ Add free backlit shots")}});
+ document.querySelectorAll("[data-extra]").forEach(el=>el.setAttribute("aria-pressed",cart.extras[el.dataset.extra]>0));
+ document.getElementById("frameQty").textContent=cart.extras.frame;
+ document.getElementById("lines").innerHTML=lines.length?lines.map(([n,v])=>`<li><span>${n}</span><span>${pl(v)}</span></li>`).join(""):'<li class="empty">Nothing added yet. Pick a style above.</li>';
+ document.getElementById("total").textContent=inr(total);
+ document.getElementById("barTotal").textContent=inr(total);
+ document.getElementById("barCount").textContent=count===1?"1 item":`${count} items`;
+ document.getElementById("barGo").textContent=ok0()?"Checkout":"Build your shoot";
+ const ok=[...cart.styles].some(id=>sp(STYLES.find(x=>x.id===id))>0),go=document.getElementById("cGo");
+ go.setAttribute("aria-disabled",!ok);document.getElementById("cHint").hidden=ok;
+ const name=document.getElementById("cName").value.trim(),date=document.getElementById("cDate").value,note=document.getElementById("cNote").value.trim();
+ const msg=["Hi Pixels Dream! I'd like to book a maternity shoot."+(name?` My name is ${name}.`:""),"",
+  "My selection:",...lines.map(([n,v])=>`• ${n}: ${pl(v)}`),`Total: ${inr(total)}`+(cart.extras.frame?" (frame price from)":""),
+  date?`\nPreferred date: ${new Date(date+"T00:00").toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"})}${shootSlot?", "+shootSlot:""}`:shootSlot?`Preferred time: ${shootSlot}`:"",
+  note?`Note: ${note}`:""].filter((x,i)=>x!==""||i===1).join("\n");
+ go.href=wa(msg);go.target="_blank";go.rel="noopener";
+ const cm=["Hi Pixels Dream! I'm planning a maternity shoot and would like to discuss a final quotation / discount. Please call me."+(name?` My name is ${name}.`:""),...(lines.length?["\nWhat I'm looking at:",...lines.map(([n,v])=>`• ${n}: ${pl(v)}`),`Total so far: ${inr(total)}`]:[]),date?`\nPreferred date: ${new Date(date+"T00:00").toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"})}${shootSlot?", "+shootSlot:""}`:shootSlot?`Preferred time: ${shootSlot}`:"",note?`Note: ${note}`:""].concat([]).filter((x,i,a)=>x!==""||(i>0&&a[i-1]!=="")).join("\n");
+ const cc=document.getElementById("cCall");cc.href=wa(cm);cc.target="_blank";cc.rel="noopener";
+ try{localStorage.setItem("pd-cart",JSON.stringify({s:[...cart.styles],e:cart.extras}))}catch(e){}
+}
+document.addEventListener("click",e=>{
+ const st=e.target.closest("[data-style]");if(st){const id=st.dataset.style;cart.styles.has(id)?cart.styles.delete(id):cart.styles.add(id);render();return}
+ const q=e.target.closest("[data-q]");if(q){cart.extras.frame=Math.max(0,Math.min(10,cart.extras.frame+ +q.dataset.q));render();return}
+ const ex=e.target.closest("button[data-extra]");if(ex){const id=ex.dataset.extra;cart.extras[id]=cart.extras[id]?0:1;render()}
+});
+["cName","cDate","cNote"].forEach(id=>document.getElementById(id).addEventListener("input",render));
+document.getElementById("checkout").addEventListener("submit",e=>e.preventDefault());
+try{const sv=JSON.parse(localStorage.getItem("pd-cart")||"null");if(sv){sv.s.forEach(x=>STYLES.some(y=>y.id===x)&&cart.styles.add(x));Object.assign(cart.extras,sv.e||{})}}catch(e){}
+try{document.getElementById("cDate").min=new Date().toISOString().slice(0,10)}catch(e){}
+renderSlots();
+render();
+const setWa=root=>root.querySelectorAll("[data-wa]").forEach(a=>{a.href=wa(a.dataset.wa);a.target="_blank";a.rel="noopener"});
+setWa(document);
 
-(function(){
-  var NUM="919035454533";function wa(m){return "https://wa.me/"+NUM+"?text="+encodeURIComponent(m);}
-  function rs(n){return "₹"+n.toLocaleString('en-IN');}
-  function $(i){return document.getElementById(i);}
-  function src(p){return "img/maternity/"+p+".jpg";}
-  var tick='<svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3L13 4.5"/></svg>';
+// lightbox
+const lb=document.getElementById("lb"),lbi=document.getElementById("lbi"),lbt=document.getElementById("lbt"),lbwa=document.getElementById("lbwa");
+let cur=0;
+const show=i=>{cur=(i+all.length)%all.length;const s=all[cur];lbi.src=`${IMG}${s.id}.jpg`;lbi.alt=`${s.label} maternity portrait`;lbt.textContent=s.gown?`${s.label} · ${s.ph}`:s.n?`${s.label} · ${s.k+1} of ${s.n}`:s.label;
+ lbwa.href=wa(s.gown?`Hi Pixels Dream! I like the ${s.label} gown from your maternity packages. Is it available for my shoot?`:s.label==="Studio"?"Hi Pixels Dream! I'd like to visit your studio for a maternity shoot.":`Hi Pixels Dream! I love the ${s.label} style in your maternity catalogue and would like to add it to my shoot.`);lbwa.target="_blank";lbwa.rel="noopener";
+ lbwa.textContent=s.gown?"Ask about this gown":s.label==="Studio"?"Plan a studio visit":"I'd like this look"};
+document.addEventListener("click",e=>{const b=e.target.closest(".shot");if(!b)return;show(+b.dataset.i);lb.hidden=false;document.body.style.overflow="hidden";document.getElementById("lbx").focus()});
+const close=()=>{lb.hidden=true;document.body.style.overflow=""};
+document.getElementById("lbx").onclick=close;
+document.getElementById("lbp").onclick=()=>show(cur-1);
+document.getElementById("lbn").onclick=()=>show(cur+1);
+lb.addEventListener("click",e=>{if(e.target.classList.contains("lb-stage"))close()});
+document.addEventListener("keydown",e=>{if(lb.hidden)return;if(e.key==="Escape")close();if(e.key==="ArrowRight")show(cur+1);if(e.key==="ArrowLeft")show(cur-1)});
+let sx=null;lb.addEventListener("touchstart",e=>{sx=e.touches[0].clientX},{passive:true});
+lb.addEventListener("touchend",e=>{if(sx==null)return;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>45)show(cur+(dx<0?1:-1));sx=null});
 
-  /* builder */
-  function toggle(s){s.on=!s.on;s.card.setOn(!!s.on);bill();syncLb();}
-  STYLES.forEach(function(s,k){
-    s.card=PDCard($('styles'),s,{src:src,meta:rs(s.price)+' · '+s.imgs+' edited photos',onToggle:function(){toggle(s);},onOpen:function(i){openLb(k,i);}});
-  });
-  ADDS.forEach(function(a){
-    var b=document.createElement('button');b.type='button';b.className='add';b.setAttribute('aria-pressed','false');
-    b.innerHTML='<span class="box">'+tick+'</span><span><h4>'+a.name+'</h4><p>'+a.info+'</p></span><strong>'+(a.from?'from ':'')+rs(a.price)+'</strong>';
-    b.onclick=function(){a.on=!a.on;b.setAttribute('aria-pressed',!!a.on);bill();};$('adds').appendChild(b);
-  });
-  function bill(){
-    var st=STYLES.filter(function(s){return s.on;}),ad=ADDS.filter(function(a){return a.on;}),tot=0,n=0,ul=$('billList');ul.innerHTML='';
-    st.concat(ad).forEach(function(x){tot+=x.price;if(x.imgs)n+=x.imgs;var li=document.createElement('li');li.innerHTML='<span>'+x.name+'</span><span>'+(x.from?'from ':'')+rs(x.price)+'</span>';ul.appendChild(li);});
-    if(!st.length&&!ad.length)ul.innerHTML='<li class="none">Tap a style to add it</li>';
-    $('tot').textContent=rs(tot);
-    $('imgs').textContent=st.length?(n+' edited photos, plus up to 2 free backlit shots and free props'):'Pick at least one style';
-    var msg="Hi Pixels Dream, I'd like to book a maternity shoot:\n"+
-      (st.length?st.map(function(s){return "- "+s.name+" ("+rs(s.price)+")";}).join("\n"):"- Styles: not sure yet, please suggest")+
-      (ad.length?"\nExtras:\n"+ad.map(function(a){return "- "+a.name+" ("+(a.from?"from ":"")+rs(a.price)+")";}).join("\n"):"")+
-      (tot?"\nEstimated total: "+rs(tot):"")+"\n\nDue date: ___\nPreferred shoot date: ___";
-    $('send').href=wa(msg);
-  }
-  bill();
-
-  /* gallery */
-  var groups=STYLES.concat([BACKLIT,PROPS]),cur=0,idx=0;
-  function tiles(){var box=$('tiles');groups.forEach(function(g,k){var b=document.createElement('button');b.type='button';b.className='tile';
-    b.setAttribute('aria-label','See '+g.photos.length+' '+g.name+' photos');var c=g.cover||g.photos[0];
-    b.innerHTML='<div class="tile-ph"><img src="'+src(c)+'" alt="'+g.name+' maternity photo by Pixels Dream" loading="lazy" decoding="async"><span class="tile-n">'+g.photos.length+' photos</span></div><h3>'+g.name+'</h3><p>'+g.desc+'</p>';
-    b.onclick=function(){openLb(k,Math.max(0,g.photos.indexOf(c)));};box.appendChild(b);});}
-  var lb=$('lb'),li=lb.querySelector('img'),c=lb.querySelector('.c'),lbAdd=lb.querySelector('.lb-add');
-  function syncLb(){var g=groups[cur],ok=STYLES.indexOf(g)>=0;lbAdd.classList.toggle('show',ok);if(ok){lbAdd.setAttribute('aria-pressed',!!g.on);lbAdd.textContent=g.on?g.name+' added ✓':'Add '+g.name+' to my shoot';}}
-  lbAdd.onclick=function(){var g=groups[cur];if(STYLES.indexOf(g)>=0)toggle(g);};
-  function openLb(k,i){cur=k;idx=i;lbShow();lb.classList.add('open');document.body.style.overflow='hidden';}
-  function lbShow(){var ps=groups[cur].photos;li.src=src(ps[idx]);li.alt=groups[cur].name+' photo';c.textContent=groups[cur].name+', '+(idx+1)+' of '+ps.length;syncLb();}
-  function close(){lb.classList.remove('open');document.body.style.overflow='';}
-  function step(d){var n=groups[cur].photos.length;idx=(idx+d+n)%n;lbShow();}
-  lb.querySelector('.x').onclick=close;lb.querySelector('.p').onclick=function(){step(-1)};lb.querySelector('.n').onclick=function(){step(1)};
-  lb.addEventListener('click',function(e){if(e.target===lb)close();});
-  document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')step(-1);if(e.key==='ArrowRight')step(1);});
-  var sx=0;lb.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
-  lb.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>45)step(dx<0?1:-1);});
-  tiles();
-
-  document.querySelectorAll('.wa').forEach(function(a){if(a.dataset.msg)a.href=wa(a.dataset.msg);a.target='_blank';a.rel='noopener';});
-})();
+document.getElementById("copy").onclick=async e=>{const b=e.currentTarget;try{await navigator.clipboard.writeText("+919035454533");b.textContent="Copied"}catch{const r=document.createRange();r.selectNodeContents(document.getElementById("num"));const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent="Selected"}setTimeout(()=>b.textContent="Copy",1800)};
 </script>
+<script>document.querySelectorAll(".wa").forEach(function(a){if(a.dataset.msg)a.href="https://wa.me/919035454533?text="+encodeURIComponent(a.dataset.msg);a.target="_blank";a.rel="noopener";});</script>
 <script src="lead.js" defer></script>
 </body>
 </html>
