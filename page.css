@@ -4,7 +4,7 @@
 
 /* hero: triptych of three styles */
 .m-hero{padding:24px 0 72px}
-.m-hero h1{font-family:'Rozha One',serif;font-weight:400;font-size:clamp(42px,6.4vw,84px);line-height:1;color:var(--plum);letter-spacing:-.015em;max-width:15ch}
+.m-hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(42px,6.4vw,84px);line-height:1;color:var(--plum);letter-spacing:-.015em;max-width:15ch}
 .m-hero-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:48px;align-items:end}
 .m-hero p{font-size:19px;color:var(--muted);margin:20px 0 28px;max-width:30em}
 .m-hero .btns{display:flex;flex-wrap:wrap;gap:12px}
@@ -15,7 +15,7 @@
 .trip img:nth-child(2){aspect-ratio:3/4.9}
 .facts{display:flex;gap:28px;margin-top:30px;flex-wrap:wrap}
 .facts div{border-left:3px solid var(--turmeric);padding-left:12px}
-.facts b{display:block;font-family:'Rozha One',serif;font-weight:400;font-size:28px;color:var(--plum);line-height:1.1}
+.facts b{display:block;font-family:var(--serif);font-weight:400;font-size:28px;color:var(--plum);line-height:1.1}
 .facts span{font-size:15px;color:var(--muted)}
 
 /* builder */
@@ -33,7 +33,7 @@
 .st[aria-pressed=true]{box-shadow:0 0 0 3px var(--turmeric)}
 .st[aria-pressed=true] .tick{background:var(--turmeric);box-shadow:none}
 .st[aria-pressed=true] .tick svg{opacity:1}
-.addh{font-family:'Rozha One',serif;font-weight:400;font-size:26px;margin:36px 0 6px}
+.addh{font-family:var(--serif);font-weight:400;font-size:26px;margin:36px 0 6px}
 .add{display:grid;grid-template-columns:28px 1fr auto;gap:14px;align-items:start;width:100%;text-align:left;border:0;background:transparent;color:#fff;padding:16px 2px;border-top:1px solid rgba(255,255,255,.14)}
 .add:last-of-type{border-bottom:1px solid rgba(255,255,255,.14)}
 .add .box{width:26px;height:26px;border-radius:7px;box-shadow:inset 0 0 0 2px var(--turmeric);display:flex;align-items:center;justify-content:center;margin-top:2px}
@@ -42,17 +42,17 @@
 .add[aria-pressed=true] .box svg{opacity:1}
 .add h4{font-size:17px;font-weight:600}
 .add p{font-size:14px;color:#d9bfcf}
-.add strong{font-family:'Rozha One',serif;font-weight:400;font-size:22px;color:var(--turmeric);white-space:nowrap}
+.add strong{font-family:var(--serif);font-weight:400;font-size:22px;color:var(--turmeric);white-space:nowrap}
 .free{margin-top:16px;color:#e6cfdc;font-size:15px}
 .free b{color:var(--turmeric);font-weight:600}
 .bill{position:sticky;top:88px;background:var(--rose);color:var(--ink);border-radius:22px;padding:28px 26px}
-.bill h3{font-family:'Rozha One',serif;font-weight:400;font-size:28px}
+.bill h3{font-family:var(--serif);font-weight:400;font-size:28px}
 .bill ul{list-style:none;margin:14px 0;border-top:2px dashed var(--rose2)}
 .bill li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:2px dashed var(--rose2);font-size:16px}
 .bill li.none{color:var(--muted)}
 .bill .tot{display:flex;justify-content:space-between;align-items:baseline;margin:6px 0 4px}
 .bill .tot span{font-weight:600}
-.bill .tot b{font-family:'Rozha One',serif;font-weight:400;font-size:40px;color:var(--plum);line-height:1}
+.bill .tot b{font-family:var(--serif);font-weight:400;font-size:40px;color:var(--plum);line-height:1}
 .bill .imgs{font-size:15px;color:var(--muted);margin-bottom:18px}
 .bill .btn{width:100%}
 .bill small{display:block;font-size:14px;color:var(--muted);margin-top:12px;line-height:1.5}
@@ -76,7 +76,7 @@
 .studio-ph img:first-child{border-radius:120px 120px 12px 12px}
 .points{list-style:none;margin-top:22px}
 .points li{padding:14px 0;border-top:1px solid var(--rose2)}
-.points b{display:block;font-family:'Rozha One',serif;font-weight:400;font-size:22px;color:var(--plum);line-height:1.2}
+.points b{display:block;font-family:var(--serif);font-weight:400;font-size:22px;color:var(--plum);line-height:1.2}
 .points span{color:var(--muted)}
 
 /* know before */

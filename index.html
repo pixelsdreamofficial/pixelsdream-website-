@@ -15,20 +15,25 @@
 "sameAs":["https://www.instagram.com/pixelsdreams.in/","https://www.instagram.com/pixelsdream_kids/"]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Hind:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
-/* HERO: photo-led split */
-.hero{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 68px)}
-.hero-copy{display:flex;flex-direction:column;justify-content:center;padding:56px 56px 56px max(20px,calc((100vw - 1160px)/2 + 20px))}
-.hero h1{font-family:'Rozha One',serif;font-weight:400;font-size:clamp(46px,6.6vw,92px);line-height:.98;letter-spacing:-.015em;color:var(--plum)}
-.hero p{font-size:19px;color:var(--muted);max-width:28em;margin:22px 0 30px}
-.hero-btns{display:flex;flex-wrap:wrap;gap:12px}
-.hero-btns .btn-ghost{color:var(--plum)}
-.hero-rate{margin-top:28px;display:flex;align-items:center;gap:12px;font-size:16px;color:var(--muted)}
-.hero-rate b{font-family:'Rozha One',serif;font-weight:400;font-size:34px;color:var(--plum);line-height:1}
-.hero-photo{position:relative;background:var(--turmeric)}
-.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+/* HERO: full-bleed cover with a slow crossfade and an oversized wordmark */
+.hero{position:relative;height:calc(100svh - 68px);min-height:560px;max-height:980px;overflow:hidden;color:#fff;background:var(--plum)}
+.slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity 1.6s ease,transform 7s ease-out}
+.slides img.on{opacity:1;transform:scale(1)}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,17,24,.15) 0%,rgba(30,17,24,0) 30%,rgba(30,17,24,.55) 70%,rgba(30,17,24,.85) 100%);pointer-events:none}
+.hero-in{position:absolute;left:0;right:0;bottom:0;z-index:2;padding-bottom:18px}
+.hero-top{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.hero h1{font-family:var(--sans);font-weight:500;font-size:clamp(17px,1.6vw,20px);letter-spacing:.01em;max-width:24em;line-height:1.45;color:#f3e9ee}
+.hero-btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.hero .btn-ghost{color:#fff}
+.hero-cap{font-size:14px;color:#e6d6de;text-align:right;min-height:1.4em}
+.hero-cap b{font-family:var(--serif);font-weight:400;font-style:italic;font-size:22px;color:#fff;display:block}
+.mast{font-family:var(--serif);font-weight:400;font-size:clamp(64px,16.2vw,232px);line-height:.8;letter-spacing:-.035em;white-space:nowrap;margin-top:22px;color:var(--rose);text-shadow:0 2px 40px rgba(0,0,0,.15)}
+.hero-rate{display:inline-flex;align-items:center;gap:10px;font-size:15px;color:#f3e9ee;margin-bottom:16px}
+.hero-rate b{font-family:var(--serif);font-weight:400;font-size:28px;color:var(--turmeric);line-height:1}
+.hero-btns .btn-ghost{color:#fff}
 
 /* SERVICES: arches */
 .svc{padding:96px 0 72px}
@@ -37,16 +42,16 @@
 .arch-ph{aspect-ratio:3/4.2;border-radius:200px 200px 16px 16px;overflow:hidden;background:linear-gradient(160deg,var(--plum2),var(--plum))}
 .arch-ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
 .arch:hover .arch-ph img{transform:scale(1.04)}
-.arch h3{font-family:'Rozha One',serif;font-weight:400;font-size:26px;line-height:1.1;margin-top:14px;color:var(--plum)}
+.arch h3{font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.1;margin-top:14px;color:var(--plum)}
 .arch p{font-size:15px;color:var(--muted)}
 .arch .price{display:inline-block;margin-top:6px;font-weight:600;border-bottom:2px solid var(--turmeric)}
 .arch-empty{display:flex;align-items:center;justify-content:center;color:#d9bfcf;font-size:14px;text-align:center;padding:20px}
 
 /* TALLY sentence */
 .tally{background:var(--plum);color:#f6e7ee;padding:80px 0 88px}
-.tally p{font-family:'Rozha One',serif;font-size:clamp(30px,5vw,54px);line-height:1.18;max-width:20ch}
+.tally p{font-family:var(--serif);font-size:clamp(30px,5vw,54px);line-height:1.18;max-width:20ch}
 .tally b{font-weight:400;color:var(--turmeric)}
-.tally small{display:block;font-family:'Hind',sans-serif;font-size:17px;color:#d9bfcf;margin-top:22px;max-width:36em}
+.tally small{display:block;font-family:var(--sans);font-size:17px;color:#d9bfcf;margin-top:22px;max-width:36em}
 
 /* STUDIO */
 .studio{padding:96px 0}
@@ -55,7 +60,7 @@
 .studio-ph img{width:100%;height:100%;object-fit:cover}
 .points{list-style:none;margin-top:26px}
 .points li{padding:16px 0;border-top:1px solid var(--rose2)}
-.points b{display:block;font-family:'Rozha One',serif;font-weight:400;font-size:23px;color:var(--plum);line-height:1.2}
+.points b{display:block;font-family:var(--serif);font-weight:400;font-size:23px;color:var(--plum);line-height:1.2}
 .points span{color:var(--muted)}
 
 /* WORK reel */
@@ -68,14 +73,14 @@
 /* REVIEWS */
 .rev{padding:0 0 96px}
 .rev .wrap{display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:center;background:#fff;border-radius:28px;padding-top:44px;padding-bottom:44px}
-.rev-big{font-family:'Rozha One',serif;font-size:clamp(96px,16vw,160px);line-height:.85;color:var(--plum);padding-left:20px}
+.rev-big{font-family:var(--serif);font-size:clamp(96px,16vw,160px);line-height:.85;color:var(--plum);padding-left:20px}
 .rev h2{font-size:clamp(28px,4vw,40px)!important}
 
 /* STEPS */
 .steps-sec{padding:0 0 96px}
 .steps{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:34px;counter-reset:s}
 .steps li{counter-increment:s;border-top:3px solid var(--plum);padding-top:16px}
-.steps li:before{content:counter(s);font-family:'Rozha One',serif;font-size:40px;color:var(--turmeric);-webkit-text-stroke:1px var(--plum);display:block;line-height:1;margin-bottom:6px}
+.steps li:before{content:counter(s);font-family:var(--serif);font-size:40px;color:var(--turmeric);-webkit-text-stroke:1px var(--plum);display:block;line-height:1;margin-bottom:6px}
 .steps h3{font-size:19px;font-weight:600}
 .steps p{color:var(--muted)}
 
@@ -88,9 +93,14 @@
 
 @media (max-width:1000px){.arches{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:900px){
-  .hero{grid-template-columns:1fr;min-height:0}
-  .hero-photo{order:-1;aspect-ratio:4/3.4}
-  .hero-copy{padding:36px 20px 52px}
+  .hero{height:auto;min-height:0;aspect-ratio:auto}
+  .slides{position:relative;aspect-ratio:4/4.6}
+  .hero-in{position:relative;background:var(--plum);padding-top:4px}
+  .hero:after{bottom:auto;height:calc(100vw*1.15);background:linear-gradient(180deg,rgba(30,17,24,0) 55%,rgba(30,17,24,.7) 100%)}
+  .hero-in{padding-bottom:40px}
+  .hero-in .wrap{display:flex;flex-direction:column}
+  .mast{order:-1;margin-top:-.56em;margin-bottom:22px;font-size:15.6vw;position:relative}
+  .hero-cap{display:none}
   .studio .wrap,.rev .wrap{grid-template-columns:1fr;gap:28px}
   .rev-big{padding-left:0}
   .steps{grid-template-columns:1fr}
@@ -118,16 +128,27 @@
 
 <main>
   <section class="hero">
-    <div class="hero-copy">
-      <h1>Bumps, babies and the family days in between.</h1>
-      <p>A private, air-conditioned studio in Electronic City, Bangalore. We shoot one family at a time, handle newborns gently, and send your photos beautifully edited.</p>
-      <div class="hero-btns">
-        <a class="btn btn-wa wa" data-msg="Hi Pixels Dream, I'd like to book a shoot. Type of shoot: ___ Preferred date: ___" href="https://wa.me/919035454533"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.7 15.6 2.2 13.8 2.2 12 2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zM20.5 3.5C18.2 1.2 15.2 0 12 0 5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6c1.8 1 3.8 1.5 5.8 1.5 6.6 0 12-5.4 12-12 0-3.2-1.3-6.2-3.5-8.4z"/></svg>Book on WhatsApp</a>
-        <a class="btn btn-ghost" href="#shoots">See shoots and prices</a>
-      </div>
-      <div class="hero-rate"><b>4.9</b> Google rating from 269 families</div>
+    <div class="slides" aria-hidden="true">
+      <img class="on" src="img/home-hero.jpg" alt="" data-cap="Newborn|Sunshine setup" fetchpriority="high">
+      <img src="img/maternity/texture-2-1.jpg" alt="" data-cap="Maternity|Artistic Texture" loading="lazy">
+      <img src="img/baby/astronaut-2.jpg" alt="" data-cap="Baby shoots|Astronaut theme" loading="lazy">
+      <img src="img/family/red-2.jpg" alt="" data-cap="Family|Bold red backdrop" loading="lazy">
+      <img src="img/maternity/vogue-1-2.jpg" alt="" data-cap="Maternity|Studio Vogue" loading="lazy">
     </div>
-    <div class="hero-photo"><img src="img/home-hero.jpg" alt="Smiling newborn on a yellow setup at Pixels Dream studio" fetchpriority="high"></div>
+    <div class="hero-in"><div class="wrap">
+      <div class="hero-top">
+        <div>
+          <div class="hero-rate"><b>4.9</b> Google rating from 269 families</div>
+          <h1>Maternity, newborn, baby and family photographer in Electronic City, Bangalore. A private studio, one family at a time.</h1>
+          <div class="hero-btns">
+            <a class="btn btn-tur wa" data-msg="Hi Pixels Dream, I'd like to book a shoot. Type of shoot: ___ Preferred date: ___" href="https://wa.me/919035454533">Book on WhatsApp</a>
+            <a class="btn btn-ghost" href="#shoots">Explore shoots</a>
+          </div>
+        </div>
+        <p class="hero-cap" id="heroCap" aria-live="off"><b>Newborn</b>Sunshine setup</p>
+      </div>
+      <div class="mast" aria-hidden="true">Pixels Dream</div>
+    </div></div>
   </section>
 
   <section class="svc" id="shoots"><div class="wrap">
@@ -218,6 +239,9 @@
 <div class="bar"><a class="btn btn-ghost" href="tel:+919035454533">Call</a><a class="btn btn-wa wa" data-msg="Hi Pixels Dream, I'd like to book a shoot." href="https://wa.me/919035454533">WhatsApp us</a></div>
 
 <script>
+(function(){var im=[].slice.call(document.querySelectorAll('.slides img')),cap=document.getElementById('heroCap'),i=0;
+ if(matchMedia('(prefers-reduced-motion: reduce)').matches||im.length<2)return;
+ setInterval(function(){im[i].classList.remove('on');i=(i+1)%im.length;im[i].classList.add('on');var c=im[i].dataset.cap.split('|');cap.innerHTML='<b>'+c[0]+'</b>'+c[1];},5200);})();
 document.querySelectorAll('.wa').forEach(function(a){if(a.dataset.msg)a.href='https://wa.me/919035454533?text='+encodeURIComponent(a.dataset.msg);a.target='_blank';a.rel='noopener';});
 </script>
 <script src="lead.js" defer></script>
