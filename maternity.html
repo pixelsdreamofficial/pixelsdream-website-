@@ -147,7 +147,7 @@
  {"@type":"Service","name":"Maternity photoshoot","serviceType":"Maternity photography","provider":{"@id":"https://www.pixelsdream.in/#business"},"areaServed":"Bengaluru",
   "offers":{"@type":"Offer","name":"Maternity style","price":"4999","priceCurrency":"INR","description":"Per style, with 10 edited photos"}},
  {"@type":"FAQPage","mainEntity":[
-  {"@type":"Question","name":"How much does a maternity photoshoot cost?","acceptedAnswer":{"@type":"Answer","text":"₹4,999 per style, with 10 edited photos each. The Signature AI concept artwork is ₹5,000 with 5 images. Up to 2 backlit shots are free."}},
+  {"@type":"Question","name":"How much does a maternity photoshoot cost?","acceptedAnswer":{"@type":"Answer","text":"₹4,999 per style, with 10 edited photos each. The Signature AI concept artwork is ₹5,000 with 5 images. Up to 2 backlit shots, and the flower ring and gold cage props, are free."}},
   {"@type":"Question","name":"Do you provide maternity gowns?","acceptedAnswer":{"@type":"Answer","text":"Yes. Our 2026 wardrobe has 26 gowns. Tell us your favourites when you book and we'll confirm availability."}},
   {"@type":"Question","name":"Can my husband and children join the shoot?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can be photographed alone or with your partner, children or parents."}},
   {"@type":"Question","name":"When will I get my photos?","acceptedAnswer":{"@type":"Answer","text":"Edited photos are delivered within 7 to 9 working days."}},
@@ -199,7 +199,7 @@
     <div class="bgrid">
       <div>
         <div class="styles" id="styles"></div>
-        <p class="free">Up to <b>2 backlit silhouette shots are free</b> with any style.</p>
+        <p class="free">Free with any style: <b>up to 2 backlit silhouette shots</b>, and our <b>flower ring</b> and <b>gold cage</b> props if you'd like them.</p>
         <h3 class="addh">Extras</h3>
         <div id="adds"></div>
       </div>
@@ -242,6 +242,7 @@
     <ul class="check">
       <li>Booked makeup? Arrive 2 hours before your slot so the artist has time.</li>
       <li>Arrive on time so we can cover every style you chose.</li>
+      <li>Want the flower ring or gold cage props? They're free, just ask.</li>
       <li>Outdoor shoots are at a nearby lake, 6–9 AM or 3–6 PM.</li>
       <li>Weekdays are quieter outdoors. Weekend evenings get crowded.</li>
       <li>Outdoor shoots depend on the weather.</li>
@@ -255,7 +256,7 @@
 
   <section class="faq"><div class="wrap">
     <h2 class="display">Questions mums ask</h2>
-    <details><summary>How much does a maternity photoshoot cost?</summary><p>₹4,999 per style, with 10 edited photos each. The Signature AI concept artwork is ₹5,000 with 5 images. Up to 2 backlit shots are free.</p></details>
+    <details><summary>How much does a maternity photoshoot cost?</summary><p>₹4,999 per style, with 10 edited photos each. The Signature AI concept artwork is ₹5,000 with 5 images. Up to 2 backlit shots, and the flower ring and gold cage props, are free.</p></details>
     <details><summary>Do you provide maternity gowns?</summary><p>Yes. Our 2026 wardrobe has 26 gowns. Tell us your favourites when you book and we'll confirm availability.</p></details>
     <details><summary>Can my husband and children join the shoot?</summary><p>Yes. You can be photographed alone or with your partner, children or parents.</p></details>
     <details><summary>When will I get my photos?</summary><p>Edited photos are delivered within 7 to 9 working days.</p></details>
@@ -302,6 +303,7 @@ var STYLES=[
   photos:["ai-1-1","ai-1-2","ai-1-3","ai-b-1","ai-b-2","ai-w-1","ai-w-2"]}
 ];
 var BACKLIT={name:"Backlit (free)",desc:"Up to 2 silhouette shots come free with any style.",photos:["backlit-single","backlit-a-1","backlit-a-2"]};
+var PROPS={name:"Free props",desc:"Our flower ring and gold cage are free to use in any style. Just ask.",photos:["studio-5","studio-4","boho-3"]};
 var ADDS=[
  {id:"makeup",name:"Makeup and hairstyle",price:3000,info:"By a professional artist. Arrive 2 hours early."},
  {id:"album",name:"Photo album",price:5000,info:"Holds up to 30 photos."},
@@ -331,7 +333,7 @@ var ADDS=[
     st.concat(ad).forEach(function(x){tot+=x.price;if(x.imgs)n+=x.imgs;var li=document.createElement('li');li.innerHTML='<span>'+x.name+'</span><span>'+(x.from?'from ':'')+rs(x.price)+'</span>';ul.appendChild(li);});
     if(!st.length&&!ad.length)ul.innerHTML='<li class="none">Tap a style to add it</li>';
     $('tot').textContent=rs(tot);
-    $('imgs').textContent=st.length?(n+' edited photos, plus up to 2 free backlit shots'):'Pick at least one style';
+    $('imgs').textContent=st.length?(n+' edited photos, plus up to 2 free backlit shots and free props'):'Pick at least one style';
     var msg="Hi Pixels Dream, I'd like to book a maternity shoot:\n"+
       (st.length?st.map(function(s){return "- "+s.name+" ("+rs(s.price)+")";}).join("\n"):"- Styles: not sure yet, please suggest")+
       (ad.length?"\nExtras:\n"+ad.map(function(a){return "- "+a.name+" ("+(a.from?"from ":"")+rs(a.price)+")";}).join("\n"):"")+
@@ -341,7 +343,7 @@ var ADDS=[
   bill();
 
   /* gallery */
-  var groups=STYLES.concat([BACKLIT]),cur=0,idx=0,tabs=$('tabs');
+  var groups=STYLES.concat([BACKLIT,PROPS]),cur=0,idx=0,tabs=$('tabs');
   groups.forEach(function(g,k){var b=document.createElement('button');b.type='button';b.className='tab';b.setAttribute('role','tab');b.textContent=g.name;b.onclick=function(){show(k);};tabs.appendChild(b);});
   function show(k){cur=k;var g=groups[k];
     tabs.querySelectorAll('.tab').forEach(function(t,j){t.setAttribute('aria-selected',j===k);});
