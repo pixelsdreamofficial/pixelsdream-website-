@@ -38,6 +38,26 @@
   .pk::-webkit-scrollbar{display:none}
   .pk article{flex:0 0 84vw;scroll-snap-align:start}
 }
+.jump{position:sticky;top:68px;z-index:5;background:var(--rose);padding:10px 0;margin:22px 0 6px}
+.jump .tab{display:inline-block}
+.moment{padding-top:34px;scroll-margin-top:130px}
+.moment h3{font-family:var(--serif);font-weight:400;font-size:clamp(26px,3.4vw,36px);color:var(--plum);line-height:1.1}
+.moment h3 small{font-family:var(--sans);font-size:15px;color:var(--muted);margin-left:8px}
+.moment .tabdesc{margin:6px 0 16px}
+.gal button{cursor:pointer}
+.films{padding:0 0 92px}
+.films .lede{color:var(--muted);margin:10px 0 26px}
+.film-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.film button,.film iframe{display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:14px;overflow:hidden;background:var(--plum);padding:0;position:relative}
+.film img{width:100%;height:100%;object-fit:cover}
+.film .play{position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:rgba(43,21,36,.82)}
+.film .play:after{content:"";position:absolute;left:26px;top:20px;border-left:18px solid #fff;border-top:12px solid transparent;border-bottom:12px solid transparent}
+.film figcaption{padding:10px 2px 0;line-height:1.35}
+.film figcaption b{display:block;font-weight:600;color:var(--plum)}
+.film figcaption span{font-size:15px;color:var(--muted)}
+.films .more{margin-top:22px}.films .more a{color:var(--plum);font-weight:600;border-bottom:1px solid var(--turmeric)}
+@media (max-width:900px){.film-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.film-grid{grid-template-columns:1fr}.jump{top:56px}}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
@@ -128,9 +148,19 @@
 
   <section class="gal-sec" id="gallery"><div class="wrap">
     <h2 class="display">Moments we cover</h2>
-    <div class="tabs" id="tabs" role="tablist" aria-label="Birthday moments"></div>
-    <p class="tabdesc" id="tabdesc"></p>
-    <div class="gal" id="gal"></div>
+    <nav class="tabs jump" id="tabs" aria-label="Jump to a moment"></nav>
+    <div id="moments"></div>
+  </div></section>
+
+  <section class="films" id="films"><div class="wrap">
+    <h2 class="display">Birthday films</h2>
+    <p class="lede">Candid videos from real birthday parties we've covered. Tap to play.</p>
+    <div class="film-grid">
+      <figure class="film" data-id="r0XenjKchrA"><button type="button" aria-label="Play Shivansh's first birthday film"><img src="https://i.ytimg.com/vi/r0XenjKchrA/hqdefault.jpg" alt="Shivansh's first birthday candid film" loading="lazy"><span class="play"></span></button><figcaption><b>Shivansh's first birthday</b><span>Sai Vishram, Electronic City</span></figcaption></figure>
+      <figure class="film" data-id="NLtNDCCnw7Y"><button type="button" aria-label="Play Vihaan's second birthday film"><img src="https://i.ytimg.com/vi/NLtNDCCnw7Y/hqdefault.jpg" alt="Vihaan's second birthday candid film" loading="lazy"><span class="play"></span></button><figcaption><b>Vihaan's second birthday</b><span>Radisson Blu, Bangalore</span></figcaption></figure>
+      <figure class="film" data-id="IMdnEuLz9CI"><button type="button" aria-label="Play Takshvi and Rudran's birthday film"><img src="https://i.ytimg.com/vi/IMdnEuLz9CI/hqdefault.jpg" alt="Takshvi and Rudran's birthday party candid film" loading="lazy"><span class="play"></span></button><figcaption><b>Takshvi &amp; Rudran's birthday</b><span>Birthday party, Bangalore</span></figcaption></figure>
+    </div>
+    <p class="more"><a href="https://www.youtube.com/@PixelsDream" target="_blank" rel="noopener">Watch more on our YouTube channel →</a></p>
   </div></section>
 
   <section class="faq"><div class="wrap">
@@ -166,10 +196,10 @@
 
 <script>
 var MOMENTS=[
- {name:"Stage and decor",desc:"The balloon arches, backdrops and themed stages, captured before the guests arrive.",photos:["decor-1","decor-2","decor-3","decor-4","decor-5"]},
- {name:"Cake cutting",desc:"The candles, the cheering and the cake in close-up.",photos:["cake-1","cake-2","cake-3","cake-4","cake-5","cake-6"]},
- {name:"Family portraits",desc:"Parents, grandparents and siblings with the birthday star.",photos:["family-1","family-2","family-3","family-4","family-5","family-6","family-7"]},
- {name:"Candid moments",desc:"Little expressions you'll want to keep forever.",photos:["candid-1","candid-2","candid-3","candid-4","candid-5"]},
+ {name:"Stage and decor",desc:"The balloon arches, backdrops and themed stages, captured before the guests arrive.",photos:["decor-6","decor-7","decor-1","decor-2","decor-3","decor-4","decor-5"]},
+ {name:"Cake cutting",desc:"The candles, the cheering and the cake in close-up.",photos:["cake-7","cake-1","cake-2","cake-3","cake-4","cake-5","cake-6"]},
+ {name:"Family portraits",desc:"Parents, grandparents and siblings with the birthday star.",photos:["family-8","family-9","family-10","family-11","family-1","family-2","family-3","family-4","family-5","family-6","family-7"]},
+ {name:"Candid moments",desc:"Little expressions you'll want to keep forever.",photos:["candid-6","candid-7","candid-8","candid-9","candid-1","candid-2","candid-3","candid-4","candid-5"]},
  {name:"Guests and party",desc:"Friends, games and the whole crowd celebrating.",photos:["party-1","party-2","party-3"]},
  {name:"Food and venue",desc:"The spread and the venue, for a complete story of the day.",photos:["food-1","food-2","food-3"]}
 ];
@@ -177,15 +207,18 @@ var MOMENTS=[
   var NUM="919035454533";function wa(m){return "https://wa.me/"+NUM+"?text="+encodeURIComponent(m);}
   function $(i){return document.getElementById(i);}
   function src(p){return "img/birthday/"+p+".jpg";}
-  var cur=0,idx=0,tabs=$('tabs');
-  MOMENTS.forEach(function(g,k){var b=document.createElement('button');b.type='button';b.className='tab';b.setAttribute('role','tab');b.textContent=g.name;b.onclick=function(){show(k);};tabs.appendChild(b);});
-  function show(k){cur=k;var g=MOMENTS[k];
-    tabs.querySelectorAll('.tab').forEach(function(t,j){t.setAttribute('aria-selected',j===k);});
-    $('tabdesc').textContent=g.desc;var gal=$('gal');gal.innerHTML='';
+  var cur=0,idx=0,tabs=$('tabs'),box=$('moments');
+  MOMENTS.forEach(function(g,k){
+    var id='m-'+g.name.toLowerCase().replace(/[^a-z]+/g,'-');
+    var a=document.createElement('a');a.className='tab';a.href='#'+id;a.textContent=g.name;tabs.appendChild(a);
+    var sec=document.createElement('div');sec.className='moment';sec.id=id;
+    sec.innerHTML='<h3>'+g.name+'<small>'+g.photos.length+' photos</small></h3><p class="tabdesc">'+g.desc+'</p>';
+    var gal=document.createElement('div');gal.className='gal';
     g.photos.forEach(function(p,i){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Open '+g.name+' photo '+(i+1));
       var im=document.createElement('img');im.src=src(p);im.alt='Birthday party '+g.name.toLowerCase()+' photo by Pixels Dream';im.loading='lazy';im.decoding='async';b.appendChild(im);
-      b.onclick=function(){idx=i;lbShow();lb.classList.add('open');document.body.style.overflow='hidden';};gal.appendChild(b);});
-  }
+      b.onclick=function(){cur=k;idx=i;lbShow();lb.classList.add('open');document.body.style.overflow='hidden';};gal.appendChild(b);});
+    sec.appendChild(gal);box.appendChild(sec);
+  });
   var lb=$('lb'),li=lb.querySelector('img'),c=lb.querySelector('.c');
   function lbShow(){var ps=MOMENTS[cur].photos;li.src=src(ps[idx]);li.alt=MOMENTS[cur].name+' photo';c.textContent=MOMENTS[cur].name+', '+(idx+1)+' of '+ps.length;}
   function close(){lb.classList.remove('open');document.body.style.overflow='';}
@@ -195,7 +228,7 @@ var MOMENTS=[
   document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')step(-1);if(e.key==='ArrowRight')step(1);});
   var sx=0;lb.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
   lb.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>45)step(dx<0?1:-1);});
-  show(0);
+  document.querySelectorAll('.film').forEach(function(f){f.querySelector('button').onclick=function(){var fr=document.createElement('iframe');fr.src='https://www.youtube-nocookie.com/embed/'+f.dataset.id+'?autoplay=1&rel=0';fr.title=f.querySelector('b').textContent;fr.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';fr.allowFullscreen=true;f.replaceChild(fr,this);};});
   document.querySelectorAll('.wa').forEach(function(a){if(a.dataset.msg)a.href=wa(a.dataset.msg);a.target='_blank';a.rel='noopener';});
 })();
 </script>
