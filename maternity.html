@@ -252,6 +252,12 @@ details[open] summary::after{transform:rotate(45deg)}
 .tier-tag.premium{color:var(--accent);border-color:var(--accent)}
 .cnt{position:absolute;left:8px;top:8px;font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:#fff;background:rgba(15,10,15,.45);padding:3px 7px;border-radius:3px;pointer-events:none}
 .gown-note{margin-top:20px;font-size:14px;color:var(--muted)}
+.gsel{width:100%;border:1px solid var(--accent);background:transparent;color:var(--accent);font:600 14px var(--body);padding:9px 10px;border-radius:999px;cursor:pointer}
+.gsel[aria-pressed=true]{background:var(--accent);color:#fff}
+.gown.on .shot{outline:3px solid var(--accent);outline-offset:2px}
+.gpick{position:sticky;bottom:84px;z-index:20;margin:22px auto 0;max-width:560px;display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--fg);color:#fff;border-radius:999px;padding:8px 8px 8px 20px;font-size:14.5px;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.gpick a{background:#fff;color:var(--fg);text-decoration:none;font-weight:600;padding:9px 16px;border-radius:999px;white-space:nowrap}
+.lines li.gl span:last-child{text-align:right;max-width:60%}
 
 /* OWNERSHIP */
 .own{display:grid;grid-template-columns:1fr;gap:18px;align-items:start;padding-block:28px;border-bottom:1px solid var(--line)}
@@ -343,7 +349,7 @@ details[open] summary::after{transform:rotate(45deg)}
   "offers":{"@type":"Offer","name":"Maternity style","price":"4999","priceCurrency":"INR","description":"Per style, with 10 edited photos"}},
  {"@type":"FAQPage","mainEntity":[
   {"@type":"Question","name":"How much does a maternity photoshoot cost?","acceptedAnswer":{"@type":"Answer","text":"₹4,999 per style, with 10 edited photos each. The Signature AI concept artwork is ₹5,000 with 5 images. Up to 2 backlit shots, and the flower ring and gold cage props, are free."}},
-  {"@type":"Question","name":"Do you provide maternity gowns?","acceptedAnswer":{"@type":"Answer","text":"Yes. Our 2026 wardrobe has 26 gowns. Tell us your favourites when you book and we'll confirm availability."}},
+  {"@type":"Question","name":"Do you provide maternity gowns?","acceptedAnswer":{"@type":"Answer","text":"Yes. Our 2026 wardrobe has 26 gowns. Select your favourites on this page and they are sent with your booking; we confirm availability on WhatsApp."}},
   {"@type":"Question","name":"Can my husband and children join the shoot?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can be photographed alone or with your partner, children or parents."}},
   {"@type":"Question","name":"When will I get my photos?","acceptedAnswer":{"@type":"Answer","text":"Edited photos are delivered within 7 to 9 working days."}},
   {"@type":"Question","name":"Where are outdoor maternity shoots done?","acceptedAnswer":{"@type":"Answer","text":"At a lake near our Electronic City studio, from 6 to 9 AM or 3 to 6 PM. Weekdays are quieter than weekend evenings, and outdoor shoots depend on the weather."}}]}
@@ -424,7 +430,7 @@ details[open] summary::after{transform:rotate(45deg)}
    </ul></div>
   </div>
   <ol class="steps">
-   <li><div><b>Look through the styles and gowns</b><span>Scroll down to see every style with real photos from our shoots, and our gown wardrobe.</span></div></li>
+   <li><div><b>Look through the styles and select your gowns</b><span>Scroll down to see every style with real photos from our shoots. In the gown wardrobe, tap "Select" on the gowns you like.</span></div></li>
    <li><div><b>Add the styles you like</b><span>Tap "Add this style" on each one you want. Choose one or as many as you like.</span></div></li>
    <li><div><b>Add extras if you need them</b><span>Makeup, album or frames. Your total updates as you go.</span></div></li>
    <li><div><b>Pick a date and time, then tap "Checkout on WhatsApp"</b><span>Your selection comes to us on WhatsApp. Nothing is charged on the website.</span></div></li>
@@ -445,10 +451,11 @@ details[open] summary::after{transform:rotate(45deg)}
   <header>
     <div class="eyebrow">Gown wardrobe 2026 · 26 gowns</div>
     <h2>Choose your gowns</h2>
-    <p>Choose your favourite gowns from our studio wardrobe and mention them at checkout. Each gown is shown on our own clients, photographed by our team. Tap a gown to see both photos and ask about it on WhatsApp.</p>
+    <p>Tap <b>Select</b> on the gowns you like. They are added to your booking summary and sent to us with your WhatsApp checkout. Each gown is shown on our own clients, photographed by our team. Tap a photo to see it larger.</p>
   </header>
   <div class="gown-grid" id="gownGrid"></div>
-  <p class="gown-note">Availability can change between bookings, so add your favourites in the checkout note and we'll confirm them.</p>
+  <div class="gpick" id="gpick" hidden><span id="gpickTxt"></span><a href="#packages">Continue to booking →</a></div>
+  <p class="gown-note">Availability can change between bookings, so we'll confirm your selected gowns on WhatsApp. Pick a few favourites in case one is booked.</p>
 </section>
 
 <section class="studio" id="studio">
@@ -499,7 +506,7 @@ details[open] summary::after{transform:rotate(45deg)}
       <label for="cName">Your name<input id="cName" autocomplete="name" placeholder="e.g. Priya"></label>
       <label for="cDate">Preferred shoot date<input id="cDate" type="date"></label>
       <div class="slotpick"><span class="sl">Preferred shoot time (2-hour slot)</span><div class="slots" id="cSlots"></div></div>
-      <label for="cNote">Anything else? (optional)<textarea id="cNote" rows="2" placeholder="Due date, favourite gowns, flower ring or gold cage props…"></textarea></label>
+      <label for="cNote">Anything else? (optional)<textarea id="cNote" rows="2" placeholder="Due date, flower ring or gold cage props…"></textarea></label>
       <a class="pbtn" id="cGo" href="#" aria-disabled="true">Checkout on WhatsApp</a>
       <p class="hint" id="cHint">Pick at least one style to check out.</p>
       <div class="quote">
@@ -599,7 +606,7 @@ const EXTRAS=[
  {id:"album",name:"Photo album",d:"Your own design · 12 sheets · up to 30 of your photos.",p:5000,ic:"▤"},
  {id:"frame",name:"Photo frame",d:"Framed print. Price from ₹1,000; larger sizes cost more.",p:1000,from:1,qty:1,ic:"▢"},
 ];
-const cart={styles:new Set(),extras:{makeup:0,album:0,frame:0}};
+const cart={styles:new Set(),extras:{makeup:0,album:0,frame:0},gowns:new Set()};
 const inr=n=>"₹"+n.toLocaleString("en-IN");
 const all=[];
 const shot=(id,label,gown,k=0,n=0)=>{const i=all.push({id,label,gown,k,n})-1;return `<button class="shot" type="button" data-i="${i}" aria-label="View ${label} photo"><img src="${IMG}${id}.jpg" alt="${label} maternity portrait" loading="lazy" decoding="async"><span class="wm">© Pixels Dream</span>${k===7&&n>8?`<span class="more">+${n-8}<small>more photos</small></span>`:""}</button>`};
@@ -611,7 +618,7 @@ document.getElementById("styles").innerHTML=STYLES.map((s,k)=>`
  ${s.extra?`<div class="wrap"><div class="extra">${s.extra}</div></div>`:""}
 </section>`).join("");
 document.getElementById("gownGrid").innerHTML=GOWNS.map(([id,n,t,c=2])=>{const i=all.push({id:`${id}_0`,label:n,gown:1,ph:c>1?"1 of 2":"1 photo"})-1;if(c>1)all.push({id:`${id}_1`,label:n,gown:1,ph:"2 of 2"});
- return `<figure class="gown"><button class="shot" type="button" data-i="${i}" aria-label="View ${n} gown photos"><img src="${IMG}${id}_0.jpg" alt="${n} maternity gown" loading="lazy" decoding="async"><span class="wm">© Pixels Dream</span>${c>1?'<span class="cnt">2 photos</span>':""}</button><figcaption><b>${n}</b>${t?`<span class="tier-tag ${t.toLowerCase()}">${t} gown</span>`:""}</figcaption></figure>`}).join("");
+ return `<figure class="gown" data-gfig="${n}"><button class="shot" type="button" data-i="${i}" aria-label="View ${n} gown photos"><img src="${IMG}${id}_0.jpg" alt="${n} maternity gown" loading="lazy" decoding="async"><span class="wm">© Pixels Dream</span>${c>1?'<span class="cnt">2 photos</span>':""}</button><figcaption><b>${n}</b>${t?`<span class="tier-tag ${t.toLowerCase()}">${t} gown</span>`:""}</figcaption><button class="gsel" type="button" data-gown="${n}" aria-pressed="false">+ Select</button></figure>`}).join("");
 document.querySelector('[data-set="studio"]').innerHTML=STUDIO.map((id,k)=>shot(id,"Studio",0,k,STUDIO.length)).join("");
 document.getElementById("chips").innerHTML=`<a class="chip" href="#how">How to book</a>`+STYLES.map(s=>`<a class="chip" href="#${s.id}">${s.name.replace(" Silhouettes","").replace("Signature Concept AI Artwork","AI Artwork")}</a>`).join("")+`<a class="chip" href="#gowns">Gowns</a><a class="chip" href="#studio">Studio</a><a class="chip pk" href="#packages">Build your shoot</a>`;
 document.getElementById("optStyles").innerHTML=STYLES.filter(st=>sp(st)>0).map(st=>`<button class="opt" type="button" data-style="${st.id}" aria-pressed="false"><img src="${IMG}${st.img[0]}.jpg" alt="" loading="lazy"><div><b>${st.name}</b><span class="d">${si(st)} edited images · ${st.tag}</span></div><div><div class="pr">${pl(sp(st))}</div><div class="tick">✓</div></div></button>`).join("");
@@ -635,7 +642,10 @@ function render(){
  document.querySelectorAll("[data-style]").forEach(el=>{const on=cart.styles.has(el.dataset.style);el.setAttribute("aria-pressed",on);if(el.classList.contains("addstyle")){const st=STYLES.find(x=>x.id===el.dataset.style);el.textContent=sp(st)?(on?`✓ Added · ${inr(sp(st))}`:`+ Add this style · ${inr(sp(st))}`):(on?"✓ Free backlit shots added":"+ Add free backlit shots")}});
  document.querySelectorAll("[data-extra]").forEach(el=>el.setAttribute("aria-pressed",cart.extras[el.dataset.extra]>0));
  document.getElementById("frameQty").textContent=cart.extras.frame;
- document.getElementById("lines").innerHTML=lines.length?lines.map(([n,v])=>`<li><span>${n}</span><span>${pl(v)}</span></li>`).join(""):'<li class="empty">Nothing added yet. Pick a style above.</li>';
+ const gw=[...cart.gowns];
+ document.querySelectorAll("[data-gown]").forEach(el=>{const on=cart.gowns.has(el.dataset.gown);el.setAttribute("aria-pressed",on);el.textContent=on?"✓ Selected":"+ Select";el.closest(".gown").classList.toggle("on",on)});
+ const gp=document.getElementById("gpick");gp.hidden=!gw.length;document.getElementById("gpickTxt").textContent=gw.length===1?"1 gown selected":`${gw.length} gowns selected`;
+ document.getElementById("lines").innerHTML=(lines.length?lines.map(([n,v])=>`<li><span>${n}</span><span>${pl(v)}</span></li>`).join(""):'<li class="empty">Nothing added yet. Pick a style above.</li>')+(gw.length?`<li class="gl"><span>Gowns (included)</span><span>${gw.join(", ")}</span></li>`:"");
  document.getElementById("total").textContent=inr(total);
  document.getElementById("barTotal").textContent=inr(total);
  document.getElementById("barCount").textContent=count===1?"1 item":`${count} items`;
@@ -644,22 +654,23 @@ function render(){
  go.setAttribute("aria-disabled",!ok);document.getElementById("cHint").hidden=ok;
  const name=document.getElementById("cName").value.trim(),date=document.getElementById("cDate").value,note=document.getElementById("cNote").value.trim();
  const msg=["Hi Pixels Dream! I'd like to book a maternity shoot."+(name?` My name is ${name}.`:""),"",
-  "My selection:",...lines.map(([n,v])=>`• ${n}: ${pl(v)}`),`Total: ${inr(total)}`+(cart.extras.frame?" (frame price from)":""),
+  "My selection:",...lines.map(([n,v])=>`• ${n}: ${pl(v)}`),`Total: ${inr(total)}`+(cart.extras.frame?" (frame price from)":""),gw.length?`\nGowns I like: ${gw.join(", ")}`:"",
   date?`\nPreferred date: ${new Date(date+"T00:00").toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"})}${shootSlot?", "+shootSlot:""}`:shootSlot?`Preferred time: ${shootSlot}`:"",
   note?`Note: ${note}`:""].filter((x,i)=>x!==""||i===1).join("\n");
  go.href=wa(msg);go.target="_blank";go.rel="noopener";
- const cm=["Hi Pixels Dream! I'm planning a maternity shoot and would like to discuss a final quotation / discount. Please call me."+(name?` My name is ${name}.`:""),...(lines.length?["\nWhat I'm looking at:",...lines.map(([n,v])=>`• ${n}: ${pl(v)}`),`Total so far: ${inr(total)}`]:[]),date?`\nPreferred date: ${new Date(date+"T00:00").toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"})}${shootSlot?", "+shootSlot:""}`:shootSlot?`Preferred time: ${shootSlot}`:"",note?`Note: ${note}`:""].concat([]).filter((x,i,a)=>x!==""||(i>0&&a[i-1]!=="")).join("\n");
+ const cm=["Hi Pixels Dream! I'm planning a maternity shoot and would like to discuss a final quotation / discount. Please call me."+(name?` My name is ${name}.`:""),...(lines.length?["\nWhat I'm looking at:",...lines.map(([n,v])=>`• ${n}: ${pl(v)}`),`Total so far: ${inr(total)}`]:[]),gw.length?`\nGowns I like: ${gw.join(", ")}`:"",date?`\nPreferred date: ${new Date(date+"T00:00").toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"})}${shootSlot?", "+shootSlot:""}`:shootSlot?`Preferred time: ${shootSlot}`:"",note?`Note: ${note}`:""].concat([]).filter((x,i,a)=>x!==""||(i>0&&a[i-1]!=="")).join("\n");
  const cc=document.getElementById("cCall");cc.href=wa(cm);cc.target="_blank";cc.rel="noopener";
- try{localStorage.setItem("pd-cart",JSON.stringify({s:[...cart.styles],e:cart.extras}))}catch(e){}
+ try{localStorage.setItem("pd-cart",JSON.stringify({s:[...cart.styles],e:cart.extras,g:[...cart.gowns]}))}catch(e){}
 }
 document.addEventListener("click",e=>{
+ const g=e.target.closest("[data-gown]");if(g){const n=g.dataset.gown;cart.gowns.has(n)?cart.gowns.delete(n):cart.gowns.add(n);render();return}
  const st=e.target.closest("[data-style]");if(st){const id=st.dataset.style;cart.styles.has(id)?cart.styles.delete(id):cart.styles.add(id);render();return}
  const q=e.target.closest("[data-q]");if(q){cart.extras.frame=Math.max(0,Math.min(10,cart.extras.frame+ +q.dataset.q));render();return}
  const ex=e.target.closest("button[data-extra]");if(ex){const id=ex.dataset.extra;cart.extras[id]=cart.extras[id]?0:1;render()}
 });
 ["cName","cDate","cNote"].forEach(id=>document.getElementById(id).addEventListener("input",render));
 document.getElementById("checkout").addEventListener("submit",e=>e.preventDefault());
-try{const sv=JSON.parse(localStorage.getItem("pd-cart")||"null");if(sv){sv.s.forEach(x=>STYLES.some(y=>y.id===x)&&cart.styles.add(x));Object.assign(cart.extras,sv.e||{})}}catch(e){}
+try{const sv=JSON.parse(localStorage.getItem("pd-cart")||"null");if(sv){sv.s.forEach(x=>STYLES.some(y=>y.id===x)&&cart.styles.add(x));Object.assign(cart.extras,sv.e||{});(sv.g||[]).forEach(x=>GOWNS.some(y=>y[1]===x)&&cart.gowns.add(x))}}catch(e){}
 try{document.getElementById("cDate").min=new Date().toISOString().slice(0,10)}catch(e){}
 renderSlots();
 render();
