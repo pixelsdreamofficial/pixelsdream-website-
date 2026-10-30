@@ -337,6 +337,16 @@ details[open] summary::after{transform:rotate(45deg)}
 .how .go .pbtn{background:var(--accent);color:#fff}
 .how .go .pbtn.alt{background:transparent;border-color:var(--line);color:var(--fg)}
 @media(min-width:860px){.how-in{grid-template-columns:1fr 1fr;padding:40px;column-gap:48px}.how-in>header,.how .eg,.how .go{grid-column:1/-1}.incl{grid-template-columns:1fr 1fr;align-content:start}.incl{grid-column:1}.steps{grid-column:2;grid-row:2}}
+.perks{margin:8px 0 26px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px}
+.perks h3{font-size:24px;margin-bottom:12px}
+.perks ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.perks li{display:flex;gap:12px;align-items:baseline;padding:10px 14px;border-radius:12px;background:var(--bg);transition:background .2s}
+.perks li b{min-width:68px;font-size:15px}
+.perks li span{color:var(--muted);font-size:15px}
+.perks li.on{background:#d9eedf}.perks li.on b:after{content:" ✓";color:#17663a}
+.perks .pnext{margin-top:12px;font-weight:600;color:var(--accent)}
+.perks .pnote{margin-top:8px;font-size:14px;color:var(--muted)}
+@media(min-width:760px){.perks ul{grid-template-columns:repeat(3,1fr)}.perks li{flex-direction:column;gap:2px}}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
@@ -427,6 +437,14 @@ details[open] summary::after{transform:rotate(45deg)}
     <li>Photo album, 12 sheets, up to 30 photos <em>₹5,000</em></li>
     <li>Photo frame <em>from ₹1,000</em></li>
    </ul></div>
+   <div class="yes"><h3>Offers for more styles</h3><ul>
+    <li>2 styles: photo frame free</li>
+    <li>3 styles: frame + reel video complimentary</li>
+    <li>4 styles: frame + reel + album free (12x24, up to 12 sheets)</li>
+   </ul></div>
+   <div class="add"><h3>Please note</h3><ul>
+    <li>Signature Concept AI Artwork (₹5,000, 5 images) is an add-on. Book it with at least one other style.</li>
+   </ul></div>
   </div>
   <ol class="steps">
    <li><div><b>Look through the styles and select your gowns</b><span>Scroll down to see every style with real photos from our shoots. In the gown wardrobe, tap "Select" on the gowns you like.</span></div></li>
@@ -436,7 +454,7 @@ details[open] summary::after{transform:rotate(45deg)}
    <li><div><b>Pay ₹2,000 advance to confirm your date</b><span>We'll reply on WhatsApp or call you to confirm your slot and final price, and share how to pay the ₹2,000 advance. Your date is booked once the advance is paid; it's adjusted in your total.</span></div></li>
   </ol>
   <div class="eg">
-   <span><b>Example:</b> 1 style = ₹4,999 · 2 styles + makeup = ₹12,998 · 3 styles + makeup + album = ₹22,997</span>
+   <span><b>Example:</b> 1 style = ₹4,999 · 2 styles + makeup = ₹12,998 with a free frame · 4 styles = ₹19,996 with a free frame, reel and album</span>
    <span>Want a discount or not sure what to pick? Call <a href="tel:+919035454533">+91 90354 54533</a> and we'll help you choose.</span>
   </div>
   <div class="go"><a class="pbtn" href="#packages">Start building your shoot</a><a class="pbtn alt" href="#styles">See the styles first</a></div>
@@ -491,6 +509,17 @@ details[open] summary::after{transform:rotate(45deg)}
   <div class="bgroup">
     <h3>2 · Add extras <small>optional</small></h3>
     <div class="opts" id="optExtras"></div>
+  </div>
+
+  <div class="perks">
+    <h3>Offers when you book more styles</h3>
+    <ul>
+      <li data-perk="2"><b>2 styles</b><span>Photo frame free</span></li>
+      <li data-perk="3"><b>3 styles</b><span>+ Reel video complimentary</span></li>
+      <li data-perk="4"><b>4 styles</b><span>+ Photo album free (12x24, up to 12 sheets)</span></li>
+    </ul>
+    <p class="pnext" id="perkNext" hidden></p>
+    <p class="pnote">Signature Concept AI Artwork is an add-on and must be booked with at least one other style.</p>
   </div>
 
   <div class="summary" id="summary">
@@ -584,7 +613,7 @@ const STYLES=[
   extra:`<p><b>Attire:</b> a soft silk saree (5–7 metres) works best. Lehengas and salwar kameez are welcome too.</p><p><b>Family:</b> spouses, parents, in-laws and older siblings can join the photographs.</p><p><b>Props:</b> diyas, flowers and other meaningful symbols, depending on your family's traditions.</p>`},
  {id:"boho",name:"Boho Bliss",tag:"Studio",d:"Natural textures, dried florals and soft window light for warm, intimate moments.",img:["boho-1","boho-2","boho-3","boho-4","boho-5","boho-6","boho-7","boho-8","boho-9","boho-10"]},
  {id:"outdoor",name:"Nature Glow",tag:"Outdoor · lakeside",d:"Soft natural light by the lake and in the garden, close to our studio.",img:["outdoor-solo-1","outdoor-solo-2","outdoor-solo-3","outdoor-1-1","outdoor-1-2","outdoor-1-3","outdoor-2-1","outdoor-2-2","outdoor-2-3"]},
- {id:"ai",name:"Signature Concept AI Artwork",tag:"Studio · signature",price:5000,imgs:5,d:"Sculptural butterfly wings and couture gowns, finished as one-of-a-kind artwork.",img:["ai-1-1","ai-1-2","ai-1-3","ai-b-1","ai-b-2","ai-w-1","ai-w-2"]},
+ {id:"ai",name:"Signature Concept AI Artwork",tag:"Studio · signature",price:5000,imgs:5,d:"Sculptural butterfly wings and couture gowns, finished as one-of-a-kind artwork. An add-on: book it with at least one other style.",img:["ai-1-1","ai-1-2","ai-1-3","ai-b-1","ai-b-2","ai-w-1","ai-w-2"]},
  {id:"backlit",name:"Backlit Silhouettes",tag:"Complimentary with every shoot",price:0,imgs:2,d:"Light from behind turns your profile into a graphic, artistic silhouette. Up to 2 backlit images are free with every shoot, if you'd like them. Our flower ring and gold cage props are free to use too.",img:["backlit-single","backlit-a-1","backlit-a-2"]},
 ];
 const GOWNS=[
@@ -625,7 +654,7 @@ document.getElementById("optExtras").innerHTML=STYLES.filter(st=>sp(st)===0).map
  `<div class="opt frame" data-extra="${x.id}" aria-pressed="false"><div class="ic" aria-hidden="true">${x.ic}</div><div><b>${x.name}</b><span class="d">${x.d}</span></div><div><div class="pr">${inr(x.p)}<small>from · each</small></div><div class="qty"><button type="button" data-q="-1" aria-label="Fewer frames">−</button><output id="frameQty">0</output><button type="button" data-q="1" aria-label="More frames">+</button></div></div></div>`:
  `<button class="opt" type="button" data-extra="${x.id}" aria-pressed="false"><div class="ic" aria-hidden="true">${x.ic}</div><div><b>${x.name}</b><span class="d">${x.d}</span></div><div><div class="pr">${inr(x.p)}</div><div class="tick">✓</div></div></button>`).join("");
 const styleName=id=>STYLES.find(x=>x.id===id).name;
-const ok0=()=>[...cart.styles].some(id=>sp(STYLES.find(x=>x.id===id))>0);
+const ok0=()=>[...cart.styles].some(id=>id!=="ai"&&sp(STYLES.find(x=>x.id===id))>0);
 const SLOTS=["8 – 10 AM","10 AM – 12 PM","12 – 2 PM","2 – 4 PM","4 – 6 PM","6 – 8 PM"],END=[10,12,14,16,18,20];
 let shootSlot="";
 const isToday=()=>{const v=document.getElementById("cDate").value;return v&&v===new Date().toISOString().slice(0,10)};
@@ -637,7 +666,17 @@ document.getElementById("cDate").addEventListener("change",()=>{renderSlots();re
 function render(){
  const lines=[];let total=0,count=0;
  STYLES.forEach(st=>{if(cart.styles.has(st.id)){lines.push([sp(st)?`${st.name} style (${si(st)} edited images)`:`Backlit shots (up to ${si(st)} images)`,sp(st)]);total+=sp(st);count++}});
- EXTRAS.forEach(x=>{const q=cart.extras[x.id];if(q){const amt=x.p*q;lines.push([x.qty?`${x.name} × ${q}${x.from?" (from)":""}`:x.name,amt]);total+=amt;count+=q}});
+ const nS=[...cart.styles].filter(id=>sp(STYLES.find(x=>x.id===id))>0).length,freeFrame=nS>=2,freeReel=nS>=3,freeAlbum=nS>=4;
+ EXTRAS.forEach(x=>{const q=cart.extras[x.id];if(q){let amt=x.p*q,lab=x.qty?`${x.name} × ${q}${x.from?" (from)":""}`:x.name;
+  if(x.id==="album"&&freeAlbum){amt=0;lab="Photo album 12x24, up to 12 sheets (free with 4 styles)"}
+  if(x.id==="frame"&&freeFrame){amt=x.p*(q-1);lab=`${x.name} × ${q} (1 free with 2+ styles)${q>1&&x.from?" (from)":""}`}
+  lines.push([lab,amt]);total+=amt;count+=q}});
+ if(freeFrame&&!cart.extras.frame)lines.push(["Photo frame (free with 2+ styles)",0]);
+ if(freeReel)lines.push(["Reel video (complimentary with 3+ styles)",0]);
+ if(freeAlbum&&!cart.extras.album)lines.push(["Photo album 12x24, up to 12 sheets (free with 4 styles)",0]);
+ const nxt=nS===0?"":nS===1?"Add 1 more style to get a free photo frame.":nS===2?"Add 1 more style to also get a complimentary reel.":nS===3?"Add 1 more style to also get a free 12x24 album.":"You've unlocked every offer: free frame, reel and album.";
+ document.getElementById("perkNext").textContent=nxt;document.getElementById("perkNext").hidden=!nxt;
+ document.querySelectorAll("[data-perk]").forEach(el=>el.classList.toggle("on",nS>=+el.dataset.perk));
  document.querySelectorAll("[data-style]").forEach(el=>{const on=cart.styles.has(el.dataset.style);el.setAttribute("aria-pressed",on);if(el.classList.contains("addstyle")){const st=STYLES.find(x=>x.id===el.dataset.style);el.textContent=sp(st)?(on?`✓ Added · ${inr(sp(st))}`:`+ Add this style · ${inr(sp(st))}`):(on?"✓ Free backlit shots added":"+ Add free backlit shots")}});
  document.querySelectorAll("[data-extra]").forEach(el=>el.setAttribute("aria-pressed",cart.extras[el.dataset.extra]>0));
  document.getElementById("frameQty").textContent=cart.extras.frame;
@@ -649,8 +688,9 @@ function render(){
  document.getElementById("barTotal").textContent=inr(total);
  document.getElementById("barCount").textContent=count===1?"1 item":`${count} items`;
  document.getElementById("barGo").textContent=ok0()?"Checkout":"Build your shoot";
- const ok=[...cart.styles].some(id=>sp(STYLES.find(x=>x.id===id))>0),go=document.getElementById("cGo");
- go.setAttribute("aria-disabled",!ok);document.getElementById("cHint").hidden=ok;
+ const ok=ok0(),go=document.getElementById("cGo");
+ go.setAttribute("aria-disabled",!ok);const ch=document.getElementById("cHint");ch.hidden=ok;
+ ch.textContent=cart.styles.has("ai")?"AI Artwork is an add-on. Please pick at least one more style with it.":"Pick at least one style to check out.";
  const name=document.getElementById("cName").value.trim(),date=document.getElementById("cDate").value,note=document.getElementById("cNote").value.trim();
  const msg=["Hi Pixels Dream! I'd like to book a maternity shoot."+(name?` My name is ${name}.`:""),"",
   "My selection:",...lines.map(([n,v])=>`• ${n}: ${pl(v)}`),`Total: ${inr(total)}`+(cart.extras.frame?" (frame price from)":""),gw.length?`\nGowns I like: ${gw.join(", ")}`:"",
