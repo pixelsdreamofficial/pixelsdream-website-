@@ -102,7 +102,6 @@ p{margin:0}
 .strip{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:4px 20px 10px;max-width:1180px;margin:0 auto}
 @media(min-width:760px){.strip{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}}
 .shot{width:100%;aspect-ratio:3/4;padding:0;border:0;background:var(--sunk);cursor:pointer;overflow:hidden;position:relative;display:block}
-.strip .shot:nth-child(n+9){display:none}
 .more{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:2px;background:rgba(15,10,15,.42);color:#fff;font-family:var(--display);font-size:34px;line-height:1;pointer-events:none}
 .more small{font-family:var(--body);font-size:13px;letter-spacing:.02em}
 .shot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
@@ -609,7 +608,7 @@ const EXTRAS=[
 const cart={styles:new Set(),extras:{makeup:0,album:0,frame:0},gowns:new Set()};
 const inr=n=>"₹"+n.toLocaleString("en-IN");
 const all=[];
-const shot=(id,label,gown,k=0,n=0)=>{const i=all.push({id,label,gown,k,n})-1;return `<button class="shot" type="button" data-i="${i}" aria-label="View ${label} photo"><img src="${IMG}${id}.jpg" alt="${label} maternity portrait" loading="lazy" decoding="async"><span class="wm">© Pixels Dream</span>${k===7&&n>8?`<span class="more">+${n-8}<small>more photos</small></span>`:""}</button>`};
+const shot=(id,label,gown,k=0,n=0)=>{const i=all.push({id,label,gown,k,n})-1;return `<button class="shot" type="button" data-i="${i}" aria-label="View ${label} photo"><img src="${IMG}${id}.jpg" alt="${label} maternity portrait" loading="lazy" decoding="async"><span class="wm">© Pixels Dream</span></button>`};
 document.getElementById("styles").innerHTML=STYLES.map((s,k)=>`
 <section class="style" id="${s.id}">
  <div class="wrap"><header><div class="n">${s.tag} · ${s.img.length} photos</div><h2>${s.name}</h2><p>${s.d}</p><button class="addstyle" type="button" data-style="${s.id}" aria-pressed="false">${sp(s)?`+ Add this style · ${inr(sp(s))}`:"+ Add free backlit shots"}</button><span class="incl">${sp(s)?`Includes ${si(s)} edited images`:`Up to ${si(s)} images · complimentary`}</span></header></div>
