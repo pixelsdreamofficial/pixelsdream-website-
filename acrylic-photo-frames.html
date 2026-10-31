@@ -74,10 +74,31 @@
 .vtabs{display:flex;gap:6px;margin-bottom:10px;background:rgba(255,255,255,.08);padding:4px;border-radius:999px;width:max-content}
 .vtabs button{all:unset;cursor:pointer;padding:8px 16px;border-radius:999px;font-size:14.5px;font-weight:600;color:#e6cfdc}
 .vtabs button[aria-pressed=true]{background:var(--rose);color:var(--plum)}
+.ghosts{position:absolute;inset:0;z-index:2;pointer-events:none}
+.gh{all:unset;position:absolute;box-sizing:border-box;border:1.5px dashed rgba(43,21,36,.45);border-radius:2px;pointer-events:auto;cursor:pointer;transition:border-color .2s}
+.gh:hover{border-color:var(--plum);background:rgba(255,255,255,.18)}
+.gh span{position:absolute;left:3px;bottom:2px;font:700 10.5px var(--sans);color:var(--plum);background:rgba(255,255,255,.8);padding:0 4px;border-radius:3px;white-space:nowrap}
+.gh.on{border-color:transparent;background:none}
+.gh.on span{bottom:calc(100% + 3px);left:50%;transform:translateX(-50%);background:var(--plum);color:#fff;font-size:11.5px;padding:1px 7px}
+.gh.in{border-color:rgba(255,255,255,.85)}
+.gh.in span{background:rgba(43,21,36,.7);color:#fff}
+.like{margin:-6px 0 14px;font-size:15px;color:#e6cfdc;text-align:center}
+.like b{color:#fff}
+.cmpv{position:relative;border-radius:20px;background:radial-gradient(120% 90% at 50% 10%,#fbf7f4,#ece2db);margin-bottom:16px;padding:44px 10px 8px}
+.cmpin{position:relative;width:100%}
+.cfloor{position:absolute;left:2%;right:2%;height:1px;background:rgba(43,21,36,.18)}
+.cf{all:unset;position:absolute;cursor:pointer;box-sizing:border-box;border-radius:2px;overflow:hidden;box-shadow:1px 1px 0 #cfe3dd,2px 2px 0 #bcd6cf,0 10px 14px -8px rgba(40,20,20,.45);opacity:.72;transition:opacity .2s,box-shadow .2s}
+.cf img{width:100%;height:100%;object-fit:cover;display:block}
+.cf:hover{opacity:1}
+.cf.on{opacity:1;box-shadow:0 0 0 3px var(--turmeric),1px 1px 0 6px rgba(200,164,107,.25),0 14px 18px -8px rgba(40,20,20,.5)}
+.cl{position:absolute;transform:translateX(-50%);text-align:center;font-size:12px;line-height:1.25;color:var(--muted);white-space:nowrap}
+.cl b{display:block;font-size:13px;color:var(--plum)}
+.cl.on b{background:var(--plum);color:#fff;border-radius:999px;padding:0 7px}
+.cmpv .v3hint{left:50%;transform:translateX(-50%);white-space:nowrap}
 /* ---------- room scene (to scale: 120 × 80 inches) ---------- */
 .room{position:relative;aspect-ratio:3/2;border-radius:20px;overflow:hidden;margin-bottom:16px;background:#efe6df}
 .roombg{position:absolute;inset:0;width:100%;height:100%}
-.room .acr{position:absolute;aspect-ratio:auto;max-height:none;transition:left .35s ease,top .35s ease,width .35s ease,height .35s ease}
+.room .acr{z-index:1;position:absolute;aspect-ratio:auto;max-height:none;transition:left .35s ease,top .35s ease,width .35s ease,height .35s ease}
 .room .acr .ph{border-radius:1px}
 .room .stud{width:auto;height:auto;min-width:4px;aspect-ratio:1}
 .room .acr .stud{width:7%;max-width:9px}
@@ -102,7 +123,7 @@
 .ord{background:var(--plum);color:#fff;padding:80px 0 90px}
 .ord h2{font-size:clamp(36px,6vw,60px)}
 .ord .lede{color:#e6cfdc}
-.ord-grid{display:grid;grid-template-columns:1.25fr .95fr;gap:36px;margin-top:40px;align-items:start}
+.ord-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:36px;margin-top:40px;align-items:start}
 .step{background:var(--plum2);border-radius:20px;padding:24px 22px;margin-bottom:16px}
 .step h3{font-family:var(--sans);font-weight:600;font-size:18px;display:flex;align-items:center;gap:12px;margin-bottom:6px}
 .step h3 i{font-style:normal;flex:none;width:30px;height:30px;border-radius:50%;background:var(--turmeric);color:var(--plum);display:grid;place-items:center;font-size:15px;font-weight:700}
@@ -294,9 +315,10 @@
       </div>
 
       <aside class="sum">
-        <div class="vtabs" role="group" aria-label="Preview type"><button type="button" data-view="wall" aria-pressed="true">On the wall</button><button type="button" data-view="360" aria-pressed="false">360° view</button></div>
+        <div class="vtabs" role="group" aria-label="Preview type"><button type="button" data-view="cmp" aria-pressed="true">Compare sizes</button><button type="button" data-view="wall" aria-pressed="false">On the wall</button><button type="button" data-view="360" aria-pressed="false">360° view</button></div>
         <div class="wall v3pane" id="pane3d" hidden><div class="v3" id="b3d"></div><span class="v3hint">⟲ Drag to rotate 360°</span><span class="tagsz" id="tag3d"></span></div>
-        <div class="room" id="roomPane" aria-label="Preview of your frame on a wall, to scale">
+        <div class="cmpv" id="cmpPane"><div class="cmpin" id="cmpIn"></div><span class="v3hint">Shown to the same scale · tap to choose</span></div>
+        <div class="room" id="roomPane" hidden aria-label="Preview of your frame on a wall, to scale">
           <svg class="roombg" viewBox="0 0 120 80" preserveAspectRatio="none" aria-hidden="true">
             <defs><linearGradient id="wl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7f2ee"/><stop offset="1" stop-color="#ece3dc"/></linearGradient>
             <radialGradient id="glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff6d8" stop-opacity=".9"/><stop offset="1" stop-color="#fff6d8" stop-opacity="0"/></radialGradient></defs>
@@ -327,6 +349,7 @@
           <span class="scale">Person 5′4″ for scale</span>
           <span class="tagsz" id="tag">8 × 12 in · 3mm</span>
         </div>
+        <p class="like" id="like"></p>
         <div class="bill">
           <h3>Your order</h3>
           <ul id="lines"></ul>
@@ -406,10 +429,10 @@
     "5":{"8x12":1440,"12x18":2100,"16x24":3800,"24x36":6000}
   };
   var SIZES=[
-    {id:"8x12",w:8,h:12,label:"8 × 12",best:"Desk, shelf or bedside"},
-    {id:"12x18",w:12,h:18,label:"12 × 18",best:"Bedroom or hallway wall",tag:"Recommended"},
-    {id:"16x24",w:16,h:24,label:"16 × 24",best:"Living room wall"},
-    {id:"24x36",w:24,h:36,label:"24 × 36",best:"Statement wall, above a sofa"}
+    {id:"8x12",w:8,h:12,label:"8 × 12",best:"Desk, shelf or bedside",like:"About the size of an A4 sheet of paper"},
+    {id:"12x18",w:12,h:18,label:"12 × 18",best:"Bedroom or hallway wall",tag:"Recommended",like:"A little bigger than an A3 sheet"},
+    {id:"16x24",w:16,h:24,label:"16 × 24",best:"Living room wall",like:"About half the width of a door"},
+    {id:"24x36",w:24,h:36,label:"24 × 36",best:"Statement wall, above a sofa",like:"Close to a movie poster"}
   ];
   var S={t:"3",s:"12x18",o:"p",q:1,d:"pickup",photo:false,fname:""};
   function PV(){return $("pv").getAttribute("src");}
@@ -450,6 +473,14 @@
     var z=SIZES.filter(function(x){return x.id===S.s;})[0],unit=PRICES[S.t][S.s],total=unit*S.q;
     var acr=$("acr");acr.classList.toggle("land",S.o==="l");acr.classList.toggle("thick",S.t==="5");
     var fw=S.o==="l"?z.h:z.w,fh=S.o==="l"?z.w:z.h,cx=40,top=Math.max(4,74-57-fh/2);
+    (function(){var list=SIZES.filter(function(g){return PRICES[S.t][g.id];}),gap=4,tw=0,mh=0;
+      list.forEach(function(g){var w=S.o==="l"?g.h:g.w,h=S.o==="l"?g.w:g.h;tw+=w;mh=Math.max(mh,h);});
+      var W=tw+gap*(list.length+1),H=mh+16,x=gap,base=mh+4;
+      $("cmpIn").style.aspectRatio=W+"/"+H;
+      $("cmpIn").innerHTML='<div class="cfloor" style="top:'+(base/H*100)+'%"></div>'+list.map(function(g){var w=S.o==="l"?g.h:g.w,h=S.o==="l"?g.w:g.h,on=g.id===S.s;
+        var html='<button type="button" class="cf'+(on?' on':'')+'" data-s="'+g.id+'" aria-label="Choose '+g.label+' inches" style="left:'+(x/W*100)+'%;top:'+((base-h)/H*100)+'%;width:'+(w/W*100)+'%;height:'+(h/H*100)+'%"><img src="'+PV()+'" alt=""></button><span class="cl'+(on?' on':'')+'" style="left:'+((x+w/2)/W*100)+'%;top:'+((base+1.2)/H*100)+'%"><b>'+g.label+'</b>'+inr(PRICES[S.t][g.id])+'</span>';
+        x+=w+gap;return html;}).join("");})();
+    $("like").innerHTML="<b>"+z.label+" in</b> · "+z.like;
     acr.style.left=((cx-fw/2)/120*100)+"%";acr.style.top=(top/80*100)+"%";acr.style.width=(fw/120*100)+"%";acr.style.height=(fh/80*100)+"%";
     document.querySelectorAll(".thumbs img").forEach(function(i){i.src=PV();});
     if(typeof sync3d==="function")sync3d();
@@ -522,7 +553,7 @@
     b3d.set({src:PV(),land:S.o==="l",thick:S.t==="5"});$("tag3d").textContent=(S.o==="l"?z.h+" × "+z.w:z.w+" × "+z.h)+" in · "+S.t+"mm";}
   document.querySelectorAll("[data-view]").forEach(function(b){b.addEventListener("click",function(){var v=b.dataset.view;
     document.querySelectorAll("[data-view]").forEach(function(x){x.setAttribute("aria-pressed",x===b);});
-    $("roomPane").hidden=v!=="wall";$("pane3d").hidden=v!=="360";
+    $("roomPane").hidden=v!=="wall";$("pane3d").hidden=v!=="360";$("cmpPane").hidden=v!=="cmp";
     if(v==="360"){if(!b3d)b3d=V3($("b3d"),{});sync3d();}});});
   document.querySelectorAll(".wa").forEach(function(a){if(a.dataset.msg)a.href=wa(a.dataset.msg);a.target="_blank";a.rel="noopener";});
 })();
