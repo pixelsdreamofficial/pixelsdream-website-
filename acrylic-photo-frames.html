@@ -49,6 +49,7 @@
 .ideas .acr{transform:rotateY(-16deg) rotateX(3deg)}
 @media (prefers-reduced-motion:reduce){.tilt.idle{animation:none}}
 
+[hidden]{display:none!important}
 /* ---------- 360 view ---------- */
 .v3wall,.v3pane{position:relative;overflow:hidden}
 .v3pane{aspect-ratio:3/2;margin-bottom:16px}
@@ -523,8 +524,9 @@
     if(url)URL.revokeObjectURL(url);url=URL.createObjectURL(f);
     var im=new Image();im.onload=function(){S.o=im.naturalWidth>im.naturalHeight?"l":"p";renderSizes();render();};im.src=url;
     $("pv").src=url;S.photo=true;$("fname").textContent=f.name.length>28?f.name.slice(0,25)+"…":f.name;$("clr").hidden=false;render();
+    show360(url);
   });
-  $("clr").onclick=function(){if(url)URL.revokeObjectURL(url);url=null;$("pv").src="img/family/red-2.jpg";$("file").value="";S.photo=false;$("fname").textContent="No photo chosen yet";this.hidden=true;render();};
+  $("clr").onclick=function(){if(url)URL.revokeObjectURL(url);url=null;$("pv").src="img/family/red-2.jpg";$("file").value="";if(window.__h3)window.__h3.set({src:"img/family-cover-red.jpg"});S.photo=false;$("fname").textContent="No photo chosen yet";this.hidden=true;render();};
 
   try{var sv=JSON.parse(localStorage.getItem("pd-acr")||"null");if(sv){S.t=sv.t||S.t;S.s=sv.s||S.s;S.o=sv.o||S.o;S.q=sv.q||1;S.d=sv.d||S.d;}}catch(e){}
   renderSizes();render();
@@ -544,11 +546,16 @@
     el.addEventListener("pointerup",up);el.addEventListener("pointercancel",up);
     if("IntersectionObserver" in window)new IntersectionObserver(function(en){vis=en[0].isIntersecting;}).observe(el);
     window.addEventListener("resize",size);
-    var api={set:function(o){for(var k in o)st[k]=o[k];if(o.src)img.src=o.src;size();apply();return api;},spin:function(a){st.ry=a;apply();}};
+    var api={set:function(o){for(var k in o)st[k]=o[k];if(o.src)img.src=o.src;size();apply();return api;},spin:function(a){st.ry=a;apply();},front:function(){st.ry=-24;st.rx=-6;last=Date.now()+1500;apply();}};
     api.set(o);tick();return api;
   }
-  var hero3d=V3($("hero3d"),{src:"img/family-cover-red.jpg",thick:true});
+  var hero3d=V3($("hero3d"),{src:"img/family-cover-red.jpg",thick:true});window.__h3=hero3d;
   var b3d=null;
+  function show360(src){
+    var b=document.querySelector('[data-view="360"]');if(b)b.click();
+    if(b3d)b3d.front();hero3d.set({src:src||PV()}).front();
+    var pane=$("pane3d");if(pane&&pane.getBoundingClientRect().top>window.innerHeight)pane.scrollIntoView({behavior:"smooth",block:"center"});
+  }
   function sync3d(){if(!b3d||$("pane3d").hidden)return;var z=SIZES.filter(function(x){return x.id===S.s;})[0];
     b3d.set({src:PV(),land:S.o==="l",thick:S.t==="5"});$("tag3d").textContent=(S.o==="l"?z.h+" × "+z.w:z.w+" × "+z.h)+" in · "+S.t+"mm";}
   document.querySelectorAll("[data-view]").forEach(function(b){b.addEventListener("click",function(){var v=b.dataset.view;
