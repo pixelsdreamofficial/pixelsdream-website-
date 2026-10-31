@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Acrylic Photo Frames in Bangalore | From ₹1,100 | Pixels Dream</title>
+<meta name="description" content="Order premium acrylic photo frames in Bangalore. 3mm and 5mm crystal-clear acrylic, 8×12 to 24×36 inches, wall studs included. Prices from ₹1,100. Studio pickup in Electronic City or courier.">
+<link rel="canonical" href="https://www.pixelsdream.in/acrylic-photo-frames.html">
+<meta property="og:title" content="Acrylic Photo Frames | Pixels Dream, Bangalore">
+<meta property="og:description" content="Crystal-clear acrylic frames from ₹1,100. Choose size, upload your photo and order on WhatsApp.">
+<meta property="og:image" content="https://www.pixelsdream.in/img/family-cover-red.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="page.css">
+<style>
+/* ---------- acrylic mock-up ---------- */
+.wall{position:relative;border-radius:22px;background:radial-gradient(120% 90% at 50% 20%,#fbf7f4 0%,#efe6e0 60%,#e5d9d2 100%);display:grid;place-items:center;overflow:hidden}
+.wall:after{content:"";position:absolute;left:0;right:0;bottom:0;height:18%;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(60,40,30,.06))}
+.acr{position:relative;aspect-ratio:2/3;width:56%;max-height:86%;transition:aspect-ratio .35s ease,width .35s ease;z-index:1}
+.acr.land{aspect-ratio:3/2;width:78%}
+.acr .ph{position:absolute;inset:0;border-radius:3px;overflow:hidden;background:#ddd;box-shadow:0 2px 0 rgba(255,255,255,.7),0 26px 38px -18px rgba(40,20,20,.55),0 8px 14px -8px rgba(40,20,20,.35)}
+.acr .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.acr .ph:after{content:"";position:absolute;inset:0;background:linear-gradient(118deg,rgba(255,255,255,.42) 0%,rgba(255,255,255,.08) 28%,rgba(255,255,255,0) 40%,rgba(255,255,255,0) 72%,rgba(255,255,255,.12) 100%);pointer-events:none}
+.acr .ph:before{content:"";position:absolute;inset:0;border-radius:3px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.55),inset 0 0 0 3px rgba(255,255,255,.12);z-index:1;pointer-events:none}
+.acr.thick .ph{box-shadow:0 2px 0 rgba(255,255,255,.8),5px 6px 0 -1px rgba(255,255,255,.55),0 30px 44px -18px rgba(40,20,20,.6),0 10px 16px -8px rgba(40,20,20,.38)}
+.stud{position:absolute;width:5.5%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff 0%,#e9e9e9 22%,#a9a9a9 60%,#7a7a7a 100%);box-shadow:0 2px 4px rgba(0,0,0,.35);z-index:2;min-width:9px}
+.land .stud{width:3.8%}
+.s1{left:4%;top:3%}.s2{right:4%;top:3%}.s3{left:4%;bottom:3%}.s4{right:4%;bottom:3%}
+.land .s1,.land .s3{left:3%}.land .s2,.land .s4{right:3%}.land .s1,.land .s2{top:4.5%}.land .s3,.land .s4{bottom:4.5%}
+.tagsz{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:2;background:rgba(43,21,36,.86);color:#fff;font-size:13px;font-weight:600;padding:5px 12px;border-radius:999px;white-space:nowrap}
+
+/* ---------- hero ---------- */
+.fhero{padding:26px 0 56px}
+.fhero-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:48px;align-items:center}
+.fhero h1{font-family:var(--serif);font-weight:400;font-size:clamp(42px,6.2vw,80px);line-height:1;color:var(--plum);letter-spacing:-.015em}
+.fhero p{font-size:19px;color:var(--muted);margin:18px 0 26px;max-width:30em}
+.fhero .btns{display:flex;flex-wrap:wrap;gap:12px}
+.fhero .btn-ghost{color:var(--plum)}
+.fhero .wall{aspect-ratio:4/4.2}
+.perks3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:30px}
+.perks3 div{border-left:3px solid var(--turmeric);padding-left:12px}
+.perks3 b{display:block;font-family:var(--serif);font-weight:400;font-size:24px;color:var(--plum);line-height:1.15}
+.perks3 span{font-size:14.5px;color:var(--muted)}
+
+/* ---------- builder ---------- */
+.ord{background:var(--plum);color:#fff;padding:80px 0 90px}
+.ord h2{font-size:clamp(36px,6vw,60px)}
+.ord .lede{color:#e6cfdc}
+.ord-grid{display:grid;grid-template-columns:1.25fr .95fr;gap:36px;margin-top:40px;align-items:start}
+.step{background:var(--plum2);border-radius:20px;padding:24px 22px;margin-bottom:16px}
+.step h3{font-family:var(--sans);font-weight:600;font-size:18px;display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.step h3 i{font-style:normal;flex:none;width:30px;height:30px;border-radius:50%;background:var(--turmeric);color:var(--plum);display:grid;place-items:center;font-size:15px;font-weight:700}
+.step .sub{font-size:15px;color:#d9bfcf;margin:0 0 16px 42px}
+.choice{display:grid;gap:10px}
+.choice.c2{grid-template-columns:1fr 1fr}
+.opt{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:3px;border-radius:14px;padding:14px 16px;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.14);transition:box-shadow .15s,background .15s;position:relative}
+.opt:hover{background:rgba(255,255,255,.1)}
+.opt:focus-visible{outline:2px solid var(--turmeric);outline-offset:2px}
+.opt[aria-pressed=true]{background:rgba(200,164,107,.16);box-shadow:inset 0 0 0 2px var(--turmeric)}
+.opt[aria-pressed=true]:after{content:"✓";position:absolute;right:12px;top:10px;width:22px;height:22px;border-radius:50%;background:var(--turmeric);color:var(--plum);display:grid;place-items:center;font-size:13px;font-weight:700}
+.opt b{font-size:17px;font-weight:600}
+.opt span{font-size:14px;color:#d9bfcf;line-height:1.4}
+.opt .pr{font-family:var(--serif);font-size:26px;color:var(--turmeric);line-height:1.1;margin-top:4px}
+.sizes{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.sizes .opt{padding-right:40px}
+.mini{display:flex;align-items:flex-end;gap:6px;height:34px;margin-bottom:6px}
+.mini em{display:block;border:1.5px solid rgba(255,255,255,.35);border-radius:2px}
+.opt[aria-pressed=true] .mini em.on{background:var(--turmeric);border-color:var(--turmeric)}
+.up{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.up label.btn{cursor:pointer;background:var(--turmeric);color:var(--plum)}
+.up input{position:absolute;width:1px;height:1px;opacity:0}
+.up .fn{font-size:14.5px;color:#e6cfdc}
+.up .clr{all:unset;cursor:pointer;font-size:14px;color:#e6cfdc;text-decoration:underline}
+.qty{display:inline-flex;align-items:center;gap:0;border-radius:999px;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.25);overflow:hidden}
+.qty button{all:unset;cursor:pointer;width:48px;height:46px;display:grid;place-items:center;font-size:22px}
+.qty button:hover{background:rgba(255,255,255,.08)}
+.qty output{min-width:44px;text-align:center;font-weight:600;font-size:18px}
+.fld{display:grid;gap:6px;margin-top:12px;font-size:14.5px;color:#e6cfdc}
+.fld input,.fld textarea{font:inherit;font-size:16px;color:var(--ink);background:#fff;border:0;border-radius:12px;padding:12px 14px;width:100%}
+.fld textarea{resize:vertical;min-height:72px}
+.tip{margin-top:14px;font-size:14px;color:#d9bfcf;background:rgba(255,255,255,.05);border-left:3px solid var(--turmeric);padding:10px 12px;border-radius:0 10px 10px 0}
+.tip b{color:#fff}
+
+.sum{position:sticky;top:88px}
+.sum .wall{aspect-ratio:1/1;margin-bottom:16px}
+.bill{background:var(--rose);color:var(--ink);border-radius:20px;padding:22px}
+.bill h3{font-family:var(--serif);font-weight:400;font-size:28px}
+.bill ul{list-style:none;margin:12px 0;border-top:2px dashed var(--rose2)}
+.bill li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:2px dashed var(--rose2);font-size:15.5px}
+.bill li span:last-child{text-align:right;font-weight:600;white-space:nowrap}
+.bill .tot{display:flex;justify-content:space-between;align-items:baseline;margin-top:6px}
+.bill .tot b{font-family:var(--serif);font-weight:400;font-size:42px;color:var(--plum);line-height:1}
+.bill small{display:block;font-size:13.5px;color:var(--muted);margin-top:8px;line-height:1.5}
+.bill .btn{width:100%;margin-top:16px}
+.bill .btn[aria-disabled=true]{opacity:.5;pointer-events:none}
+.bill .hint{font-size:13.5px;color:#a3412f;margin-top:8px;text-align:center}
+
+/* ---------- info sections ---------- */
+.how3{padding:80px 0 30px}
+.how3 ol{list-style:none;counter-reset:s;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:32px;padding:0}
+.how3 li{counter-increment:s;background:#fff;border-radius:18px;padding:22px 20px;box-shadow:0 1px 0 var(--rose2)}
+.how3 li:before{content:counter(s);display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--plum);color:#fff;font-family:var(--serif);font-size:20px;margin-bottom:12px}
+.how3 b{display:block;font-size:17px;margin-bottom:4px}
+.how3 span{color:var(--muted);font-size:15px}
+.cmp{padding:50px 0 30px}
+.cmp table{width:100%;border-collapse:separate;border-spacing:0;margin-top:26px;background:#fff;border-radius:18px;overflow:hidden;font-size:16px}
+.cmp th,.cmp td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--rose2)}
+.cmp thead th{background:var(--plum);color:#fff;font-weight:600}
+.cmp tbody tr:last-child td{border-bottom:0}
+.cmp td.p{font-weight:600;color:var(--plum)}
+.cmp .na{color:var(--muted);font-weight:400}
+.ideas{padding:50px 0 70px}
+.ideas-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
+.ideas figure{margin:0}
+.ideas .wall{aspect-ratio:3/3.6}
+.ideas .acr{width:62%}
+.ideas figcaption{margin-top:8px;font-weight:600;color:var(--plum)}
+.ideas figcaption span{display:block;font-weight:400;font-size:14.5px;color:var(--muted)}
+
+@media (max-width:980px){
+  .fhero-grid,.ord-grid{grid-template-columns:1fr}
+  .sum{position:static}
+  .how3 ol{grid-template-columns:1fr 1fr}
+  .ideas-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:600px){
+  .fhero{padding-bottom:40px}
+  .fhero .wall{aspect-ratio:1/1}
+  .perks3 b{font-size:20px}
+  .ord{padding:60px 0 120px}
+  .step{padding:20px 16px}
+  .step .sub{margin-left:0}
+  .how3 ol{grid-template-columns:1fr}
+  .cmp table{font-size:14.5px}.cmp th,.cmp td{padding:11px 10px}
+  .sum{order:-1}
+  .sum .wall{aspect-ratio:4/3.4}
+}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"LocalBusiness","@id":"https://www.pixelsdream.in/#business","name":"Pixels Dream Photography","url":"https://www.pixelsdream.in/","telephone":"+91-9035454533","image":"https://www.pixelsdream.in/img/home-hero.jpg","priceRange":"₹₹",
+  "address":{"@type":"PostalAddress","addressLocality":"Electronic City Phase 2, Bengaluru","addressRegion":"Karnataka","postalCode":"560100","addressCountry":"IN"}},
+ {"@type":"Product","name":"Acrylic photo frame","brand":{"@type":"Brand","name":"Pixels Dream"},"description":"Crystal-clear 3mm or 5mm acrylic photo frame with steel wall studs.","image":"https://www.pixelsdream.in/img/family-cover-red.jpg",
+  "offers":{"@type":"AggregateOffer","priceCurrency":"INR","lowPrice":"1100","highPrice":"6000","offerCount":"7","seller":{"@id":"https://www.pixelsdream.in/#business"}}}
+]}
+</script>
+</head>
+<body>
+
+<header class="hdr"><div class="wrap">
+  <a href="index.html" class="logo">Pixels Dream<small>Photography, Electronic City</small></a>
+  <nav class="nav" id="nav">
+    <a href="index.html">Home</a><a href="maternity.html">Maternity</a><a href="newborn.html">Newborn</a><a href="baby.html">Baby shoots</a><a href="family.html">Family</a><a href="events.html">Events</a><a href="acrylic-photo-frames.html" aria-current="page">Frames</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+  </nav>
+  <a class="btn btn-wa wa" data-msg="Hi Pixels Dream, I'd like to order an acrylic photo frame." href="https://wa.me/919035454533">WhatsApp us</a>
+  <button class="menu-btn" aria-expanded="false" aria-controls="nav" onclick="var n=document.getElementById('nav');n.classList.toggle('open');this.setAttribute('aria-expanded',n.classList.contains('open'))">Menu</button>
+</div></header>
+
+<main>
+  <div class="wrap">
+    <p class="crumbs"><a href="index.html">Home</a> / Acrylic photo frames</p>
+    <section class="fhero">
+      <div class="fhero-grid">
+        <div>
+          <h1>Acrylic photo frames</h1>
+          <p>Your favourite photo, printed behind crystal-clear acrylic and ready to hang with steel studs. Choose a size, preview your own photo and order on WhatsApp in a minute.</p>
+          <div class="btns">
+            <a class="btn btn-wa" href="#order">Order your frame</a>
+            <a class="btn btn-ghost" href="#prices">See all prices</a>
+          </div>
+          <div class="perks3">
+            <div><b>From ₹1,100</b><span>Wall studs included</span></div>
+            <div><b>3mm &amp; 5mm</b><span>Crystal-clear acrylic</span></div>
+            <div><b>Pickup or courier</b><span>Electronic City studio</span></div>
+          </div>
+        </div>
+        <div class="wall" aria-hidden="true">
+          <div class="acr thick" id="heroAcr"><div class="ph"><img src="img/family-cover-red.jpg" alt=""></div><span class="stud s1"></span><span class="stud s2"></span><span class="stud s3"></span><span class="stud s4"></span></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="ord bld" id="order"><div class="wrap">
+    <h2 class="display">Build your frame</h2>
+    <p class="lede">Pick your options and see the price instantly. Nothing is charged on the website. Your order comes to us on WhatsApp and we confirm everything with you.</p>
+
+    <div class="ord-grid">
+      <div class="steps">
+        <div class="step">
+          <h3><i>1</i>Your photo</h3>
+          <p class="sub">Choose a photo to preview it in the frame. It stays on your phone; you'll send it to us on WhatsApp after ordering.</p>
+          <div class="up">
+            <label class="btn" for="file">Choose photo</label>
+            <input type="file" id="file" accept="image/*">
+            <span class="fn" id="fname">No photo chosen yet</span>
+            <button class="clr" type="button" id="clr" hidden>Remove</button>
+          </div>
+          <p class="tip">Did we shoot your photos? Just mention the photo number or name in the note, no upload needed.</p>
+        </div>
+
+        <div class="step">
+          <h3><i>2</i>Acrylic thickness</h3>
+          <p class="sub">Both are crystal clear. 5mm is thicker, heavier and gives a deeper glass look.</p>
+          <div class="choice c2" id="thick"></div>
+        </div>
+
+        <div class="step">
+          <h3><i>3</i>Size</h3>
+          <p class="sub">All sizes are in inches. Price includes the wall-fixing studs.</p>
+          <div class="sizes" id="sizes"></div>
+        </div>
+
+        <div class="step">
+          <h3><i>4</i>Orientation &amp; quantity</h3>
+          <div class="choice c2" id="orient"></div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:16px;flex-wrap:wrap">
+            <span style="color:#e6cfdc">How many frames of this photo?</span>
+            <div class="qty"><button type="button" id="qm" aria-label="Fewer">−</button><output id="qn">1</output><button type="button" id="qp" aria-label="More">+</button></div>
+          </div>
+        </div>
+
+        <div class="step">
+          <h3><i>5</i>Delivery</h3>
+          <div class="choice c2" id="deliv"></div>
+          <div id="addrBox" hidden>
+            <label class="fld">Delivery address with PIN code<textarea id="addr" placeholder="House no, street, area, city, PIN code"></textarea></label>
+          </div>
+          <label class="fld">Your name<input id="nm" autocomplete="name" placeholder="e.g. Priya"></label>
+          <label class="fld">Note (optional)<input id="note" placeholder="Photo number, occasion, needed by date…"></label>
+        </div>
+      </div>
+
+      <aside class="sum">
+        <div class="wall" aria-label="Preview of your frame">
+          <div class="acr" id="acr"><div class="ph"><img id="pv" src="img/family/red-2.jpg" alt="Frame preview"></div><span class="stud s1"></span><span class="stud s2"></span><span class="stud s3"></span><span class="stud s4"></span></div>
+          <span class="tagsz" id="tag">8 × 12 in · 3mm</span>
+        </div>
+        <div class="bill">
+          <h3>Your order</h3>
+          <ul id="lines"></ul>
+          <div class="tot"><span>Total</span><b id="tot">₹0</b></div>
+          <small id="dnote"></small>
+          <a class="btn btn-wa" id="go" href="#" target="_blank" rel="noopener">Place order on WhatsApp</a>
+          <p class="hint" id="hint" hidden></p>
+          <small>After you tap the button, WhatsApp opens with your order filled in. Send it, then attach your photo in the same chat. <b>Tip:</b> send the photo as a <b>Document</b> so WhatsApp doesn't reduce its quality.</small>
+        </div>
+      </aside>
+    </div>
+  </div></section>
+
+  <section class="how3"><div class="wrap">
+    <h2 class="display">How ordering works</h2>
+    <ol>
+      <li><b>Build your frame</b><span>Choose thickness, size, quantity and delivery above.</span></li>
+      <li><b>Send on WhatsApp</b><span>Tap "Place order" and send the message that opens.</span></li>
+      <li><b>Share your photo</b><span>Attach your photo in the same chat, ideally as a Document for full quality.</span></li>
+      <li><b>We confirm &amp; print</b><span>We confirm the total, delivery charges and ready date, then print your frame.</span></li>
+    </ol>
+  </div></section>
+
+  <section class="cmp" id="prices"><div class="wrap">
+    <h2 class="display">Prices</h2>
+    <p class="lede">All prices include wall-fixing studs. Courier charges are extra, based on your location.</p>
+    <table>
+      <thead><tr><th>Size (inches)</th><th>3mm acrylic</th><th>5mm acrylic</th><th>Best for</th></tr></thead>
+      <tbody id="ptab"></tbody>
+    </table>
+    <p style="margin-top:14px;color:var(--muted);font-size:15px">Need an extra set of studs? ₹200 per set.</p>
+  </div></section>
+
+  <section class="ideas"><div class="wrap">
+    <h2 class="display">Made for your memories</h2>
+    <div class="ideas-grid" id="ideas"></div>
+  </div></section>
+
+  <section class="faq"><div class="wrap">
+    <h2 class="display">Questions</h2>
+    <details><summary>What is the difference between 3mm and 5mm?</summary><p>Both are crystal-clear acrylic. 5mm is thicker and heavier, with a deeper, more premium glass look, especially on larger sizes. 3mm is lighter and great for smaller frames.</p></details>
+    <details><summary>Are the wall studs included?</summary><p>Yes. Every frame price includes a set of steel studs to fix it on the wall. An extra set costs ₹200.</p></details>
+    <details><summary>How do I send my photo?</summary><p>After you place the order, attach your photo in the same WhatsApp chat. Send it as a Document, not as a normal photo, so WhatsApp doesn't compress it. If we shot your photos, just tell us the photo number.</p></details>
+    <details><summary>Can I collect the frame from your studio?</summary><p>Yes. Pickup from our studio in Electronic City Phase 2 is free. We can also courier it to you; charges depend on your location and we confirm them on WhatsApp.</p></details>
+    <details><summary>Will my photo fit the frame?</summary><p>All our sizes have the same shape (2:3), which matches most camera and phone photos. If your photo needs cropping, we'll check it and confirm with you before printing.</p></details>
+  </div></section>
+
+  <section class="final"><div class="wrap">
+    <h2 class="display">A photo worth hanging?</h2>
+    <p>Build your frame above, or message us and we'll help you choose the right size.</p>
+    <div class="btns">
+      <a class="btn btn-tur" href="#order">Order your frame</a>
+      <a class="btn btn-ghost wa" data-msg="Hi Pixels Dream, I need help choosing an acrylic frame size." href="https://wa.me/919035454533">Help me choose</a>
+    </div>
+  </div></section>
+</main>
+
+<footer class="ftr"><div class="wrap">
+  <div><h3>Pixels Dream Photography</h3><p>Electronic City Phase 2, Bengaluru 560100</p><p>Open every day, 9 AM to 8 PM</p><a href="tel:+919035454533">+91 90354 54533</a><a href="#" data-callback>Request a call back</a></div>
+  <div><h3>Shoots</h3><a href="maternity.html">Maternity</a><a href="newborn.html">Newborn</a><a href="baby.html">Baby shoots</a><a href="family.html">Family</a><a href="events.html">Events</a><a href="acrylic-photo-frames.html">Acrylic frames</a></div>
+  <div><h3>Follow</h3><a href="https://www.instagram.com/pixelsdreams.in/" target="_blank" rel="noopener">Instagram @pixelsdreams.in</a><a href="https://www.instagram.com/pixelsdream_kids/" target="_blank" rel="noopener">Instagram @pixelsdream_kids</a><a href="privacy.html">Privacy policy</a></div>
+  <p class="copy">© 2026 Pixels Dream Photography, Bangalore</p>
+</div></footer>
+
+<a class="float-wa wa" aria-label="Chat on WhatsApp" data-msg="Hi Pixels Dream, I'd like to order an acrylic photo frame." href="https://wa.me/919035454533"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg></a>
+<div class="bar"><a class="btn btn-ghost" href="tel:+919035454533">Call</a><a class="btn btn-wa" href="#order" id="barGo">Order a frame</a></div>
+
+<script>
+(function(){
+  var NUM="919035454533";
+  function wa(m){return "https://wa.me/"+NUM+"?text="+encodeURIComponent(m);}
+  function $(i){return document.getElementById(i);}
+  function inr(n){return "₹"+n.toLocaleString("en-IN");}
+
+  var PRICES={
+    "3":{"8x12":1100,"12x18":1700,"16x24":2900},
+    "5":{"8x12":1440,"12x18":3800,"16x24":3800,"24x36":6000}
+  };
+  var SIZES=[
+    {id:"8x12",w:8,h:12,label:"8 × 12",best:"Desk, shelf or bedside"},
+    {id:"12x18",w:12,h:18,label:"12 × 18",best:"Bedroom or hallway wall"},
+    {id:"16x24",w:16,h:24,label:"16 × 24",best:"Living room wall"},
+    {id:"24x36",w:24,h:36,label:"24 × 36",best:"Statement wall, above a sofa"}
+  ];
+  var S={t:"3",s:"8x12",o:"p",q:1,d:"pickup",photo:false,fname:""};
+
+  // thickness
+  $("thick").innerHTML=[["3","3mm Classic","Light and crystal clear. Great for most homes."],["5","5mm Premium","Thicker, deeper glass look. Available up to 24 × 36."]]
+    .map(function(x){return '<button class="opt" type="button" data-t="'+x[0]+'"><b>'+x[1]+'</b><span>'+x[2]+'</span><span class="pr" data-from="'+x[0]+'"></span></button>';}).join("");
+  // orientation
+  $("orient").innerHTML='<button class="opt" type="button" data-o="p"><b>Portrait</b><span>Tall, for people</span></button><button class="opt" type="button" data-o="l"><b>Landscape</b><span>Wide, for groups</span></button>';
+  // delivery
+  $("deliv").innerHTML='<button class="opt" type="button" data-d="pickup"><b>Studio pickup</b><span>Free · Electronic City Phase 2</span></button><button class="opt" type="button" data-d="courier"><b>Courier</b><span>Charges extra, based on location</span></button>';
+  // price table
+  $("ptab").innerHTML=SIZES.map(function(z){var a=PRICES["3"][z.id],b=PRICES["5"][z.id];
+    return '<tr><td><b>'+z.label+'</b></td><td class="p">'+(a?inr(a):'<span class="na">Not available</span>')+'</td><td class="p">'+(b?inr(b):'<span class="na">—</span>')+'</td><td>'+z.best+'</td></tr>';}).join("");
+  // ideas
+  var IDEAS=[["img/maternity/vogue-1-1.jpg","Maternity","Your bump story"],["img/newborn-moon.jpg","Newborn","Those first days"],["img/family/red-2.jpg","Family","Everyone together"],["img/baby-swing.jpg","Kids","Every milestone"]];
+  $("ideas").innerHTML=IDEAS.map(function(x){return '<figure><div class="wall"><div class="acr"><div class="ph"><img src="'+x[0]+'" alt="'+x[1]+' photo in an acrylic frame" loading="lazy"></div><span class="stud s1"></span><span class="stud s2"></span><span class="stud s3"></span><span class="stud s4"></span></div></div><figcaption>'+x[1]+'<span>'+x[2]+'</span></figcaption></figure>';}).join("");
+
+  function miniBars(sel){return '<div class="mini">'+SIZES.map(function(z){var k=z.w/24;return '<em class="'+(z.id===sel?'on':'')+'" style="width:'+Math.round(8+k*14)+'px;height:'+Math.round(12+k*21)+'px"></em>';}).join("")+'</div>';}
+
+  function renderSizes(){
+    var P=PRICES[S.t];
+    if(!P[S.s])S.s="16x24";
+    $("sizes").innerHTML=SIZES.filter(function(z){return P[z.id];}).map(function(z){
+      return '<button class="opt" type="button" data-s="'+z.id+'">'+miniBars(z.id)+'<b>'+z.label+' in</b><span>'+z.best+'</span><span class="pr">'+inr(P[z.id])+'</span></button>';}).join("");
+  }
+
+  function render(){
+    document.querySelectorAll("[data-t]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.t===S.t);});
+    document.querySelectorAll("[data-from]").forEach(function(e){var v=Object.values(PRICES[e.dataset.from]);e.textContent="from "+inr(Math.min.apply(null,v));});
+    document.querySelectorAll("[data-s]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.s===S.s);});
+    document.querySelectorAll("[data-o]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.o===S.o);});
+    document.querySelectorAll("[data-d]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.d===S.d);});
+    $("qn").textContent=S.q;
+    $("addrBox").hidden=S.d!=="courier";
+    var z=SIZES.filter(function(x){return x.id===S.s;})[0],unit=PRICES[S.t][S.s],total=unit*S.q;
+    var acr=$("acr");acr.classList.toggle("land",S.o==="l");acr.classList.toggle("thick",S.t==="5");
+    var dim=S.o==="l"?(z.h+" × "+z.w):(z.w+" × "+z.h);
+    $("tag").textContent=dim+" in · "+S.t+"mm";
+    var lines=[[S.t+"mm acrylic, "+dim+" in"+(S.o==="l"?" (landscape)":" (portrait)"),inr(unit)],["Quantity","× "+S.q],["Wall studs","Included"],[S.d==="pickup"?"Studio pickup":"Courier",S.d==="pickup"?"Free":"Extra"]];
+    $("lines").innerHTML=lines.map(function(l){return '<li><span>'+l[0]+'</span><span>'+l[1]+'</span></li>';}).join("");
+    $("tot").textContent=inr(total);
+    $("dnote").textContent=S.d==="courier"?"Courier charges are added after we check your PIN code. We confirm the final amount on WhatsApp.":"Collect from our Electronic City studio. We'll tell you when it's ready.";
+    var addr=$("addr").value.trim(),nm=$("nm").value.trim(),note=$("note").value.trim();
+    var need=S.d==="courier"&&!addr;
+    var go=$("go");go.setAttribute("aria-disabled",need);$("hint").hidden=!need;$("hint").textContent="Please add your delivery address for courier.";
+    var msg=["Hi Pixels Dream! I'd like to order an acrylic photo frame."+(nm?" My name is "+nm+".":""),"",
+      "• Acrylic: "+S.t+"mm",
+      "• Size: "+dim+" inches ("+(S.o==="l"?"landscape":"portrait")+")",
+      "• Quantity: "+S.q,
+      "• Price: "+inr(unit)+(S.q>1?" × "+S.q:"")+" = "+inr(total)+" (studs included)",
+      "• Delivery: "+(S.d==="pickup"?"Studio pickup":"Courier (please share charges)"),
+      S.d==="courier"&&addr?"• Address: "+addr:"",
+      note?"• Note: "+note:"",
+      "",S.photo?"I'll send my photo in this chat now.":"I'll share my photo in this chat."].filter(function(x,i,a){return x!==""||(a[i-1]!==""&&i>0);}).join("\n");
+    go.href=wa(msg);
+    try{localStorage.setItem("pd-acr",JSON.stringify({t:S.t,s:S.s,o:S.o,q:S.q,d:S.d}));}catch(e){}
+  }
+
+  document.addEventListener("click",function(e){
+    var b;
+    if(b=e.target.closest("[data-t]")){S.t=b.dataset.t;renderSizes();render();return;}
+    if(b=e.target.closest("[data-s]")){S.s=b.dataset.s;render();return;}
+    if(b=e.target.closest("[data-o]")){S.o=b.dataset.o;render();return;}
+    if(b=e.target.closest("[data-d]")){S.d=b.dataset.d;render();return;}
+  });
+  $("qm").onclick=function(){S.q=Math.max(1,S.q-1);render();};
+  $("qp").onclick=function(){S.q=Math.min(20,S.q+1);render();};
+  ["addr","nm","note"].forEach(function(i){$(i).addEventListener("input",render);});
+
+  var url=null;
+  $("file").addEventListener("change",function(){
+    var f=this.files&&this.files[0];if(!f)return;
+    if(url)URL.revokeObjectURL(url);url=URL.createObjectURL(f);
+    var im=new Image();im.onload=function(){S.o=im.naturalWidth>im.naturalHeight?"l":"p";render();};im.src=url;
+    $("pv").src=url;S.photo=true;$("fname").textContent=f.name.length>28?f.name.slice(0,25)+"…":f.name;$("clr").hidden=false;render();
+  });
+  $("clr").onclick=function(){if(url)URL.revokeObjectURL(url);url=null;$("pv").src="img/family/red-2.jpg";$("file").value="";S.photo=false;$("fname").textContent="No photo chosen yet";this.hidden=true;render();};
+
+  try{var sv=JSON.parse(localStorage.getItem("pd-acr")||"null");if(sv){S.t=sv.t||S.t;S.s=sv.s||S.s;S.o=sv.o||S.o;S.q=sv.q||1;S.d=sv.d||S.d;}}catch(e){}
+  renderSizes();render();
+  document.querySelectorAll(".wa").forEach(function(a){if(a.dataset.msg)a.href=wa(a.dataset.msg);a.target="_blank";a.rel="noopener";});
+})();
+</script>
+<script src="lead.js" defer></script>
+</body>
+</html>
