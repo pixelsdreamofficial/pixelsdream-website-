@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Acrylic Photo Frames in Bangalore | From ₹1,100 | Pixels Dream</title>
-<meta name="description" content="Order premium acrylic photo frames in Bangalore. 3mm and 5mm crystal-clear acrylic, 8×12 to 24×36 inches, wall studs included. Prices from ₹1,100. Studio pickup in Electronic City or courier.">
+<meta name="description" content="Order premium acrylic photo frames in Bangalore. 3mm and 5mm crystal-clear acrylic, 8×12 to 24×36 inches, wall studs included. Prices from ₹1,100. Studio pickup in Electronic City, Porter delivery in Bangalore or courier.">
 <link rel="canonical" href="https://www.pixelsdream.in/acrylic-photo-frames.html">
 <meta property="og:title" content="Acrylic Photo Frames | Pixels Dream, Bangalore">
 <meta property="og:description" content="Crystal-clear acrylic frames from ₹1,100. Choose size, upload your photo and order on WhatsApp.">
@@ -188,7 +188,7 @@
           <div class="perks3">
             <div><b>From ₹1,100</b><span>Wall studs included</span></div>
             <div><b>3mm &amp; 5mm</b><span>Crystal-clear acrylic</span></div>
-            <div><b>Pickup or courier</b><span>Electronic City studio</span></div>
+            <div><b>Pickup or delivery</b><span>Porter or courier, extra</span></div>
           </div>
         </div>
         <div class="wall" aria-hidden="true">
@@ -239,7 +239,7 @@
 
         <div class="step">
           <h3><i>5</i>Delivery</h3>
-          <div class="choice c2" id="deliv"></div>
+          <div class="choice" id="deliv"></div>
           <div id="addrBox" hidden>
             <label class="fld">Delivery address with PIN code<textarea id="addr" placeholder="House no, street, area, city, PIN code"></textarea></label>
           </div>
@@ -305,7 +305,7 @@
 
   <section class="cmp" id="prices"><div class="wrap">
     <h2 class="display">Prices</h2>
-    <p class="lede">All prices include wall-fixing studs. Courier charges are extra, based on your location.</p>
+    <p class="lede">All prices include wall-fixing studs. Courier and Porter delivery charges are extra, based on your location.</p>
     <table>
       <thead><tr><th>Size (inches)</th><th>3mm acrylic</th><th>5mm acrylic</th><th>Best for</th></tr></thead>
       <tbody id="ptab"></tbody>
@@ -323,7 +323,7 @@
     <details><summary>What is the difference between 3mm and 5mm?</summary><p>Both are crystal-clear acrylic. 5mm is thicker and heavier, with a deeper, more premium glass look, especially on larger sizes. 3mm is lighter and great for smaller frames.</p></details>
     <details><summary>Are the wall studs included?</summary><p>Yes. Every frame price includes a set of steel studs to fix it on the wall. An extra set costs ₹200.</p></details>
     <details><summary>How do I send my photo?</summary><p>After you place the order, attach your photo in the same WhatsApp chat. Send it as a Document, not as a normal photo, so WhatsApp doesn't compress it. If we shot your photos, just tell us the photo number.</p></details>
-    <details><summary>Can I collect the frame from your studio?</summary><p>Yes. Pickup from our studio in Electronic City Phase 2 is free. We can also courier it to you; charges depend on your location and we confirm them on WhatsApp.</p></details>
+    <details><summary>Can I collect the frame from your studio? What about delivery?</summary><p>Pickup from our studio in Electronic City Phase 2 is free. Within Bangalore we can send it by Porter, and outside Bangalore by courier. Porter and courier charges are extra, based on your location, and we confirm them on WhatsApp before dispatch.</p></details>
     <details><summary>Will my photo fit the frame?</summary><p>All our sizes have the same shape (2:3), which matches most camera and phone photos. If your photo needs cropping, we'll check it and confirm with you before printing.</p></details>
   </div></section>
 
@@ -373,7 +373,7 @@
   // orientation
   $("orient").innerHTML='<button class="opt" type="button" data-o="p"><b>Portrait</b><span>Tall, for people</span></button><button class="opt" type="button" data-o="l"><b>Landscape</b><span>Wide, for groups</span></button>';
   // delivery
-  $("deliv").innerHTML='<button class="opt" type="button" data-d="pickup"><b>Studio pickup</b><span>Free · Electronic City Phase 2</span></button><button class="opt" type="button" data-d="courier"><b>Courier</b><span>Charges extra, based on location</span></button>';
+  $("deliv").innerHTML='<button class="opt" type="button" data-d="pickup"><b>Studio pickup</b><span>Free · Electronic City Phase 2</span></button><button class="opt" type="button" data-d="porter"><b>Porter delivery</b><span>Within Bangalore · charges extra</span></button><button class="opt" type="button" data-d="courier"><b>Courier</b><span>Outside Bangalore · charges extra, based on location</span></button>';
   // price table
   $("ptab").innerHTML=SIZES.map(function(z){var a=PRICES["3"][z.id],b=PRICES["5"][z.id];
     return '<tr><td><b>'+z.label+'</b></td><td class="p">'+(a?inr(a):'<span class="na">Not available</span>')+'</td><td class="p">'+(b?inr(b):'<span class="na">—</span>')+'</td><td>'+z.best+'</td></tr>';}).join("");
@@ -399,7 +399,7 @@
     document.querySelectorAll("[data-o]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.o===S.o);});
     document.querySelectorAll("[data-d]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.d===S.d);});
     $("qn").textContent=S.q;
-    $("addrBox").hidden=S.d!=="courier";
+    $("addrBox").hidden=S.d==="pickup";
     var z=SIZES.filter(function(x){return x.id===S.s;})[0],unit=PRICES[S.t][S.s],total=unit*S.q;
     var acr=$("acr");acr.classList.toggle("land",S.o==="l");acr.classList.toggle("thick",S.t==="5");
     var fw=S.o==="l"?z.h:z.w,fh=S.o==="l"?z.w:z.h,cx=40,top=Math.max(4,74-57-fh/2);
@@ -407,20 +407,20 @@
     document.querySelectorAll(".thumbs img").forEach(function(i){i.src=PV();});
     var dim=S.o==="l"?(z.h+" × "+z.w):(z.w+" × "+z.h);
     $("tag").textContent=dim+" in · "+S.t+"mm";
-    var lines=[[S.t+"mm acrylic, "+dim+" in"+(S.o==="l"?" (landscape)":" (portrait)"),inr(unit)],["Quantity","× "+S.q],["Wall studs","Included"],[S.d==="pickup"?"Studio pickup":"Courier",S.d==="pickup"?"Free":"Extra"]];
+    var lines=[[S.t+"mm acrylic, "+dim+" in"+(S.o==="l"?" (landscape)":" (portrait)"),inr(unit)],["Quantity","× "+S.q],["Wall studs","Included"],[S.d==="pickup"?"Studio pickup":S.d==="porter"?"Porter delivery":"Courier",S.d==="pickup"?"Free":"Extra"]];
     $("lines").innerHTML=lines.map(function(l){return '<li><span>'+l[0]+'</span><span>'+l[1]+'</span></li>';}).join("");
     $("tot").textContent=inr(total);
-    $("dnote").textContent=S.d==="courier"?"Courier charges are added after we check your PIN code. We confirm the final amount on WhatsApp.":"Collect from our Electronic City studio. We'll tell you when it's ready.";
+    $("dnote").textContent=S.d!=="pickup"?(S.d==="porter"?"Porter":"Courier")+" charges are extra and added after we check your address. We confirm the final amount on WhatsApp.":"Collect from our Electronic City studio. We'll tell you when it's ready.";
     var addr=$("addr").value.trim(),nm=$("nm").value.trim(),note=$("note").value.trim();
-    var need=S.d==="courier"&&!addr;
-    var go=$("go");go.setAttribute("aria-disabled",need);$("hint").hidden=!need;$("hint").textContent="Please add your delivery address for courier.";
+    var need=S.d!=="pickup"&&!addr;
+    var go=$("go");go.setAttribute("aria-disabled",need);$("hint").hidden=!need;$("hint").textContent="Please add your delivery address.";
     var msg=["Hi Pixels Dream! I'd like to order an acrylic photo frame."+(nm?" My name is "+nm+".":""),"",
       "• Acrylic: "+S.t+"mm",
       "• Size: "+dim+" inches ("+(S.o==="l"?"landscape":"portrait")+")",
       "• Quantity: "+S.q,
       "• Price: "+inr(unit)+(S.q>1?" × "+S.q:"")+" = "+inr(total)+" (studs included)",
-      "• Delivery: "+(S.d==="pickup"?"Studio pickup":"Courier (please share charges)"),
-      S.d==="courier"&&addr?"• Address: "+addr:"",
+      "• Delivery: "+(S.d==="pickup"?"Studio pickup":S.d==="porter"?"Porter delivery (please share charges)":"Courier (please share charges)"),
+      S.d!=="pickup"&&addr?"• Address: "+addr:"",
       note?"• Note: "+note:"",
       "",S.photo?"I'll send my photo in this chat now.":"I'll share my photo in this chat."].filter(function(x,i,a){return x!==""||(a[i-1]!==""&&i>0);}).join("\n");
     go.href=wa(msg);
