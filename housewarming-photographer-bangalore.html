@@ -67,7 +67,9 @@
 .combo{margin-top:24px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;max-width:860px;background:var(--plum2);border-radius:18px;padding:20px 22px}
 .combo h3{font-family:var(--serif);font-weight:400;font-size:24px}
 .combo p{color:#d9bfcf;font-size:15px}
-.hw-hero img{width:100%;aspect-ratio:4/3.3;object-fit:cover;border-radius:220px 220px 16px 16px}
+.hw-hero{display:flex;justify-content:center}
+.hw-hero img{width:100%;max-width:440px;aspect-ratio:2/3;object-fit:cover;border-radius:220px 220px 16px 16px}
+@media (max-width:900px){.hw-hero img{max-width:340px}}
 .hw-more{display:inline-block;margin-top:28px;font-weight:600;color:var(--plum);border-bottom:2px solid var(--turmeric);padding-bottom:2px}
 .hw-gal{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:center;margin-top:26px;background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 1px 0 var(--rose2)}
 .hw-gal img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/2}
@@ -124,7 +126,7 @@
             <div><b>Bangalore</b><span>&amp; nearby areas</span></div>
           </div>
         </div>
-        <div class="hw-hero"><img src="img/housewarming/ritual-15.jpg" alt="Couple entering their new home, she tips the rice pot at the threshold as he carries the deity frame" style="object-position:50% 35%" fetchpriority="high"></div>
+        <div class="hw-hero"><img src="img/housewarming/ritual-15.jpg" alt="Couple entering their new home, she tips the rice pot at the threshold as he carries the deity frame" fetchpriority="high"></div>
       </div>
     </section>
   </div>
