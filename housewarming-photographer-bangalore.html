@@ -82,6 +82,9 @@
 .adds h3{font-family:var(--serif);font-weight:400;font-size:28px;margin-bottom:8px}
 .addpr{font-weight:400;color:var(--turmeric);margin-left:8px}
 .addp{color:#e6cfdc;margin-bottom:16px}
+.gal.wide{columns:2 420px;column-gap:14px}
+.gal.wide button{margin-bottom:14px;border-radius:6px}
+@media (max-width:600px){.gal.wide{columns:1}}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
@@ -207,7 +210,8 @@
 var MOMENTS=[
  {name:"Decor and the new home",desc:"The decorated entrance, the nameplate, the puja setup and the house itself, lit up for the day.",photos:["decor-1","decor-2","decor-3","decor-4"]},
  {name:"Rituals",desc:"Go puja, the grand entry, the first milk boiling, homam and aarti, in the order they happen.",photos:["ritual-1","ritual-2","ritual-3","ritual-4","milk-1","ritual-5","ritual-6","ritual-7","ritual-8","ritual-9","ritual-10","ritual-11","ritual-12","ritual-13","ritual-14","ritual-15","ritual-16","ritual-17"]},
- {name:"Family and portraits",desc:"The couple, the kids and every relative who came to bless the new home.",photos:["family-1","family-2","family-3","family-4","family-5","family-6","family-7","family-8","family-9"]}
+ {name:"Family and portraits",desc:"The couple, the kids and every relative who came to bless the new home.",photos:["family-1","family-2","family-3","family-4","family-5","family-6","family-7","family-8","family-9"]},
+ {name:"Album pages",wide:1,desc:"Real spreads from a housewarming album we designed. Gold, Platinum and Diamond packages include an album.",photos:["album-1","album-2","album-3","album-4","album-5","album-6","album-7","album-8","album-9","album-10","album-11","album-12"]}
 ];
 (function(){
   var NUM="919035454533";function wa(m){return "https://wa.me/"+NUM+"?text="+encodeURIComponent(m);}
@@ -218,8 +222,8 @@ var MOMENTS=[
     var id='m-'+g.name.toLowerCase().replace(/[^a-z]+/g,'-');
     var a=document.createElement('a');a.className='tab';a.href='#'+id;a.textContent=g.name;tabs.appendChild(a);
     var sec=document.createElement('div');sec.className='moment';sec.id=id;
-    sec.innerHTML='<h3>'+g.name+'<small>'+g.photos.length+' photos</small></h3><p class="tabdesc">'+g.desc+'</p>';
-    var gal=document.createElement('div');gal.className='gal';
+    sec.innerHTML='<h3>'+g.name+'<small>'+g.photos.length+(g.wide?' spreads':' photos')+'</small></h3><p class="tabdesc">'+g.desc+'</p>';
+    var gal=document.createElement('div');gal.className=g.wide?'gal wide':'gal';
     g.photos.forEach(function(p,i){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Open '+g.name+' photo '+(i+1));
       var im=document.createElement('img');im.src=src(p);im.alt='Housewarming photo, '+g.name.toLowerCase()+', by Pixels Dream';im.loading='lazy';im.decoding='async';b.appendChild(im);
       b.onclick=function(){cur=k;idx=i;lbShow();lb.classList.add('open');document.body.style.overflow='hidden';};gal.appendChild(b);});
