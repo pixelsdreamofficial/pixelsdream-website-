@@ -68,6 +68,7 @@
 .combo h3{font-family:var(--serif);font-weight:400;font-size:24px}
 .combo p{color:#d9bfcf;font-size:15px}
 .hw-hero img{width:100%;aspect-ratio:4/3.3;object-fit:cover;border-radius:220px 220px 16px 16px}
+.hw-more{display:inline-block;margin-top:28px;font-weight:600;color:var(--plum);border-bottom:2px solid var(--turmeric);padding-bottom:2px}
 .hw-gal{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:center;margin-top:26px;background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 1px 0 var(--rose2)}
 .hw-gal img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/2}
 .hw-gal span{padding:24px 28px;color:var(--muted);font-size:16px}
@@ -116,17 +117,16 @@
             <div><b>Bangalore</b><span>&amp; nearby areas</span></div>
           </div>
         </div>
-        <div class="hw-hero"><img src="img/housewarming/milk-1.jpg" alt="Couple boiling milk in the kitchen of their new home" fetchpriority="high"></div>
+        <div class="hw-hero"><img src="img/housewarming/ritual-3.jpg" alt="Couple entering their new home with a garlanded deity frame" style="object-position:50% 30%" fetchpriority="high"></div>
       </div>
     </section>
   </div>
 
   <section class="gal-sec" id="gallery"><div class="wrap">
-    <h2 class="display">See a full housewarming we covered</h2>
-    <a class="hw-gal" href="https://site.fotoowl.ai/pixelsdreamphotography/gallery/259762?album_selection=true&amp;pass_key=3043" target="_blank" rel="noopener">
-      <img src="img/housewarming/milk-1.jpg" alt="Housewarming milk boiling ceremony photographed by Pixels Dream" loading="lazy">
-      <span><b>Open our sample gallery</b>The full set of photos from a real housewarming we covered. Opens in a new tab.</span>
-    </a>
+    <h2 class="display">Housewarmings we've captured</h2>
+    <nav class="tabs jump" id="tabs" aria-label="Jump to a section"></nav>
+    <div id="moments"></div>
+    <a class="hw-more" href="https://site.fotoowl.ai/pixelsdreamphotography/gallery/259762?album_selection=true&amp;pass_key=3043" target="_blank" rel="noopener">See the full sample gallery →</a>
   </div></section>
 
 
@@ -194,7 +194,10 @@
 <div class="bar"><a class="btn btn-ghost" href="tel:+919035454533">Call</a><a class="btn btn-wa wa" data-msg="Hi Pixels Dream, I'd like to book housewarming photography. Date: ___ Venue: ___" href="https://wa.me/919035454533">WhatsApp us</a></div>
 
 <script>
-var MOMENTS=[];
+var MOMENTS=[
+ {name:"Rituals",desc:"Go puja, the grand entry, the first milk boiling, homam and aarti, in the order they happen.",photos:["ritual-1","ritual-2","ritual-3","ritual-4","milk-1","ritual-5","ritual-6","ritual-7","ritual-8"]},
+ {name:"Family and portraits",desc:"The couple, the kids and every relative who came to bless the new home.",photos:["family-1","family-2","family-3","family-4","family-5","family-6"]}
+];
 (function(){
   var NUM="919035454533";function wa(m){return "https://wa.me/"+NUM+"?text="+encodeURIComponent(m);}
   function $(i){return document.getElementById(i);}
