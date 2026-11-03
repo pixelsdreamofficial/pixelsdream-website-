@@ -67,6 +67,16 @@
 .combo{margin-top:24px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;max-width:860px;background:var(--plum2);border-radius:18px;padding:20px 22px}
 .combo h3{font-family:var(--serif);font-weight:400;font-size:24px}
 .combo p{color:#d9bfcf;font-size:15px}
+
+.alb{padding:70px 0}
+.alb .lede{color:var(--muted);margin-top:10px}
+.alb-row{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:26px}
+.alb-row a{display:block;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 0 0 1px var(--rose2)}
+.alb-row img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.alb-row span{display:block;padding:8px 10px;font-weight:600;color:var(--plum);font-size:15px}
+.alb .more{display:inline-block;margin-top:20px;font-weight:600;color:var(--plum);border-bottom:2px solid var(--turmeric)}
+@media (max-width:900px){.alb-row{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:600px){.alb-row{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:26px -20px 0;padding:0 20px 4px}.alb-row a{flex:0 0 46%;scroll-snap-align:start}}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
@@ -142,6 +152,12 @@
     </div>
   </div></section>
 
+  <section class="alb" id="albums"><div class="wrap">
+    <h2 class="display">Choose your album</h2>
+    <p class="lede">Albums from Standard to Elite. Tap one to see all its designs and pick your favourite.</p>
+    <div class="alb-row"><a href="albums.html?event=baby+shower#standard"><img src="img/albums/standard.jpg" alt="Standard album" loading="lazy"><span>Standard</span></a><a href="albums.html?event=baby+shower#classic"><img src="img/albums/classic.jpg" alt="Classic album" loading="lazy"><span>Classic</span></a><a href="albums.html?event=baby+shower#premium-suitcase"><img src="img/albums/suitcase.jpg" alt="Premium album" loading="lazy"><span>Premium</span></a><a href="albums.html?event=baby+shower#premium-suede"><img src="img/albums/suede.jpg" alt="Premium Suede album" loading="lazy"><span>Premium Suede</span></a><a href="albums.html?event=baby+shower#royal"><img src="img/albums/royal.jpg" alt="Royal album" loading="lazy"><span>Royal</span></a><a href="albums.html?event=baby+shower#elite"><img src="img/albums/elite.jpg" alt="Elite album" loading="lazy"><span>Elite</span></a></div>
+    <a class="more" href="albums.html?event=baby+shower">See all album designs →</a>
+  </div></section>
   <section class="faq"><div class="wrap">
     <h2 class="display">Questions families ask</h2>
     <details><summary>How much does baby shower photography cost?</summary><p>Semi candid photography starts at ₹7,000 for up to 4 hours with 30 edited photos, all raw photos and an online AI gallery. Photo and video together is ₹15,000.</p></details>
@@ -163,7 +179,7 @@
 
 <footer class="ftr"><div class="wrap">
   <div><h3>Pixels Dream Photography</h3><p>Electronic City Phase 2, Bengaluru 560100</p><p>Open every day, 9 AM to 8 PM</p><a href="tel:+919035454533">+91 90354 54533</a><a href="#" data-callback>Request a call back</a></div>
-  <div><h3>Shoots</h3><a href="maternity.html">Maternity</a><a href="newborn.html">Newborn</a><a href="baby.html">Baby shoots</a><a href="family.html">Family</a><a href="events.html">Events</a><a href="acrylic-photo-frames.html">Acrylic frames</a></div>
+  <div><h3>Shoots</h3><a href="maternity.html">Maternity</a><a href="newborn.html">Newborn</a><a href="baby.html">Baby shoots</a><a href="family.html">Family</a><a href="events.html">Events</a><a href="acrylic-photo-frames.html">Acrylic frames</a><a href="albums.html">Albums</a></div>
   <div><h3>Follow</h3><a href="https://www.instagram.com/pixelsdreams.in/" target="_blank" rel="noopener">Instagram @pixelsdreams.in</a><a href="https://www.instagram.com/pixelsdream_kids/" target="_blank" rel="noopener">Instagram @pixelsdream_kids</a><a href="privacy.html">Privacy policy</a></div>
   <p class="copy">© 2026 Pixels Dream Photography, Bangalore</p>
 </div></footer>
