@@ -227,6 +227,18 @@
   "offers":{"@type":"AggregateOffer","priceCurrency":"INR","lowPrice":"1100","highPrice":"6000","offerCount":"7","seller":{"@id":"https://www.pixelsdream.in/#business"}}}
 ]}
 </script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1VE01CS8K7"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-1VE01CS8K7');
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var h=a.getAttribute('href')||'',p=location.pathname.replace(/^\/|\.html$/g,'')||'home',t=(a.textContent||'').trim().slice(0,60);
+ if(a.id==='cGo')gtag('event','maternity_checkout',{page:p});
+ if(/wa\.me|whatsapp/.test(h))gtag('event','whatsapp_click',{page:p,link_text:t});
+ else if(/^tel:/.test(h))gtag('event','phone_click',{page:p,link_text:t});
+},true);
+document.addEventListener('submit',function(e){if(e.target.closest&&e.target.closest('.cb'))gtag('event','callback_request',{page:location.pathname});},true);
+</script>
 </head>
 <body>
 

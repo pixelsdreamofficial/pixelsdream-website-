@@ -26,6 +26,18 @@
 @media (max-width:900px){.ct{grid-template-columns:1fr}.map{aspect-ratio:4/3.6;border-radius:160px 160px 16px 16px}}
 @media (max-width:600px){.ct .btn{flex:1 1 100%}}
 </style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1VE01CS8K7"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-1VE01CS8K7');
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var h=a.getAttribute('href')||'',p=location.pathname.replace(/^\/|\.html$/g,'')||'home',t=(a.textContent||'').trim().slice(0,60);
+ if(a.id==='cGo')gtag('event','maternity_checkout',{page:p});
+ if(/wa\.me|whatsapp/.test(h))gtag('event','whatsapp_click',{page:p,link_text:t});
+ else if(/^tel:/.test(h))gtag('event','phone_click',{page:p,link_text:t});
+},true);
+document.addEventListener('submit',function(e){if(e.target.closest&&e.target.closest('.cb'))gtag('event','callback_request',{page:location.pathname});},true);
+</script>
 </head>
 <body>
 <header class="hdr"><div class="wrap">
