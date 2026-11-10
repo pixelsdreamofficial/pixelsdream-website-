@@ -11,14 +11,14 @@
   ".fx-bar{position:relative;z-index:51;background:linear-gradient(90deg,#3b1530,#5a1d3f 50%,#3b1530);color:#fbe7c4;text-align:center;font:600 15px/1.35 var(--sans,'Figtree',sans-serif);padding:9px 44px 9px 14px;overflow:hidden}"+
   ".fx-bar b{color:#f6c46a;font-family:var(--serif,'Bodoni Moda',serif);font-weight:400;font-size:18px;letter-spacing:.01em}"+
   ".fx-bar .dy{display:inline-block;width:22px;height:16px;vertical-align:-2px;margin:0 6px}"+
-  ".fx-bar button{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:0;color:#fbe7c4;font-size:22px;line-height:1;cursor:pointer;padding:4px 8px}"+
+  ".fx-bar button{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:0;color:#fbe7c4;font-size:22px;line-height:1;cursor:pointer;padding:10px 12px}"+
   ".fx-wrap{position:fixed;inset:0;z-index:210;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(20,8,16,.66);opacity:0;transition:opacity .4s}"+
   ".fx-wrap.on{opacity:1}"+
   ".fx-card{position:relative;width:100%;max-width:440px;border-radius:26px;overflow:hidden;text-align:center;color:#fbe7c4;background:radial-gradient(120% 80% at 50% 100%,#7a2a2a 0%,#3b1530 55%,#1e0b17 100%);box-shadow:0 30px 80px rgba(0,0,0,.5);padding:34px 26px 28px}"+
   ".fx-card h2{font-family:var(--serif,'Bodoni Moda',serif);font-weight:400;font-size:46px;line-height:1;color:#f6c46a;margin:6px 0 10px}"+
   ".fx-card p{font:400 16.5px/1.55 var(--sans,'Figtree',sans-serif);color:#f3d9c4;margin:0 auto;max-width:30em}"+
   ".fx-card .sig{margin-top:16px;font:600 14px var(--sans,'Figtree',sans-serif);letter-spacing:.14em;text-transform:uppercase;color:#d9a8a0}"+
-  ".fx-card .x{position:absolute;top:8px;right:12px;background:none;border:0;color:#fbe7c4;font-size:32px;line-height:1;cursor:pointer;padding:4px 8px}"+
+  ".fx-card .x{position:absolute;top:8px;right:12px;background:none;border:0;color:#fbe7c4;font-size:32px;line-height:1;cursor:pointer;padding:10px 12px}"+
   ".fx-card .go{display:inline-block;margin-top:20px;background:#f6c46a;color:#3b1530;font:600 16px var(--sans,'Figtree',sans-serif);padding:13px 26px;border-radius:999px;text-decoration:none}"+
   ".fx-diyas{display:flex;justify-content:center;gap:18px;margin-bottom:6px}"+
   ".fx-diyas svg{width:62px;height:56px;overflow:visible}"+
