@@ -58,7 +58,8 @@
   function auto(){if(seen()||wrap.classList.contains('open'))return;open();cleanup();}
   function onScroll(){var h=document.documentElement;if((h.scrollTop+innerHeight)/h.scrollHeight>.5)auto();}
   function cleanup(){clearTimeout(timer);removeEventListener('scroll',onScroll);}
-  if(!seen()){timer=setTimeout(auto,12000);addEventListener('scroll',onScroll,{passive:true});}
+  var AUTO_POPUP=false; /* set to true to show the call-back popup automatically again */
+  if(AUTO_POPUP&&!seen()){timer=setTimeout(auto,12000);addEventListener('scroll',onScroll,{passive:true});}
 
   form.addEventListener('submit',function(e){
     e.preventDefault();err.textContent='';
