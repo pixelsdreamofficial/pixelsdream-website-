@@ -220,9 +220,9 @@
 }
 /* ---------- photo frame overrides ---------- */
 .acr,.ideas .acr,.room .acr{transform:none}
-.acr .ph,.acr.thick .ph,.room .acr .ph{border:solid #1c1615;border-width:clamp(3px,5%,10px);box-shadow:0 2px 0 rgba(255,255,255,.4),0 18px 28px -14px rgba(40,20,20,.55);border-radius:2px;background:#1c1615}
+.acr .ph,.acr.thick .ph,.room .acr .ph{border:solid var(--fc,#1c1615);border-width:clamp(3px,5%,10px);box-shadow:0 2px 0 rgba(255,255,255,.4),0 18px 28px -14px rgba(40,20,20,.55);border-radius:2px;background:var(--fc,#1c1615)}
 .acr .ph:after,.acr .ph:before{display:none}
-.cf{box-shadow:0 8px 12px -8px rgba(40,20,20,.45);border:2px solid #1c1615}
+.cf{box-shadow:0 8px 12px -8px rgba(40,20,20,.45);border:2px solid var(--fc,#1c1615)}
 .cf.on{box-shadow:0 0 0 3px var(--turmeric),0 14px 18px -8px rgba(40,20,20,.5)}
 .guide{border-radius:22px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(40,20,20,.45)}
 .guide img{display:block;width:100%;height:auto}
@@ -234,6 +234,7 @@
 .sizes .opt .pr{font-size:24px}
 .sizes .opt[aria-pressed=true]:after{top:16px;right:16px}
 .sizes .badge{position:absolute;top:16px;left:16px;right:auto!important;background:var(--turmeric);color:var(--plum);font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px}
+.fcol{grid-template-columns:repeat(3,1fr)}.sw{display:inline-block;width:16px;height:16px;border-radius:4px;margin-right:8px;vertical-align:-2px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.5),0 0 0 1px rgba(0,0,0,.25)}
 .xlink{margin-top:12px;color:var(--muted);font-size:15px}.xlink a{color:var(--plum);font-weight:600;border-bottom:1px solid var(--turmeric)}
 @media (max-width:900px){.sizes{grid-template-columns:repeat(2,1fr)}}
 </style>
@@ -241,7 +242,7 @@
 {"@context":"https://schema.org","@graph":[
  {"@type":"LocalBusiness","@id":"https://www.pixelsdream.in/#business","name":"Pixels Dream Photography","url":"https://www.pixelsdream.in/","telephone":"+91-9035454533","image":"https://www.pixelsdream.in/img/home-hero.jpg","priceRange":"₹₹",
   "address":{"@type":"PostalAddress","addressLocality":"Electronic City Phase 2, Bengaluru","addressRegion":"Karnataka","postalCode":"560100","addressCountry":"IN"}},
- {"@type":"Product","name":"Framed photo print","brand":{"@type":"Brand","name":"Pixels Dream"},"description":"Framed photo print with black frame, sizes A5 to A0.","image":"https://www.pixelsdream.in/img/frames/size-guide.jpg",
+ {"@type":"Product","name":"Framed photo print","brand":{"@type":"Brand","name":"Pixels Dream"},"description":"Framed photo print in a classic black, brown or white frame, sizes A5 to A0.","image":"https://www.pixelsdream.in/img/frames/size-guide.jpg",
   "offers":{"@type":"AggregateOffer","priceCurrency":"INR","lowPrice":"300","highPrice":"6500","offerCount":"6","seller":{"@id":"https://www.pixelsdream.in/#business"}}}
 ]}
 </script>
@@ -264,7 +265,7 @@ document.addEventListener('submit',function(e){if(e.target.closest&&e.target.clo
 <header class="hdr"><div class="wrap">
   <a href="index.html" class="logo">Pixels Dream<small>Photography, Electronic City</small></a>
   <nav class="nav" id="nav">
-    <a href="index.html">Home</a><a href="maternity.html">Maternity</a><a href="newborn.html">Newborn</a><a href="baby.html">Baby shoots</a><a href="family.html">Family</a><div class="dd"><a href="events.html" class="dd-t">Events<span class="car" aria-hidden="true"></span></a><div class="dd-m"><a href="birthday-photographer-bangalore.html">Birthday<small>First birthdays and parties</small></a><a href="baby-shower-photographer-bangalore.html">Baby shower<small>Seemantham and godh bharai</small></a><a href="naming-ceremony-photographer-bangalore.html">Naming ceremony<small>Naming and annaprashan</small></a><a href="housewarming-photographer-bangalore.html">Housewarming<small>Griha pravesh and puja</small></a><a href="engagement-photographer-bangalore.html">Engagement<small>Rings, rituals and family</small></a><a href="events.html">All events<small>Packages and services</small></a></div></div><div class="dd"><a href="photo-frames.html" class="dd-t" aria-current="page">Frames<span class="car" aria-hidden="true"></span></a><div class="dd-m"><a href="photo-frames.html" aria-current="page">Photo frames<small>Black frame · from ₹300</small></a><a href="acrylic-photo-frames.html">Acrylic frames<small>Glass look · from ₹1,100</small></a></div></div><a href="about.html">About</a><a href="contact.html">Contact</a>
+    <a href="index.html">Home</a><a href="maternity.html">Maternity</a><a href="newborn.html">Newborn</a><a href="baby.html">Baby shoots</a><a href="family.html">Family</a><div class="dd"><a href="events.html" class="dd-t">Events<span class="car" aria-hidden="true"></span></a><div class="dd-m"><a href="birthday-photographer-bangalore.html">Birthday<small>First birthdays and parties</small></a><a href="baby-shower-photographer-bangalore.html">Baby shower<small>Seemantham and godh bharai</small></a><a href="naming-ceremony-photographer-bangalore.html">Naming ceremony<small>Naming and annaprashan</small></a><a href="housewarming-photographer-bangalore.html">Housewarming<small>Griha pravesh and puja</small></a><a href="engagement-photographer-bangalore.html">Engagement<small>Rings, rituals and family</small></a><a href="events.html">All events<small>Packages and services</small></a></div></div><div class="dd"><a href="photo-frames.html" class="dd-t" aria-current="page">Frames<span class="car" aria-hidden="true"></span></a><div class="dd-m"><a href="photo-frames.html" aria-current="page">Photo frames<small>Classic frame · from ₹300</small></a><a href="acrylic-photo-frames.html">Acrylic frames<small>Glass look · from ₹1,100</small></a></div></div><a href="about.html">About</a><a href="contact.html">Contact</a>
   </nav>
   <a class="btn btn-wa wa" data-msg="Hi Pixels Dream, I'd like to order a photo frame." href="https://wa.me/919035454533">WhatsApp us</a>
   <button class="menu-btn" aria-expanded="false" aria-controls="nav" onclick="var n=document.getElementById('nav');n.classList.toggle('open');this.setAttribute('aria-expanded',n.classList.contains('open'))">Menu</button>
@@ -277,14 +278,14 @@ document.addEventListener('submit',function(e){if(e.target.closest&&e.target.clo
       <div class="fhero-grid">
         <div>
           <h1>Framed photos</h1>
-          <p>Your photo, printed and framed in a classic black frame, ready for your wall or table. Six sizes from a small desk frame to a full statement piece. Choose a size and order on WhatsApp in a minute.</p>
+          <p>Your photo, printed and set in a classic frame in black, brown or white, ready for your wall or table. Six sizes from a small desk frame to a full statement piece. Choose a size and order on WhatsApp in a minute.</p>
           <div class="btns">
             <a class="btn btn-wa" href="#order">Order your frame</a>
             <a class="btn btn-ghost" href="#prices">See all prices</a>
           </div>
           <div class="perks3">
             <div><b>From ₹300</b><span>A5 desk size</span></div>
-            <div><b>A5 to A0</b><span>7×9 up to 36×50 inches</span></div>
+            <div><b>3 colours</b><span>Black, brown or white</span></div>
             <div><b>Ready in 24–48 hrs</b><span>Free studio pickup</span></div>
           </div>
           <p class="xlink">Want a glass look? See our <a href="acrylic-photo-frames.html">acrylic photo frames</a>.</p>
@@ -319,7 +320,13 @@ document.addEventListener('submit',function(e){if(e.target.closest&&e.target.clo
         </div>
 
         <div class="step">
-          <h3><i>3</i>Orientation &amp; quantity</h3>
+          <h3><i>3</i>Frame colour</h3>
+          <p class="sub">Same price for every colour.</p>
+          <div class="choice fcol" id="fcol"></div>
+        </div>
+
+        <div class="step">
+          <h3><i>4</i>Orientation &amp; quantity</h3>
           <div class="choice c2" id="orient"></div>
           <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:16px;flex-wrap:wrap">
             <span style="color:#e6cfdc">How many frames of this photo?</span>
@@ -328,7 +335,7 @@ document.addEventListener('submit',function(e){if(e.target.closest&&e.target.clo
         </div>
 
         <div class="step">
-          <h3><i>4</i>Delivery</h3>
+          <h3><i>5</i>Delivery</h3>
           <div class="choice" id="deliv"></div>
           <div id="addrBox" hidden>
             <label class="fld">Delivery address with PIN code<textarea id="addr" placeholder="House no, street, area, city, PIN code"></textarea></label>
@@ -389,7 +396,7 @@ document.addEventListener('submit',function(e){if(e.target.closest&&e.target.clo
   <section class="how3"><div class="wrap">
     <h2 class="display">How ordering works</h2>
     <ol>
-      <li><b>Build your frame</b><span>Choose size, orientation, quantity and delivery above.</span></li>
+      <li><b>Build your frame</b><span>Choose size, frame colour, orientation, quantity and delivery above.</span></li>
       <li><b>Send on WhatsApp</b><span>Tap "Place order" and send the message that opens.</span></li>
       <li><b>Share your photo</b><span>Attach your photo in the same chat, ideally as a Document for full quality.</span></li>
       <li><b>We confirm &amp; print</b><span>We confirm the total, delivery charges and ready date, then print and frame it, ready in 24–48 hours.</span></li>
@@ -413,6 +420,7 @@ document.addEventListener('submit',function(e){if(e.target.closest&&e.target.clo
   <section class="faq"><div class="wrap">
     <h2 class="display">Questions</h2>
     <details><summary>Do the sizes include the frame?</summary><p>Yes. Every size is measured including the frame border, and rounded to the nearest inch. For example, an A3 frame is about 13 × 18 inches from edge to edge.</p></details>
+    <details><summary>Which frame colours are available?</summary><p>Every size comes in black, brown or white, at the same price. Choose the colour when you build your frame above.</p></details>
     <details><summary>Can I get it in landscape?</summary><p>Yes. Depending on your photo, we can make the artwork in portrait (tall) or landscape (wide). Choose the orientation above and we'll check your photo before printing.</p></details>
     <details><summary>How do I send my photo?</summary><p>After you place the order, attach your photo in the same WhatsApp chat. Send it as a Document, not as a normal photo, so WhatsApp doesn't compress it. If we shot your photos, just tell us the photo number.</p></details>
     <details><summary>How long does it take?</summary><p>Your frame is ready in 24–48 hours after we receive your photo and confirm the order. Delivery time by Porter or courier is extra, depending on your location.</p></details>
@@ -454,21 +462,25 @@ document.addEventListener('submit',function(e){if(e.target.closest&&e.target.clo
     {id:"A1",w:27,h:36,p:3200,best:"Feature wall",like:"About as big as a large movie poster"},
     {id:"A0",w:36,h:50,p:6500,best:"Statement wall, above a sofa",like:"Over 4 feet tall, our biggest frame"}
   ];
-  var S={s:"A3",o:"p",q:1,d:"pickup",photo:false};
+  var S={s:"A3",c:"black",o:"p",q:1,d:"pickup",photo:false};
+  var COLS={black:["Black","#1c1615","Bold and modern"],brown:["Brown","#5a3a24","Warm, wooden look"],white:["White","#f4f1ec","Soft and bright"]};
   function PV(){return $("pv").getAttribute("src");}
   function Z(){return SIZES.filter(function(x){return x.id===S.s;})[0];}
   function dimOf(z){return S.o==="l"?(z.h+" × "+z.w):(z.w+" × "+z.h);}
 
   $("orient").innerHTML='<button class="opt" type="button" data-o="p"><b>Portrait</b><span>Tall, for one or two people</span></button><button class="opt" type="button" data-o="l"><b>Landscape</b><span>Wide, for groups</span></button>';
+  $("fcol").innerHTML=Object.keys(COLS).map(function(k){var c=COLS[k];return '<button class="opt" type="button" data-c="'+k+'"><b><em class="sw" style="background:'+c[1]+'"></em>'+c[0]+'</b><span>'+c[2]+'</span></button>';}).join("");
   $("deliv").innerHTML='<button class="opt" type="button" data-d="pickup"><b>Studio pickup</b><span>Free · Electronic City Phase 2</span></button><button class="opt" type="button" data-d="porter"><b>Porter delivery</b><span>Within Bangalore · charges extra</span></button><button class="opt" type="button" data-d="courier"><b>Courier</b><span>Outside Bangalore · charges extra, based on location</span></button>';
   $("sizes").innerHTML=SIZES.map(function(z){
     return '<button class="opt" type="button" data-s="'+z.id+'">'+(z.tag?'<span class="badge">'+z.tag+'</span>':'')+'<div class="pic"><img src="img/frames/'+z.id.toLowerCase()+'.jpg" alt="'+z.id+' frame held up for size" loading="lazy"></div><b>'+z.id+' size</b><span>'+z.w+' × '+z.h+' in</span><span class="pr">'+inr(z.p)+'</span></button>';}).join("");
   $("ptab").innerHTML=SIZES.map(function(z){return '<tr><td><b>'+z.id+'</b></td><td>'+z.w+' × '+z.h+'</td><td class="p">'+inr(z.p)+'</td><td>'+z.best+'</td></tr>';}).join("");
   var IDEAS=[["img/maternity/vogue-1-1.jpg","Maternity","Your bump story"],["img/newborn-moon.jpg","Newborn","Those first days"],["img/family/red-2.jpg","Family","Everyone together"],["img/baby-swing.jpg","Kids","Every milestone"]];
-  $("ideas").innerHTML=IDEAS.map(function(x){return '<figure><div class="wall"><div class="acr"><div class="ph"><img src="'+x[0]+'" alt="'+x[1]+' photo in a black frame" loading="lazy"></div></div></div><figcaption>'+x[1]+'<span>'+x[2]+'</span></figcaption></figure>';}).join("");
+  $("ideas").innerHTML=IDEAS.map(function(x){return '<figure><div class="wall"><div class="acr"><div class="ph"><img src="'+x[0]+'" alt="'+x[1]+' photo in a classic frame" loading="lazy"></div></div></div><figcaption>'+x[1]+'<span>'+x[2]+'</span></figcaption></figure>';}).join("");
 
   function render(){
     document.querySelectorAll("[data-s]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.s===S.s);});
+    document.querySelectorAll("[data-c]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.c===S.c);});
+    document.documentElement.style.setProperty("--fc",COLS[S.c][1]);
     document.querySelectorAll("[data-o]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.o===S.o);});
     document.querySelectorAll("[data-d]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.d===S.d);});
     $("qn").textContent=S.q;$("addrBox").hidden=S.d==="pickup";
@@ -486,7 +498,7 @@ document.addEventListener('submit',function(e){if(e.target.closest&&e.target.clo
     acr.style.left=((cx-fw/2)/120*100)+"%";acr.style.top=(top/80*100)+"%";acr.style.width=(fw/120*100)+"%";acr.style.height=(fh/80*100)+"%";
     $("tag").textContent=z.id+" · "+dim+" in";
     $("like").innerHTML="<b>"+z.id+" · "+dim+" in</b> · "+z.like;
-    var lines=[[z.id+" framed photo, "+dim+" in"+(S.o==="l"?" (landscape)":" (portrait)"),inr(z.p)],["Quantity","× "+S.q],[S.d==="pickup"?"Studio pickup":S.d==="porter"?"Porter delivery":"Courier",S.d==="pickup"?"Free":"Extra"]];
+    var lines=[[z.id+" framed photo, "+dim+" in"+(S.o==="l"?" (landscape)":" (portrait)"),inr(z.p)],["Frame colour",COLS[S.c][0]],["Quantity","× "+S.q],[S.d==="pickup"?"Studio pickup":S.d==="porter"?"Porter delivery":"Courier",S.d==="pickup"?"Free":"Extra"]];
     $("lines").innerHTML=lines.map(function(l){return '<li><span>'+l[0]+'</span><span>'+l[1]+'</span></li>';}).join("");
     $("tot").textContent=inr(total);
     $("dnote").textContent=S.d!=="pickup"?(S.d==="porter"?"Porter":"Courier")+" charges are extra and added after we check your address. Ready to dispatch in 24–48 hours.":"Ready in 24–48 hours. Collect from our Electronic City studio; we'll message you when it's ready.";
@@ -494,6 +506,7 @@ document.addEventListener('submit',function(e){if(e.target.closest&&e.target.clo
     var go=$("go");go.setAttribute("aria-disabled",need);$("hint").hidden=!need;$("hint").textContent="Please add your delivery address.";
     var msg=["Hi Pixels Dream! I'd like to order a framed photo."+(nm?" My name is "+nm+".":""),"",
       "• Size: "+z.id+", "+dim+" inches ("+(S.o==="l"?"landscape":"portrait")+")",
+      "• Frame colour: "+COLS[S.c][0],
       "• Quantity: "+S.q,
       "• Ready in: 24–48 hours",
       "• Price: "+inr(z.p)+(S.q>1?" × "+S.q:"")+" = "+inr(total),
@@ -502,10 +515,11 @@ document.addEventListener('submit',function(e){if(e.target.closest&&e.target.clo
       note?"• Note: "+note:"",
       "",S.photo?"I'll send my photo in this chat now.":"I'll share my photo in this chat."].filter(function(x,i,a){return x!==""||(a[i-1]!==""&&i>0);}).join("\n");
     go.href=wa(msg);
-    try{localStorage.setItem("pd-frm",JSON.stringify({s:S.s,o:S.o,q:S.q,d:S.d}));}catch(e){}
+    try{localStorage.setItem("pd-frm",JSON.stringify({s:S.s,c:S.c,o:S.o,q:S.q,d:S.d}));}catch(e){}
   }
   document.addEventListener("click",function(e){var b;
     if(b=e.target.closest("[data-s]")){S.s=b.dataset.s;render();return;}
+    if(b=e.target.closest("[data-c]")){S.c=b.dataset.c;render();return;}
     if(b=e.target.closest("[data-o]")){S.o=b.dataset.o;render();return;}
     if(b=e.target.closest("[data-d]")){S.d=b.dataset.d;render();return;}
   });
@@ -522,7 +536,7 @@ document.addEventListener('submit',function(e){if(e.target.closest&&e.target.clo
   document.querySelectorAll("[data-view]").forEach(function(b){b.addEventListener("click",function(){var v=b.dataset.view;
     document.querySelectorAll("[data-view]").forEach(function(x){x.setAttribute("aria-pressed",x===b);});
     $("roomPane").hidden=v!=="wall";$("cmpPane").hidden=v!=="cmp";});});
-  try{var sv=JSON.parse(localStorage.getItem("pd-frm")||"null");if(sv&&SIZES.some(function(z){return z.id===sv.s;})){S.s=sv.s;S.o=sv.o||"p";S.q=sv.q||1;S.d=sv.d||"pickup";}}catch(e){}
+  try{var sv=JSON.parse(localStorage.getItem("pd-frm")||"null");if(sv&&SIZES.some(function(z){return z.id===sv.s;})){S.s=sv.s;S.c=COLS[sv.c]?sv.c:"black";S.o=sv.o||"p";S.q=sv.q||1;S.d=sv.d||"pickup";}}catch(e){}
   render();
   document.querySelectorAll(".wa").forEach(function(a){if(a.dataset.msg)a.href=wa(a.dataset.msg);a.target="_blank";a.rel="noopener";});
 })();
