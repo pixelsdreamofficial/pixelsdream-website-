@@ -93,7 +93,7 @@
 .cf:hover{opacity:1}
 .cf.on{opacity:1;box-shadow:0 0 0 3px var(--turmeric),1px 1px 0 6px rgba(200,164,107,.25),0 14px 18px -8px rgba(40,20,20,.5)}
 .cl{position:absolute;transform:translateX(-50%);text-align:center;font-size:12px;line-height:1.25;color:var(--muted);white-space:nowrap}
-.cl b{display:block;font-size:13px;color:var(--plum)}
+.cl i{font-style:normal}.cl b{display:block;font-size:13px;color:var(--plum)}
 .cl.on b{background:var(--plum);color:#fff;border-radius:999px;padding:0 7px}
 .cmpv .v3hint{left:50%;transform:translateX(-50%);white-space:nowrap}
 /* ---------- room scene (to scale: 120 × 80 inches) ---------- */
@@ -237,6 +237,22 @@
 .fcol{grid-template-columns:repeat(3,1fr)}.sw{display:inline-block;width:16px;height:16px;border-radius:4px;margin-right:8px;vertical-align:-2px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.5),0 0 0 1px rgba(0,0,0,.25)}
 .xlink{margin-top:12px;color:var(--muted);font-size:15px}.xlink a{color:var(--plum);font-weight:600;border-bottom:1px solid var(--turmeric)}
 @media (max-width:900px){.sizes{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){
+  .sum{order:0}
+  .perks3{grid-template-columns:1fr;gap:12px}
+  .perks3 div{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .perks3 b{font-size:20px}
+  .fcol .opt{padding:12px 8px;align-items:center;text-align:center}
+  .fcol .opt b{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:15px}
+  .fcol .opt span{display:none}
+  .fcol .sw{width:28px;height:28px;margin:0;border-radius:6px}
+  .fcol .opt[aria-pressed=true]:after{top:6px;right:6px;width:18px;height:18px;font-size:11px}
+  .sizes .opt[aria-pressed=true]:after{top:14px;right:14px}
+  .cl i{display:none}
+  .cl b{font-size:12px}
+  .cmp td:nth-child(2){white-space:nowrap}
+  .ideas .acr .ph{background:#e9e2dc}
+}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
@@ -380,7 +396,7 @@ document.addEventListener('submit',function(e){if(e.target.closest&&e.target.clo
           <span class="tagsz" id="tag"></span>
         </div>
         <p class="like" id="like"></p>
-        <div class="bill">
+        <div class="bill" id="bill">
           <h3>Your order</h3>
           <ul id="lines"></ul>
           <div class="tot"><span>Total</span><b id="tot">₹0</b></div>
@@ -491,7 +507,7 @@ document.addEventListener('submit',function(e){if(e.target.closest&&e.target.clo
       var W=tw+gap*(SIZES.length+1),H=mh+16,x=gap,base=mh+4;
       $("cmpIn").style.aspectRatio=W+"/"+H;
       $("cmpIn").innerHTML='<div class="cfloor" style="top:'+(base/H*100)+'%"></div>'+SIZES.map(function(g){var w=S.o==="l"?g.h:g.w,h=S.o==="l"?g.w:g.h,on=g.id===S.s;
-        var html='<button type="button" class="cf'+(on?' on':'')+'" data-s="'+g.id+'" aria-label="Choose '+g.id+'" style="left:'+(x/W*100)+'%;top:'+((base-h)/H*100)+'%;width:'+(w/W*100)+'%;height:'+(h/H*100)+'%"><img src="'+PV()+'" alt=""></button><span class="cl'+(on?' on':'')+'" style="left:'+((x+w/2)/W*100)+'%;top:'+((base+1.2)/H*100)+'%"><b>'+g.id+'</b>'+inr(g.p)+'</span>';
+        var html='<button type="button" class="cf'+(on?' on':'')+'" data-s="'+g.id+'" aria-label="Choose '+g.id+'" style="left:'+(x/W*100)+'%;top:'+((base-h)/H*100)+'%;width:'+(w/W*100)+'%;height:'+(h/H*100)+'%"><img src="'+PV()+'" alt=""></button><span class="cl'+(on?' on':'')+'" style="left:'+((x+w/2)/W*100)+'%;top:'+((base+1.2)/H*100)+'%"><b>'+g.id+'</b><i>'+inr(g.p)+'</i></span>';
         x+=w+gap;return html;}).join("");})();
     // wall (units = inches; wall is 120 × 80)
     var fw=S.o==="l"?z.h:z.w,fh=S.o==="l"?z.w:z.h,cx=40,top=Math.max(3,74-57-fh/2),acr=$("acr");
@@ -501,6 +517,7 @@ document.addEventListener('submit',function(e){if(e.target.closest&&e.target.clo
     var lines=[[z.id+" framed photo, "+dim+" in"+(S.o==="l"?" (landscape)":" (portrait)"),inr(z.p)],["Frame colour",COLS[S.c][0]],["Quantity","× "+S.q],[S.d==="pickup"?"Studio pickup":S.d==="porter"?"Porter delivery":"Courier",S.d==="pickup"?"Free":"Extra"]];
     $("lines").innerHTML=lines.map(function(l){return '<li><span>'+l[0]+'</span><span>'+l[1]+'</span></li>';}).join("");
     $("tot").textContent=inr(total);
+    $("barGo").textContent="Order · "+inr(total);$("barGo").href="#bill";
     $("dnote").textContent=S.d!=="pickup"?(S.d==="porter"?"Porter":"Courier")+" charges are extra and added after we check your address. Ready to dispatch in 24–48 hours.":"Ready in 24–48 hours. Collect from our Electronic City studio; we'll message you when it's ready.";
     var addr=$("addr").value.trim(),nm=$("nm").value.trim(),note=$("note").value.trim(),need=S.d!=="pickup"&&!addr;
     var go=$("go");go.setAttribute("aria-disabled",need);$("hint").hidden=!need;$("hint").textContent="Please add your delivery address.";
