@@ -53,7 +53,7 @@ a.btn-tur,.btn-tur{background:var(--turmeric);color:var(--plum)}
 
 @media (max-width:900px){
   .nav{display:none;position:absolute;top:68px;left:0;right:0;background:var(--rose);flex-direction:column;gap:0;padding:8px 20px 20px;border-bottom:1px solid var(--rose2)}
-  .nav.open{display:flex}
+  .nav.open{display:flex;max-height:calc(100dvh - 68px);overflow-y:auto;overscroll-behavior:contain}
   .nav a{padding:12px 0;border-bottom:1px solid var(--rose2)}
   .menu-btn{display:block}
   .hdr .btn{display:none}
