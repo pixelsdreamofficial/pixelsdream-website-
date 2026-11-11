@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Photo Frames in Bangalore | A5 to A0 from ₹300 | Pixels Dream</title>
-<meta name="description" content="Order framed photos in Bangalore. Six sizes from A5 (7×9 in) to A0 (36×50 in), prices from ₹300. Portrait or landscape artwork. Studio pickup in Electronic City, Porter or courier delivery.">
+<meta name="description" content="Order framed photos in Bangalore. Six sizes from A5 (7×9 in) to A0 (36×50 in), prices from ₹300, ready in 24–48 hours. Portrait or landscape artwork. Studio pickup in Electronic City, Porter or courier delivery.">
 <link rel="canonical" href="https://www.pixelsdream.in/photo-frames.html">
 <meta property="og:title" content="Framed Photos, A5 to A0 | Pixels Dream, Bangalore">
 <meta property="og:description" content="Framed photo prints from ₹300. See every size held up to scale, choose yours and order on WhatsApp.">
@@ -285,7 +285,7 @@ document.addEventListener('submit',function(e){if(e.target.closest&&e.target.clo
           <div class="perks3">
             <div><b>From ₹300</b><span>A5 desk size</span></div>
             <div><b>A5 to A0</b><span>7×9 up to 36×50 inches</span></div>
-            <div><b>Free pickup</b><span>Porter or courier extra</span></div>
+            <div><b>Ready in 24–48 hrs</b><span>Free studio pickup</span></div>
           </div>
           <p class="xlink">Want a glass look? See our <a href="acrylic-photo-frames.html">acrylic photo frames</a>.</p>
         </div>
@@ -392,7 +392,7 @@ document.addEventListener('submit',function(e){if(e.target.closest&&e.target.clo
       <li><b>Build your frame</b><span>Choose size, orientation, quantity and delivery above.</span></li>
       <li><b>Send on WhatsApp</b><span>Tap "Place order" and send the message that opens.</span></li>
       <li><b>Share your photo</b><span>Attach your photo in the same chat, ideally as a Document for full quality.</span></li>
-      <li><b>We confirm &amp; print</b><span>We confirm the total, delivery charges and ready date, then print and frame it.</span></li>
+      <li><b>We confirm &amp; print</b><span>We confirm the total, delivery charges and ready date, then print and frame it, ready in 24–48 hours.</span></li>
     </ol>
   </div></section>
 
@@ -415,6 +415,7 @@ document.addEventListener('submit',function(e){if(e.target.closest&&e.target.clo
     <details><summary>Do the sizes include the frame?</summary><p>Yes. Every size is measured including the frame border, and rounded to the nearest inch. For example, an A3 frame is about 13 × 18 inches from edge to edge.</p></details>
     <details><summary>Can I get it in landscape?</summary><p>Yes. Depending on your photo, we can make the artwork in portrait (tall) or landscape (wide). Choose the orientation above and we'll check your photo before printing.</p></details>
     <details><summary>How do I send my photo?</summary><p>After you place the order, attach your photo in the same WhatsApp chat. Send it as a Document, not as a normal photo, so WhatsApp doesn't compress it. If we shot your photos, just tell us the photo number.</p></details>
+    <details><summary>How long does it take?</summary><p>Your frame is ready in 24–48 hours after we receive your photo and confirm the order. Delivery time by Porter or courier is extra, depending on your location.</p></details>
     <details><summary>Can I collect the frame from your studio? What about delivery?</summary><p>Pickup from our studio in Electronic City Phase 2 is free. Within Bangalore we can send it by Porter, and outside Bangalore by courier. Porter and courier charges are extra, based on your location, and we confirm them on WhatsApp before dispatch.</p></details>
     <details><summary>Which size should I choose?</summary><p>A5 and A4 suit a desk or shelf. A3 is our most popular size for bedroom and hallway walls. A2 and A1 suit a living room wall, and A0 is a large statement piece above a sofa. Not sure? Message us and we'll help.</p></details>
   </div></section>
@@ -488,12 +489,13 @@ document.addEventListener('submit',function(e){if(e.target.closest&&e.target.clo
     var lines=[[z.id+" framed photo, "+dim+" in"+(S.o==="l"?" (landscape)":" (portrait)"),inr(z.p)],["Quantity","× "+S.q],[S.d==="pickup"?"Studio pickup":S.d==="porter"?"Porter delivery":"Courier",S.d==="pickup"?"Free":"Extra"]];
     $("lines").innerHTML=lines.map(function(l){return '<li><span>'+l[0]+'</span><span>'+l[1]+'</span></li>';}).join("");
     $("tot").textContent=inr(total);
-    $("dnote").textContent=S.d!=="pickup"?(S.d==="porter"?"Porter":"Courier")+" charges are extra and added after we check your address. We confirm the final amount on WhatsApp.":"Collect from our Electronic City studio. We'll tell you when it's ready.";
+    $("dnote").textContent=S.d!=="pickup"?(S.d==="porter"?"Porter":"Courier")+" charges are extra and added after we check your address. Ready to dispatch in 24–48 hours.":"Ready in 24–48 hours. Collect from our Electronic City studio; we'll message you when it's ready.";
     var addr=$("addr").value.trim(),nm=$("nm").value.trim(),note=$("note").value.trim(),need=S.d!=="pickup"&&!addr;
     var go=$("go");go.setAttribute("aria-disabled",need);$("hint").hidden=!need;$("hint").textContent="Please add your delivery address.";
     var msg=["Hi Pixels Dream! I'd like to order a framed photo."+(nm?" My name is "+nm+".":""),"",
       "• Size: "+z.id+", "+dim+" inches ("+(S.o==="l"?"landscape":"portrait")+")",
       "• Quantity: "+S.q,
+      "• Ready in: 24–48 hours",
       "• Price: "+inr(z.p)+(S.q>1?" × "+S.q:"")+" = "+inr(total),
       "• Delivery: "+(S.d==="pickup"?"Studio pickup":S.d==="porter"?"Porter delivery (please share charges)":"Courier (please share charges)"),
       S.d!=="pickup"&&addr?"• Address: "+addr:"",
