@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Maternity Photoshoot in Electronic City, Bangalore | ₹4,999 per Style | Pixels Dream</title>
-<meta name="description" content="Maternity photoshoots in a private AC studio in Electronic City, Bangalore, plus outdoor lake shoots. Pick your styles at ₹4,999 each with 10 edited photos, 26 gowns and free backlit shots. Book on WhatsApp.">
+<title>Maternity Photoshoot Packages in Electronic City, Bangalore | From ₹6,000 | Pixels Dream</title>
+<meta name="description" content="Maternity photoshoot packages in a private AC studio in Electronic City, Bangalore, plus outdoor lake shoots. Basic ₹6,000 (1 style), Standard ₹12,000 (2 styles, free makeup), Premium ₹18,000 (3 styles, free makeup and album). Book on WhatsApp.">
 <link rel="canonical" href="https://www.pixelsdream.in/maternity.html">
 <meta property="og:title" content="Maternity Photoshoot in Electronic City, Bangalore | Pixels Dream">
-<meta property="og:description" content="Pick your maternity styles at ₹4,999 each, with 10 edited photos per style.">
+<meta property="og:description" content="Maternity packages from ₹6,000: Basic, Standard and Premium. Free backlit shots and RAW photos in every package.">
 <meta property="og:image" content="https://www.pixelsdream.in/img/maternity/texture-2-1.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
@@ -336,7 +336,42 @@ details[open] summary::after{transform:rotate(45deg)}
 .how .go{display:flex;gap:10px;flex-wrap:wrap}
 .how .go .pbtn{background:var(--accent);color:#fff}
 .how .go .pbtn.alt{background:transparent;border-color:var(--line);color:var(--fg)}
-@media(min-width:860px){.how-in{grid-template-columns:1fr 1fr;padding:40px;column-gap:48px}.how-in>header,.how .eg,.how .go{grid-column:1/-1}.incl{grid-template-columns:1fr 1fr;align-content:start}.incl{grid-column:1}.steps{grid-column:2;grid-row:2}}
+@media(min-width:860px){.how-in{grid-template-columns:1fr 1fr;padding:40px;column-gap:48px}.how-in>header,.how .eg,.how .go{grid-column:1/-1}.incl{grid-template-columns:1fr 1fr;align-content:start}.mpk{grid-row:2}.incl{grid-column:1;grid-row:3}.steps{grid-column:2;grid-row:3}}
+/* MATERNITY PACKAGES */
+.mpk{display:grid;gap:16px;grid-column:1/-1}
+@media(min-width:900px){.mpk{grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch}}
+.mpc{position:relative;display:flex;flex-direction:column;background:var(--bg);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+.mpc .ph{position:relative;display:grid;gap:3px;height:200px;background:var(--sunk)}
+.mpc .ph img{width:100%;height:100%;object-fit:cover;display:block;min-height:0}
+.mpc .ph.n2{grid-template-columns:1fr 1fr}.mpc .ph.n3{grid-template-columns:1.3fr 1fr;grid-template-rows:1fr 1fr}.mpc .ph.n3 img:first-child{grid-row:1/3}
+.mpc .ph:after{content:"";position:absolute;inset:auto 0 0;height:55%;background:linear-gradient(180deg,rgba(30,17,24,0),rgba(30,17,24,.6))}
+.mpc .ph span{position:absolute;left:18px;bottom:12px;z-index:1;color:#fff;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.mpc .bd{display:flex;flex-direction:column;gap:12px;padding:20px 20px 22px;flex:1}
+.mpc h3{font-size:32px;line-height:1}
+.mpc .pr{display:flex;align-items:baseline;gap:8px}
+.mpc .pr b{font-family:var(--display);font-weight:400;font-size:44px;line-height:1;font-variant-numeric:tabular-nums}
+.mpc .pr span{font-size:14px;color:var(--muted)}
+.mpc ul{list-style:none;margin:0;padding:12px 0 0;border-top:1px solid var(--line);display:grid;gap:8px;font-size:15px}
+.mpc li{position:relative;padding-left:26px;line-height:1.4}
+.mpc li:before{content:"✓";position:absolute;left:0;top:1px;width:18px;height:18px;border-radius:50%;background:#d9eedf;color:#17663a;display:grid;place-items:center;font-size:11px;font-weight:700}
+.mpc li.hl{font-weight:600;color:var(--accent)}.mpc li.hl:before{background:#f1dfba;color:#6b4a12}
+.mpc li small{display:block;font-size:13px;font-weight:400;color:var(--muted)}
+.mpc .pbtn{margin-top:auto;justify-content:center;background:transparent;border:1.5px solid var(--fg);color:var(--fg)}
+.mpc .rb{position:absolute;top:14px;right:14px;z-index:2;background:#c8a46b;color:#2b1524;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:999px}
+.mpc.prem{background:linear-gradient(160deg,#3b2133,#2b1524);color:#F6ECEF;border-color:#2b1524}
+.mpc.prem .ph{border-bottom:2px solid #c8a46b}
+.mpc.prem h3{color:#e9cf9b}.mpc.prem .pr b{color:#f6c46a}.mpc.prem .pr span,.mpc.prem li small{color:#CDB4C3}
+.mpc.prem ul{border-top-color:rgba(233,207,155,.25)}
+.mpc.prem li:before{background:rgba(255,255,255,.12);color:#e9cf9b}
+.mpc.prem li.hl{color:#e9cf9b}.mpc.prem li.hl:before{background:rgba(233,207,155,.28);color:#f6c46a}
+.mpc.prem .pbtn{border-color:#c8a46b;color:#e9cf9b}
+.fixedp{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);border:1px solid #c8a46b;border-radius:999px;padding:6px 14px}
+.fixedp:before{content:"";width:6px;height:6px;border-radius:50%;background:#c8a46b}
+.plad{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+@media(min-width:760px){.plad{grid-template-columns:repeat(3,1fr)}}
+.plad li{display:flex;flex-direction:column;gap:2px;padding:12px 14px;border-radius:12px;background:var(--bg);border:1px solid transparent;transition:background .2s,border-color .2s}
+.plad li b{font-size:15.5px}.plad li span{color:var(--muted);font-size:14px}
+.plad li.on{background:#d9eedf;border-color:#9fd1ae}.plad li.on b:after{content:" ✓";color:#17663a}
 .perks{margin:8px 0 26px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px}
 .perks h3{font-size:24px;margin-bottom:12px}
 .perks ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
@@ -355,9 +390,9 @@ details[open] summary::after{transform:rotate(45deg)}
   "openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"09:00","closes":"20:00"},
   "sameAs":["https://www.instagram.com/pixelsdreams.in/","https://www.instagram.com/pixelsdream_kids/"]},
  {"@type":"Service","name":"Maternity photoshoot","serviceType":"Maternity photography","provider":{"@id":"https://www.pixelsdream.in/#business"},"areaServed":"Bengaluru",
-  "offers":{"@type":"Offer","name":"Maternity style","price":"4999","priceCurrency":"INR","description":"Per style, with 10 edited photos"}},
+  "offers":{"@type":"Offer","name":"Maternity style","price":"6000","priceCurrency":"INR","description":"Per style, with 10 edited photos"}},
  {"@type":"FAQPage","mainEntity":[
-  {"@type":"Question","name":"How much does a maternity photoshoot cost?","acceptedAnswer":{"@type":"Answer","text":"₹4,999 per style, with 10 edited photos each. The Signature AI concept artwork is ₹5,000 with 5 images. Up to 2 backlit shots, and the flower ring and gold cage props, are free."}},
+  {"@type":"Question","name":"How much does a maternity photoshoot cost?","acceptedAnswer":{"@type":"Answer","text":"₹Basic ₹6,000 (1 style, 10 edited images), Standard ₹12,000 (2 styles, 20 edited images, free hair and makeup), Premium ₹18,000 (3 styles, 30 edited images, free hair and makeup, free 12x24 album). Every package includes 2 free backlit shots and all RAW photos. Package prices are fixed."}},
   {"@type":"Question","name":"Do you provide maternity gowns?","acceptedAnswer":{"@type":"Answer","text":"Yes. Our 2026 wardrobe has 26 gowns. Select your favourites on this page and they are sent with your booking; we confirm availability on WhatsApp."}},
   {"@type":"Question","name":"Can my husband and children join the shoot?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can be photographed alone or with your partner, children or parents."}},
   {"@type":"Question","name":"When will I get my photos?","acceptedAnswer":{"@type":"Answer","text":"Edited photos are delivered within 7 to 9 working days."}},
@@ -394,10 +429,10 @@ document.addEventListener('submit',function(e){if(e.target.closest&&e.target.clo
   <div class="hero-in">
     <div class="brand rise"><span class="loc">Pixels Dream Photography · Bangalore</span></div>
     <h1 class="rise d2">Maternity<br><em>Packages</em><br>2026<span class="bp-sr"> for maternity photoshoots in Electronic City, Bangalore</span></h1>
-    <p class="lede rise d3">Shoot styles from ₹4,999 each, with 10 edited images per style, in our private studio in Electronic City. Pick the looks you love, add what you need, and book on WhatsApp.</p>
+    <p class="lede rise d3">Three packages from ₹6,000: Basic, Standard and Premium. Every package includes 2 free backlit shots and all your RAW photos, in our private studio in Electronic City. Pick a package, choose your styles and book on WhatsApp.</p>
     <div class="btns rise d3">
       <a class="pbtn wa" data-wa="Hi Pixels Dream! I saw your Maternity Packages 2026 and would like to book a shoot." href="#"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.5 4c1.7.7 2.4.8 3.2.6a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>Book on WhatsApp</a>
-      <a class="pbtn ghost" href="#packages">Build your shoot</a>
+      <a class="pbtn ghost" href="#how">See the packages</a>
     </div>
   </div>
 </section>
@@ -433,43 +468,53 @@ document.addEventListener('submit',function(e){if(e.target.closest&&e.target.clo
 <section class="wrap how" id="how">
  <div class="how-in">
   <header>
-   <div class="eyebrow">How booking works</div>
-   <h2>Simple pricing. You choose what you need.</h2>
-   <p class="lead">There are no fixed packages. Each shoot style is priced on its own, and you add only the extras you want.</p>
-   <div class="price"><b>₹4,999</b><span>per style · 10 edited photos per style</span></div>
+   <div class="eyebrow">Maternity packages 2026</div>
+   <h2>Choose your package</h2>
+   <p class="lead">Pick Basic, Standard or Premium, then choose your styles from the catalogue below. Every package includes 2 free backlit shots and all your RAW photos.</p>
+   <span class="fixedp">Fixed package prices · No discounts</span>
   </header>
+  <div class="mpk">
+   <article class="mpc">
+    <div class="ph"><img src="img/maternity/boho-1.jpg" alt="Boho maternity style" loading="lazy"><span>Any 1 style</span></div>
+    <div class="bd"><h3>Basic</h3><div class="pr"><b>₹6,000</b><span>one style</span></div>
+     <ul><li>10 edited images</li><li>2 backlit shots, free</li><li>30-minute shoot</li><li>1 gown</li><li>All RAW photos</li><li>Hair &amp; makeup: add for ₹2,000</li></ul>
+     <a class="pbtn" href="#packages" data-pkg="1">Choose Basic</a></div>
+   </article>
+   <article class="mpc">
+    <span class="rb">Most loved</span>
+    <div class="ph n2"><img src="img/maternity/traditional-4-2.jpg" alt="Traditional maternity style" loading="lazy"><img src="img/maternity/vogue-5-1.jpg" alt="Studio Vogue maternity style" loading="lazy"><span>Any 2 styles</span></div>
+    <div class="bd"><h3>Standard</h3><div class="pr"><b>₹12,000</b><span>two styles</span></div>
+     <ul><li class="hl">Hair &amp; makeup, free</li><li>20 edited images</li><li>2 backlit shots, free</li><li>60–90 minute shoot</li><li>2 gowns<small>Traditional style is shot in a saree, with 1 gown for the other style</small></li><li>All RAW photos</li></ul>
+     <a class="pbtn" href="#packages" data-pkg="2">Choose Standard</a></div>
+   </article>
+   <article class="mpc prem">
+    <span class="rb">The full story</span>
+    <div class="ph n3"><img src="img/maternity/backlit-single.jpg" alt="Backlit maternity silhouette" loading="lazy"><img src="img/maternity/texture-1-2.jpg" alt="Artistic Texture maternity style" loading="lazy"><img src="img/maternity/outdoor-1-1.jpg" alt="Outdoor maternity style" loading="lazy"><span>Any 3 styles</span></div>
+    <div class="bd"><h3>Premium</h3><div class="pr"><b>₹18,000</b><span>three styles</span></div>
+     <ul><li class="hl">Free 12×24 album<small>up to 15 sheets</small></li><li class="hl">Hair &amp; makeup, free</li><li>30 edited images</li><li>2 backlit shots, free</li><li>90–120 minute shoot</li><li>3 gowns</li><li>All RAW photos</li></ul>
+     <a class="pbtn" href="#packages" data-pkg="3">Choose Premium</a></div>
+   </article>
+  </div>
   <div class="incl">
-   <div class="yes"><h3>Included with every style</h3><ul>
-    <li>Gowns from our wardrobe</li>
-    <li>Props and studio set for that style</li>
-    <li>10 edited high-resolution photos</li>
-    <li>2 backlit silhouette shots free with every shoot</li>
+   <div class="add"><h3>Add-ons</h3><ul>
+    <li>Photo frame <em>₹1,000</em></li>
+    <li>Reel video <em>₹1,500</em></li>
+    <li>Signature Concept AI Artwork, 5 images <em>₹5,000</em></li>
+    <li>Hair &amp; makeup for Basic <em>₹2,000</em></li>
    </ul></div>
-   <div class="add"><h3>Optional extras</h3><ul>
-    <li>Makeup &amp; hairstyle <em>₹3,000</em></li>
-    <li>Photo album, 12 sheets, up to 30 photos <em>₹5,000</em></li>
-    <li>Photo frame <em>from ₹1,000</em></li>
-   </ul></div>
-   <div class="yes"><h3>Offers for more styles</h3><ul>
-    <li>2 styles: photo frame free</li>
-    <li>3 styles: frame + reel video complimentary</li>
-    <li>4 styles: frame + reel + album free (12x24, up to 12 sheets)</li>
-   </ul></div>
-   <div class="add"><h3>Please note</h3><ul>
-    <li>Signature Concept AI Artwork (₹5,000, 5 images) is an add-on. Book it with at least one other style.</li>
+   <div class="yes"><h3>Good to know</h3><ul>
+    <li>The number of styles you pick sets your package: 1 style is Basic, 2 is Standard, 3 is Premium.</li>
+    <li>AI Artwork is an add-on to a package, not a style on its own.</li>
+    <li>Nature Glow is shot outdoors at a lake near the studio. All other styles are in our studio.</li>
    </ul></div>
   </div>
   <ol class="steps">
-   <li><div><b>Look through the styles and select your gowns</b><span>Scroll down to see every style with real photos from our shoots. In the gown wardrobe, tap "Select" on the gowns you like.</span></div></li>
-   <li><div><b>Add the styles you like</b><span>Tap "Add this style" on each one you want. Choose one or as many as you like.</span></div></li>
-   <li><div><b>Add extras if you need them</b><span>Makeup, album or frames. Your total updates as you go.</span></div></li>
+   <li><div><b>Pick your package</b><span>Basic, Standard or Premium.</span></div></li>
+   <li><div><b>Choose your styles and gowns</b><span>Scroll through every style with real photos from our shoots. Tap "Add this style" on the ones you want, and "Select" on the gowns you like.</span></div></li>
+   <li><div><b>Add extras if you need them</b><span>Frame, reel or AI Artwork. Your total updates as you go.</span></div></li>
    <li><div><b>Pick a date and time, then tap "Checkout on WhatsApp"</b><span>Your selection comes to us on WhatsApp. Nothing is charged on the website.</span></div></li>
-   <li><div><b>Pay ₹2,000 advance to confirm your date</b><span>We'll reply on WhatsApp or call you to confirm your slot and final price, and share how to pay the ₹2,000 advance. Your date is booked once the advance is paid; it's adjusted in your total.</span></div></li>
+   <li><div><b>Pay ₹2,000 advance to confirm your date</b><span>We'll reply on WhatsApp or call you to confirm your slot and share how to pay the ₹2,000 advance. Your date is booked once the advance is paid; it's adjusted in your total.</span></div></li>
   </ol>
-  <div class="eg">
-   <span><b>Example:</b> 1 style = ₹4,999 · 2 styles + makeup = ₹12,998 with a free frame · 4 styles = ₹19,996 with a free frame, reel and album</span>
-   <span>Want a discount or not sure what to pick? Call <a href="tel:+919035454533">+91 90354 54533</a> and we'll help you choose.</span>
-  </div>
   <div class="go"><a class="pbtn" href="#packages">Start building your shoot</a><a class="pbtn alt" href="#styles">See the styles first</a></div>
  </div>
 </section>
@@ -511,11 +556,11 @@ document.addEventListener('submit',function(e){if(e.target.closest&&e.target.clo
   <header>
     <div class="eyebrow">Build your shoot · 2026</div>
     <h2>Choose what you want</h2>
-    <p>No fixed packages. Pick the styles you love, add makeup, an album or frames, and see your total as you go. When you're ready, send your selection to us on WhatsApp and we'll confirm your date.</p>
+    <p>Choose 1, 2 or 3 styles and your package is set for you: Basic, Standard or Premium. Add extras if you like, then send your selection to us on WhatsApp and we'll confirm your date.</p>
   </header>
 
   <div class="bgroup">
-    <h3>1 · Pick your styles <small>10 edited images per style</small></h3>
+    <h3>1 · Pick your styles <small>1 = Basic · 2 = Standard · 3 = Premium</small></h3>
     <div class="opts st" id="optStyles"></div>
   </div>
 
@@ -525,14 +570,14 @@ document.addEventListener('submit',function(e){if(e.target.closest&&e.target.clo
   </div>
 
   <div class="perks">
-    <h3>Offers when you book more styles</h3>
-    <ul>
-      <li data-perk="2"><b>2 styles</b><span>Photo frame free</span></li>
-      <li data-perk="3"><b>3 styles</b><span>+ Reel video complimentary</span></li>
-      <li data-perk="4"><b>4 styles</b><span>+ Photo album free (12x24, up to 12 sheets)</span></li>
+    <h3>Your package</h3>
+    <ul class="plad">
+      <li data-perk="1"><b>Basic · ₹6,000</b><span>1 style · 10 edited images</span></li>
+      <li data-perk="2"><b>Standard · ₹12,000</b><span>2 styles · free hair &amp; makeup</span></li>
+      <li data-perk="3"><b>Premium · ₹18,000</b><span>3 styles · free makeup + 12×24 album</span></li>
     </ul>
     <p class="pnext" id="perkNext" hidden></p>
-    <p class="pnote">Signature Concept AI Artwork is an add-on and must be booked with at least one other style.</p>
+    <p class="pnote">Fixed package prices. No discounts. AI Artwork is an add-on to a package.</p>
   </div>
 
   <div class="summary" id="summary">
@@ -551,8 +596,8 @@ document.addEventListener('submit',function(e){if(e.target.closest&&e.target.clo
       <a class="pbtn" id="cGo" href="#" aria-disabled="true">Checkout on WhatsApp</a>
       <p class="hint" id="cHint">Pick at least one style to check out.</p>
       <div class="quote">
-        <b>Want a discount or a final quote?</b>
-        <span>Talk to us before you book. Call <a href="tel:+919035454533" class="qnum">+91 90354 54533</a>, or send your selection and we'll call you back to discuss the final price.</span>
+        <b>Questions before you book?</b>
+        <span>Call <a href="tel:+919035454533" class="qnum">+91 90354 54533</a>, or request a call back and we'll help you choose a package.</span>
         <a class="pbtn qbtn" id="cCall" href="#">Request a call back</a>
       </div>
     </form>
@@ -561,7 +606,7 @@ document.addEventListener('submit',function(e){if(e.target.closest&&e.target.clo
   <div class="notes">
     <p><b>Outdoor shoots</b> happen at a lake near the studio. Weekend evenings can be crowded, so weekdays are quieter and preferred.</p>
     <p><b>Weather:</b> outdoor sessions depend on the weather on the day.</p>
-    <p><b>Albums and photo frames</b> are collected from the studio. Larger frame sizes cost more; we'll share options on WhatsApp.</p>
+    <p><b>Albums and photo frames</b> are collected from the studio.</p>
   </div>
 </section>
 
@@ -575,8 +620,9 @@ document.addEventListener('submit',function(e){if(e.target.closest&&e.target.clo
       <div><dt>Extra edits</dt><dd>Additional edited images at ₹200 per photo.</dd></div>
       <div><dt>Delivery</dt><dd>Edited photos within 7–9 working days.</dd></div>
       <div><dt>Photo selection</dt><dd>Choose your favourites after the shoot, or we can choose for you. Please match the number of images in your package.</dd></div>
-      <div><dt>Raw data</dt><dd>Raw files are shared as per the studio's terms.</dd></div>
+      <div><dt>Raw data</dt><dd>All RAW photos from your shoot are included in every package.</dd></div>
       <div><dt>Privacy</dt><dd>We love to showcase our work. If you'd like your images kept private, just tell us in advance.</dd></div>
+      <div><dt>Pricing</dt><dd>Package prices are fixed. No discounts.</dd></div>
       <div><dt>Payment</dt><dd>Full payment is due when the shoot is complete.</dd></div>
     </dl>
   </details>
@@ -595,7 +641,7 @@ document.addEventListener('submit',function(e){if(e.target.closest&&e.target.clo
 <p class="wrap bfoot">© 2026 Pixels Dream Photography. All photographs were captured and edited by Pixels Dream and may not be copied or reused without written permission.</p>
 
 <div class="sbar">
-  <div class="tot"><span id="barCount">0 items</span><b id="barTotal">₹0</b></div>
+  <div class="tot"><span id="barCount">Choose styles</span><b id="barTotal">₹0</b></div>
   <a class="pbtn wa" href="#summary" id="barGo">Build your shoot</a>
 </div>
 
@@ -627,7 +673,7 @@ const STYLES=[
  {id:"texture",name:"Artistic Texture",tag:"Studio",d:"Handpicked textured and designer backdrops for a bold, elegant, cinematic feel.",img:["texture-1-1","texture-1-2","texture-1-3","texture-2-1","texture-2-2","texture-2-3","texture-3-1","texture-3-2","texture-3-3","texture-4-1","texture-4-2","texture-4-3"]},
  {id:"outdoor",name:"Nature Glow",tag:"Outdoor · lakeside",d:"Soft natural light by the lake and in the garden, close to our studio.",img:["outdoor-solo-1","outdoor-solo-2","outdoor-solo-3","outdoor-1-1","outdoor-1-2","outdoor-1-3","outdoor-2-1","outdoor-2-2","outdoor-2-3"]},
  {id:"ai",name:"Signature Concept AI Artwork",tag:"Studio · signature",price:5000,imgs:5,d:"Sculptural butterfly wings and couture gowns, finished as one-of-a-kind artwork. An add-on: book it with at least one other style.",img:["ai-1-1","ai-1-2","ai-1-3","ai-b-1","ai-b-2","ai-w-1","ai-w-2"]},
- {id:"backlit",name:"Backlit Silhouettes",tag:"Complimentary with every shoot",price:0,imgs:2,d:"Light from behind turns your profile into a graphic, artistic silhouette. Up to 2 backlit images are free with every shoot, if you'd like them. Our flower ring and gold cage props are free to use too.",img:["backlit-single","backlit-a-1","backlit-a-2"]}
+ {id:"backlit",name:"Backlit Silhouettes",tag:"Complimentary with every shoot",price:0,imgs:2,d:"Light from behind turns your profile into a graphic, artistic silhouette. 2 backlit images are free in every package. Our flower ring and gold cage props are free to use too.",img:["backlit-single","backlit-a-1","backlit-a-2"]}
 ];
 const GOWNS=[
  ["g02","Tulip","Premium"],["g03","Royal Red",""],["g04","Mango Yellow","Standard"],["g05","Peacock Blue","Standard"],
@@ -639,21 +685,25 @@ const GOWNS=[
  ["g25","Emerald",""],["g26","Blush Knit",""],
 ];
 const STUDIO=["studio-1","studio-2","studio-3","studio-4","studio-5"];
-const PRICE_STYLE=4999;
+const PRICE_STYLE=0;
+const PKG=[null,{n:"Basic",p:6000,img:10,t:"30-minute shoot",g:"1 gown"},{n:"Standard",p:12000,img:20,t:"60–90 minute shoot",g:"2 gowns (saree for Traditional)"},{n:"Premium",p:18000,img:30,t:"90–120 minute shoot",g:"3 gowns"}];
+const MAXS=3;
 const pl=p=>p?inr(p):"Free";
 const sp=st=>st.price!=null?st.price:PRICE_STYLE, si=st=>st.imgs||10;
 const EXTRAS=[
- {id:"makeup",name:"Makeup & hairstyle",d:"Professional makeup artist and hairstyling. Arrive 2 hours before your slot.",p:3000,ic:"✦"},
- {id:"album",name:"Photo album",d:"Your own design · 12 sheets · up to 30 of your photos.",p:5000,ic:"▤"},
- {id:"frame",name:"Photo frame",d:"Framed print. Price from ₹1,000; larger sizes cost more.",p:1000,from:1,qty:1,ic:"▢"},
+ {id:"makeup",name:"Makeup & hairstyle",d:"For Basic. Free in Standard and Premium. Arrive 2 hours before your slot.",p:2000,ic:"✦"},
+ {id:"reel",name:"Reel video",d:"A short reel from your shoot for Instagram.",p:1500,ic:"▶"},
+ {id:"frame",name:"Photo frame",d:"Framed print of your favourite photo.",p:1000,qty:1,ic:"▢"},
 ];
-const cart={styles:new Set(),extras:{makeup:0,album:0,frame:0},gowns:new Set()};
+const cart={styles:new Set(),extras:{makeup:0,reel:0,frame:0},gowns:new Set()};
+const isReg=id=>id!=="ai"&&id!=="backlit";
+const nReg=()=>[...cart.styles].filter(isReg).length;
 const inr=n=>"₹"+n.toLocaleString("en-IN");
 const all=[];
 const shot=(id,label,gown,k=0,n=0)=>{const i=all.push({id,label,gown,k,n})-1;return `<button class="shot" type="button" data-i="${i}" aria-label="View ${label} photo"><img src="${IMG}${id}.jpg" alt="${label} maternity portrait" loading="lazy" decoding="async"><span class="wm">© Pixels Dream</span></button>`};
 document.getElementById("styles").innerHTML=STYLES.map((s,k)=>`
 <section class="style" id="${s.id}">
- <div class="wrap"><header><div class="n">${s.tag} · ${s.img.length} photos</div><h2>${s.name}</h2><p>${s.d}</p><button class="addstyle" type="button" data-style="${s.id}" aria-pressed="false">${sp(s)?`+ Add this style · ${inr(sp(s))}`:"+ Add free backlit shots"}</button><span class="incl">${sp(s)?`Includes ${si(s)} edited images`:`Up to ${si(s)} images · complimentary`}</span></header></div>
+ <div class="wrap"><header><div class="n">${s.tag} · ${s.img.length} photos</div><h2>${s.name}</h2><p>${s.d}</p>${s.id==="backlit"?`<span class="incl">2 backlit shots are free in every package</span>`:`<button class="addstyle" type="button" data-style="${s.id}" aria-pressed="false">${s.id==="ai"?`+ Add AI Artwork · ${inr(sp(s))}`:"+ Add this style"}</button><span class="incl">${s.id==="ai"?"Add-on to your package · 5 artworks":"Counts as 1 of your package styles"}</span>`}</header></div>
  <div class="strip">${s.img.map((id,k)=>shot(id,s.name,0,k,s.img.length)).join("")}</div>
  <div class="swipe">Swipe · tap to enlarge</div>
  ${s.extra?`<div class="wrap"><div class="extra">${s.extra}</div></div>`:""}
@@ -661,13 +711,13 @@ document.getElementById("styles").innerHTML=STYLES.map((s,k)=>`
 document.getElementById("gownGrid").innerHTML=GOWNS.map(([id,n,t,c=2])=>{const i=all.push({id:`${id}_0`,label:n,gown:1,ph:c>1?"1 of 2":"1 photo"})-1;if(c>1)all.push({id:`${id}_1`,label:n,gown:1,ph:"2 of 2"});
  return `<figure class="gown" data-gfig="${n}"><button class="shot" type="button" data-i="${i}" aria-label="View ${n} gown photos"><img src="${IMG}${id}_0.jpg" alt="${n} maternity gown" loading="lazy" decoding="async"><span class="wm">© Pixels Dream</span>${c>1?'<span class="cnt">2 photos</span>':""}</button><figcaption><b>${n}</b>${t?`<span class="tier-tag ${t.toLowerCase()}">${t} gown</span>`:""}</figcaption><button class="gsel" type="button" data-gown="${n}" aria-pressed="false">+ Select</button></figure>`}).join("");
 document.querySelector('[data-set="studio"]').innerHTML=STUDIO.map((id,k)=>shot(id,"Studio",0,k,STUDIO.length)).join("");
-document.getElementById("chips").innerHTML=`<a class="chip" href="#how">How to book</a>`+STYLES.map(s=>`<a class="chip" href="#${s.id}">${s.name.replace(" Silhouettes","").replace("Signature Concept AI Artwork","AI Artwork")}</a>`).join("")+`<a class="chip" href="#gowns">Gowns</a><a class="chip" href="#studio">Studio</a><a class="chip pk" href="#packages">Build your shoot</a>`;
-document.getElementById("optStyles").innerHTML=STYLES.filter(st=>sp(st)>0).map(st=>`<button class="opt" type="button" data-style="${st.id}" aria-pressed="false"><img src="${IMG}${st.img[0]}.jpg" alt="" loading="lazy"><div><b>${st.name}</b><span class="d">${si(st)} edited images · ${st.tag}</span></div><div><div class="pr">${pl(sp(st))}</div><div class="tick">✓</div></div></button>`).join("");
-document.getElementById("optExtras").innerHTML=STYLES.filter(st=>sp(st)===0).map(st=>`<button class="opt" type="button" data-style="${st.id}" aria-pressed="false"><img src="${IMG}${st.img[0]}.jpg" alt="" loading="lazy"><div><b>Backlit shots</b><span class="d">Up to ${si(st)} silhouette images, free with every shoot.</span></div><div><div class="pr">Free</div><div class="tick">✓</div></div></button>`).join("")+EXTRAS.map(x=>x.qty?
- `<div class="opt frame" data-extra="${x.id}" aria-pressed="false"><div class="ic" aria-hidden="true">${x.ic}</div><div><b>${x.name}</b><span class="d">${x.d}</span></div><div><div class="pr">${inr(x.p)}<small>from · each</small></div><div class="qty"><button type="button" data-q="-1" aria-label="Fewer frames">−</button><output id="frameQty">0</output><button type="button" data-q="1" aria-label="More frames">+</button></div></div></div>`:
+document.getElementById("chips").innerHTML=`<a class="chip" href="#how">Packages</a>`+STYLES.map(s=>`<a class="chip" href="#${s.id}">${s.name.replace(" Silhouettes","").replace("Signature Concept AI Artwork","AI Artwork")}</a>`).join("")+`<a class="chip" href="#gowns">Gowns</a><a class="chip" href="#studio">Studio</a><a class="chip pk" href="#packages">Build your shoot</a>`;
+document.getElementById("optStyles").innerHTML=STYLES.filter(st=>isReg(st.id)).map(st=>`<button class="opt" type="button" data-style="${st.id}" aria-pressed="false"><img src="${IMG}${st.img[0]}.jpg" alt="" loading="lazy"><div><b>${st.name}</b><span class="d">${st.tag}</span></div><div><div class="tick">✓</div></div></button>`).join("");
+document.getElementById("optExtras").innerHTML=STYLES.filter(st=>st.id==="ai").map(st=>`<button class="opt" type="button" data-style="${st.id}" aria-pressed="false"><img src="${IMG}${st.img[0]}.jpg" alt="" loading="lazy"><div><b>AI Artwork</b><span class="d">5 one-of-a-kind artworks, added to your package.</span></div><div><div class="pr">${inr(sp(st))}</div><div class="tick">✓</div></div></button>`).join("")+EXTRAS.map(x=>x.qty?
+ `<div class="opt frame" data-extra="${x.id}" aria-pressed="false"><div class="ic" aria-hidden="true">${x.ic}</div><div><b>${x.name}</b><span class="d">${x.d}</span></div><div><div class="pr">${inr(x.p)}<small>each</small></div><div class="qty"><button type="button" data-q="-1" aria-label="Fewer frames">−</button><output id="frameQty">0</output><button type="button" data-q="1" aria-label="More frames">+</button></div></div></div>`:
  `<button class="opt" type="button" data-extra="${x.id}" aria-pressed="false"><div class="ic" aria-hidden="true">${x.ic}</div><div><b>${x.name}</b><span class="d">${x.d}</span></div><div><div class="pr">${inr(x.p)}</div><div class="tick">✓</div></div></button>`).join("");
 const styleName=id=>STYLES.find(x=>x.id===id).name;
-const ok0=()=>[...cart.styles].some(id=>id!=="ai"&&sp(STYLES.find(x=>x.id===id))>0);
+const ok0=()=>nReg()>0;
 const SLOTS=["8 – 10 AM","10 AM – 12 PM","12 – 2 PM","2 – 4 PM","4 – 6 PM","6 – 8 PM"],END=[10,12,14,16,18,20];
 let shootSlot="";
 const isToday=()=>{const v=document.getElementById("cDate").value;return v&&v===new Date().toISOString().slice(0,10)};
@@ -677,52 +727,53 @@ function renderSlots(){const h=new Date().getHours(),t=isToday();
 document.addEventListener("click",e=>{const x=e.target.closest("[data-cslot]");if(x){shootSlot=shootSlot===x.dataset.cslot?"":x.dataset.cslot;renderSlots();render()}});
 document.getElementById("cDate").addEventListener("change",()=>{renderSlots();render()});
 function render(){
- const lines=[];let total=0,count=0;
- STYLES.forEach(st=>{if(cart.styles.has(st.id)){lines.push([sp(st)?`${st.name} style (${si(st)} edited images)`:`Backlit shots (up to ${si(st)} images)`,sp(st)]);total+=sp(st);count++}});
- const nS=[...cart.styles].filter(id=>sp(STYLES.find(x=>x.id===id))>0).length,freeFrame=nS>=2,freeReel=nS>=3,freeAlbum=nS>=4;
- EXTRAS.forEach(x=>{const q=cart.extras[x.id];if(q){let amt=x.p*q,lab=x.qty?`${x.name} × ${q}${x.from?" (from)":""}`:x.name;
-  if(x.id==="album"&&freeAlbum){amt=0;lab="Photo album 12x24, up to 12 sheets (free with 4 styles)"}
-  if(x.id==="frame"&&freeFrame){amt=x.p*(q-1);lab=`${x.name} × ${q} (1 free with 2+ styles)${q>1&&x.from?" (from)":""}`}
-  lines.push([lab,amt]);total+=amt;count+=q}});
- if(freeFrame&&!cart.extras.frame)lines.push(["Photo frame (free with 2+ styles)",0]);
- if(freeReel)lines.push(["Reel video (complimentary with 3+ styles)",0]);
- if(freeAlbum&&!cart.extras.album)lines.push(["Photo album 12x24, up to 12 sheets (free with 4 styles)",0]);
- const nxt=nS===0?"":nS===1?"Add 1 more style to get a free photo frame.":nS===2?"Add 1 more style to also get a complimentary reel.":nS===3?"Add 1 more style to also get a free 12x24 album.":"You've unlocked every offer: free frame, reel and album.";
- document.getElementById("perkNext").textContent=nxt;document.getElementById("perkNext").hidden=!nxt;
- document.querySelectorAll("[data-perk]").forEach(el=>el.classList.toggle("on",nS>=+el.dataset.perk));
- document.querySelectorAll("[data-style]").forEach(el=>{const on=cart.styles.has(el.dataset.style);el.setAttribute("aria-pressed",on);if(el.classList.contains("addstyle")){const st=STYLES.find(x=>x.id===el.dataset.style);el.textContent=sp(st)?(on?`✓ Added · ${inr(sp(st))}`:`+ Add this style · ${inr(sp(st))}`):(on?"✓ Free backlit shots added":"+ Add free backlit shots")}});
- document.querySelectorAll("[data-extra]").forEach(el=>el.setAttribute("aria-pressed",cart.extras[el.dataset.extra]>0));
+ const lines=[];let total=0;
+ const nS=nReg(),P=PKG[nS]||null,regs=STYLES.filter(st=>isReg(st.id)&&cart.styles.has(st.id)).map(st=>st.name);
+ if(P){lines.push([`${P.n} package · ${nS} ${nS>1?"styles":"style"} (${regs.join(", ")})`,P.p]);total+=P.p;
+  lines.push([`${P.img} edited images, 2 backlit shots, all RAW photos`,"inc"]);lines.push([`${P.t} · ${P.g}`,"inc"]);
+  if(nS>=2)lines.push(["Hair & makeup","inc"]);
+  if(nS>=3)lines.push(["12×24 album, up to 15 sheets","inc"]);}
+ if(cart.styles.has("ai")){lines.push(["Signature Concept AI Artwork (5 images)",5000]);total+=5000}
+ EXTRAS.forEach(x=>{const q=cart.extras[x.id];if(!q)return;if(x.id==="makeup"&&nS>=2)return;
+  lines.push([x.qty?`${x.name} × ${q}`:x.name,x.p*q]);total+=x.p*q});
+ const nxt=nS===0?"Pick 1 style for Basic, 2 for Standard or 3 for Premium.":nS===1?"Add 1 more style for Standard: hair & makeup free.":nS===2?"Add 1 more style for Premium: free 12×24 album too.":"You're on Premium, our complete package.";
+ document.getElementById("perkNext").textContent=nxt;document.getElementById("perkNext").hidden=false;
+ document.querySelectorAll("[data-perk]").forEach(el=>el.classList.toggle("on",nS===+el.dataset.perk));
+ const mk=document.querySelector('[data-extra="makeup"]');if(mk){mk.querySelector(".pr").textContent=nS>=2?"Included":inr(2000);mk.classList.toggle("incd",nS>=2)}
+ document.querySelectorAll("[data-style]").forEach(el=>{const on=cart.styles.has(el.dataset.style);el.setAttribute("aria-pressed",on);if(el.classList.contains("addstyle")){const st=STYLES.find(x=>x.id===el.dataset.style);el.textContent=st.id==="ai"?(on?`✓ AI Artwork added · ${inr(sp(st))}`:`+ Add AI Artwork · ${inr(sp(st))}`):(on?"✓ Added":"+ Add this style")}});
+ document.querySelectorAll("[data-extra]").forEach(el=>el.setAttribute("aria-pressed",el.dataset.extra==="makeup"&&nS>=2?true:cart.extras[el.dataset.extra]>0));
  document.getElementById("frameQty").textContent=cart.extras.frame;
  const gw=[...cart.gowns];
  document.querySelectorAll("[data-gown]").forEach(el=>{const on=cart.gowns.has(el.dataset.gown);el.setAttribute("aria-pressed",on);el.textContent=on?"✓ Selected":"+ Select";el.closest(".gown").classList.toggle("on",on)});
  const gp=document.getElementById("gpick");gp.hidden=!gw.length;document.getElementById("gpickTxt").textContent=gw.length===1?"1 gown selected":`${gw.length} gowns selected`;
- document.getElementById("lines").innerHTML=(lines.length?lines.map(([n,v])=>`<li><span>${n}</span><span>${pl(v)}</span></li>`).join(""):'<li class="empty">Nothing added yet. Pick a style above.</li>')+(gw.length?`<li class="gl"><span>Gowns (included)</span><span>${gw.join(", ")}</span></li>`:"");
+ document.getElementById("lines").innerHTML=(lines.length?lines.map(([n,v])=>`<li><span>${n}</span><span>${v==="inc"?"Included":inr(v)}</span></li>`).join(""):'<li class="empty">Nothing added yet. Pick a style above.</li>')+(gw.length?`<li class="gl"><span>Gowns (included)</span><span>${gw.join(", ")}</span></li>`:"");
  document.getElementById("total").textContent=inr(total);
  document.getElementById("barTotal").textContent=inr(total);
- document.getElementById("barCount").textContent=count===1?"1 item":`${count} items`;
+ document.getElementById("barCount").textContent=P?`${P.n} · ${nS} ${nS>1?"styles":"style"}`:"Choose styles";
  document.getElementById("barGo").textContent=ok0()?"Checkout":"Build your shoot";
  const ok=ok0(),go=document.getElementById("cGo");
  go.setAttribute("aria-disabled",!ok);const ch=document.getElementById("cHint");ch.hidden=ok;
- ch.textContent=cart.styles.has("ai")?"AI Artwork is an add-on. Please pick at least one more style with it.":"Pick at least one style to check out.";
+ ch.textContent=cart.styles.has("ai")?"AI Artwork is an add-on. Please pick at least one style with it.":"Pick at least one style to check out.";
  const name=document.getElementById("cName").value.trim(),date=document.getElementById("cDate").value,note=document.getElementById("cNote").value.trim();
  const msg=["Hi Pixels Dream! I'd like to book a maternity shoot."+(name?` My name is ${name}.`:""),"",
-  "My selection:",...lines.map(([n,v])=>`• ${n}: ${pl(v)}`),`Total: ${inr(total)}`+(cart.extras.frame?" (frame price from)":""),gw.length?`\nGowns I like: ${gw.join(", ")}`:"",
+  "My selection:",...lines.map(([n,v])=>`• ${n}: ${v==="inc"?"Included":inr(v)}`),`Total: ${inr(total)}`,gw.length?`\nGowns I like: ${gw.join(", ")}`:"",
   date?`\nPreferred date: ${new Date(date+"T00:00").toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"})}${shootSlot?", "+shootSlot:""}`:shootSlot?`Preferred time: ${shootSlot}`:"",
   note?`Note: ${note}`:""].filter((x,i)=>x!==""||i===1).join("\n");
  go.href=wa(msg);go.target="_blank";go.rel="noopener";
- const cm=["Hi Pixels Dream! I'm planning a maternity shoot and would like to discuss a final quotation / discount. Please call me."+(name?` My name is ${name}.`:""),...(lines.length?["\nWhat I'm looking at:",...lines.map(([n,v])=>`• ${n}: ${pl(v)}`),`Total so far: ${inr(total)}`]:[]),gw.length?`\nGowns I like: ${gw.join(", ")}`:"",date?`\nPreferred date: ${new Date(date+"T00:00").toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"})}${shootSlot?", "+shootSlot:""}`:shootSlot?`Preferred time: ${shootSlot}`:"",note?`Note: ${note}`:""].concat([]).filter((x,i,a)=>x!==""||(i>0&&a[i-1]!=="")).join("\n");
+ const cm=["Hi Pixels Dream! I'm planning a maternity shoot and have a few questions about the packages. Please call me."+(name?` My name is ${name}.`:""),...(lines.length?["\nWhat I'm looking at:",...lines.map(([n,v])=>`• ${n}: ${v==="inc"?"Included":inr(v)}`),`Total so far: ${inr(total)}`]:[]),gw.length?`\nGowns I like: ${gw.join(", ")}`:"",date?`\nPreferred date: ${new Date(date+"T00:00").toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"})}${shootSlot?", "+shootSlot:""}`:shootSlot?`Preferred time: ${shootSlot}`:"",note?`Note: ${note}`:""].concat([]).filter((x,i,a)=>x!==""||(i>0&&a[i-1]!=="")).join("\n");
  const cc=document.getElementById("cCall");cc.href=wa(cm);cc.target="_blank";cc.rel="noopener";
- try{localStorage.setItem("pd-cart",JSON.stringify({s:[...cart.styles],e:cart.extras,g:[...cart.gowns]}))}catch(e){}
+ try{localStorage.setItem("pd-cart3",JSON.stringify({s:[...cart.styles],e:cart.extras,g:[...cart.gowns]}))}catch(e){}
 }
 document.addEventListener("click",e=>{
  const g=e.target.closest("[data-gown]");if(g){const n=g.dataset.gown;cart.gowns.has(n)?cart.gowns.delete(n):cart.gowns.add(n);render();return}
- const st=e.target.closest("[data-style]");if(st){const id=st.dataset.style;cart.styles.has(id)?cart.styles.delete(id):cart.styles.add(id);render();return}
+ const st=e.target.closest("[data-style]");if(st){const id=st.dataset.style;if(cart.styles.has(id))cart.styles.delete(id);else{if(isReg(id)&&nReg()>=MAXS){const pn=document.getElementById("perkNext");pn.textContent="Premium includes 3 styles. Remove one first, or call us for more than 3 styles.";pn.hidden=false;pn.scrollIntoView({block:"center",behavior:"smooth"});return}cart.styles.add(id)}render();return}
+ const pk=e.target.closest("[data-pkg]");if(pk){const k=+pk.dataset.pkg;const pn=document.getElementById("perkNext");setTimeout(()=>{pn.textContent=`${PKG[k].n}: pick ${k} ${k>1?"styles":"style"} below.`;pn.hidden=false},50)}
  const q=e.target.closest("[data-q]");if(q){cart.extras.frame=Math.max(0,Math.min(10,cart.extras.frame+ +q.dataset.q));render();return}
- const ex=e.target.closest("button[data-extra]");if(ex){const id=ex.dataset.extra;cart.extras[id]=cart.extras[id]?0:1;render()}
+ const ex=e.target.closest("button[data-extra]");if(ex){const id=ex.dataset.extra;if(id==="makeup"&&nReg()>=2)return;cart.extras[id]=cart.extras[id]?0:1;render()}
 });
 ["cName","cDate","cNote"].forEach(id=>document.getElementById(id).addEventListener("input",render));
 document.getElementById("checkout").addEventListener("submit",e=>e.preventDefault());
-try{const sv=JSON.parse(localStorage.getItem("pd-cart")||"null");if(sv){sv.s.forEach(x=>STYLES.some(y=>y.id===x)&&cart.styles.add(x));Object.assign(cart.extras,sv.e||{});(sv.g||[]).forEach(x=>GOWNS.some(y=>y[1]===x)&&cart.gowns.add(x))}}catch(e){}
+try{const sv=JSON.parse(localStorage.getItem("pd-cart3")||"null");if(sv){sv.s.forEach(x=>STYLES.some(y=>y.id===x)&&cart.styles.add(x));Object.assign(cart.extras,sv.e||{});(sv.g||[]).forEach(x=>GOWNS.some(y=>y[1]===x)&&cart.gowns.add(x))}}catch(e){}
 try{document.getElementById("cDate").min=new Date().toISOString().slice(0,10)}catch(e){}
 renderSlots();
 render();
