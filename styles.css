@@ -88,3 +88,7 @@ a.btn-tur,.btn-tur{background:var(--turmeric);color:var(--plum)}
   .dd-m a{padding:10px 10px;border-bottom:0;font-weight:500}
   .dd-m a small{font-size:13px}
 }
+/* keep the desktop menu on one line */
+.nav a,.dd-t,.hdr .btn{white-space:nowrap}
+@media (min-width:901px) and (max-width:1420px){.nav{gap:20px}}
+@media (min-width:901px) and (max-width:1180px){.nav{gap:14px;font-size:14.5px}.logo{font-size:18px}}

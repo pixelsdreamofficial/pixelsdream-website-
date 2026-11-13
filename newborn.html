@@ -11,7 +11,7 @@
 <meta property="og:image" content="https://www.pixelsdream.in/img/newborn/newborn-photoshoot-bangalore-01.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261111c">
+<link rel="stylesheet" href="styles.css?v=20261113a">
 <style>
 /* Layout: same family as the maternity page, retuned to soft sage. Hero portrait, setup galleries as swipeable square strips, prep checklist, priced packages. */
 :root{
@@ -148,6 +148,14 @@ p{margin:0}
 .pk-card.sig .meta{border-color:rgba(255,255,255,.14)}
 .pk-card.sig .pbtn{background:#c8a46b;color:#2b1524}
 .badge{position:absolute;top:18px;right:18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(200,164,107,.6);color:#c8a46b;padding:4px 8px}
+.comfort{margin-top:26px;display:grid;gap:18px;background:var(--surface);border:1px solid var(--line);border-left:3px solid #c8a46b;border-radius:18px;padding:24px 22px}
+.comfort h3{font-family:var(--display);font-weight:400;font-size:clamp(26px,5vw,34px);line-height:1.1;margin-top:6px}
+.comfort>div>p{color:var(--muted);margin-top:8px;max-width:62ch}
+.comfort ol{list-style:none;margin:0;padding:0;display:grid;gap:10px;counter-reset:c}
+.comfort li{counter-increment:c;display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start;background:var(--bg);border-radius:14px;padding:12px 14px}
+.comfort li:before{content:counter(c);width:34px;height:34px;border-radius:50%;background:#2b1524;color:#e9cf9b;display:grid;place-items:center;font-family:var(--display);font-size:17px}
+.comfort li b{display:block;font-size:15.5px}.comfort li span{color:var(--muted);font-size:14.5px}
+@media(min-width:900px){.comfort{grid-template-columns:1fr 1.1fr;align-items:center;padding:32px 34px;gap:34px}}
 .notes{margin-top:22px;display:grid;gap:8px;font-size:14.5px;color:var(--muted);background:var(--glow);padding:18px 20px;border-left:2px solid var(--accent)}
 .notes b{color:var(--fg)}
 
@@ -283,7 +291,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 },true);
 document.addEventListener('submit',function(e){if(e.target.closest&&e.target.closest('.cb'))gtag('event','callback_request',{page:location.pathname});},true);
 </script>
-<link rel="stylesheet" href="mobile.css?v=20261111c">
+<link rel="stylesheet" href="mobile.css?v=20261113a">
 </head>
 <body>
 <header class="hdr"><div class="wrap">
@@ -296,8 +304,8 @@ document.addEventListener('submit',function(e){if(e.target.closest&&e.target.clo
 </div></header>
 <main>
 <section class="bhero">
-  <img class="main" src="img/newborn/nb-028.jpg" alt="Sleeping newborn in a knitted bear bonnet on soft fur" fetchpriority="high">
-  <img class="side" src="img/newborn/nb-018.jpg" alt="Newborn wrapped in yellow in a wooden tub with sunflowers">
+  <img class="main" src="img/newborn/nbp-01.jpg" alt="Sleeping newborn in a knitted bear bonnet in a wooden bowl" fetchpriority="high">
+  <img class="side" src="img/newborn/nbp-14.jpg" alt="Newborn wrapped in yellow in a wooden tub with sunflowers">
   <div class="hero-in">
     <div class="brand rise"><span class="loc">Pixels Dream Photography · Bangalore</span></div>
     <h1 class="rise d2">Newborn<br><em>Packages</em><br>2026<span class="bp-sr"> for newborn photography in Electronic City, Bangalore</span></h1>
@@ -333,7 +341,7 @@ document.addEventListener('submit',function(e){if(e.target.closest&&e.target.clo
     <p>We specialise in capturing the timeless beauty and delicate charm of your newborn's first moments. Babies change quickly in the first weeks, and these are the days you will want to look back on.</p>
     <p>Our professional setups, expert handling and creative themes mean a calm session for your baby and memories you will treasure for a lifetime. Parents and siblings can join for family photographs in every package.</p>
   </div>
-  <figure><img src="img/newborn/nb-009.jpg" alt="Newborn asleep in a pink wrap with teddies" loading="lazy"><figcaption>Cosy classics setup · studio</figcaption></figure>
+  <figure><img src="img/newborn/nbp-02.jpg" alt="Newborn asleep in a pink wrap with teddies" loading="lazy"><figcaption>Cosy classics setup · studio</figcaption></figure>
 </section>
 
 <div id="styles"></div>
@@ -382,6 +390,19 @@ document.addEventListener('submit',function(e){if(e.target.closest&&e.target.clo
     <p>All prices in Indian rupees. Props and baby wraps are included in every package.</p>
   </header>
   <div class="grid" id="grid"></div>
+  <div class="comfort" id="comfort">
+    <div>
+      <div class="eyebrow">Baby comfort comes first</div>
+      <h3>Your baby leads the session</h3>
+      <p>Every newborn has their own mood on the day. Some settle beautifully in one setup and feel fussy in another, and that's completely normal. So while you pick your favourite themes, our team watches your baby closely and starts with the setups they're most comfortable in.</p>
+      <p>If a theme isn't working for your baby, we gently move to another setup of a similar style. You still get the full number of themes and edited photos in your package, and we always give it our best.</p>
+    </div>
+    <ol>
+      <li><div><b>You choose your favourite themes</b><span>Tell us the looks you love when you book.</span></div></li>
+      <li><div><b>We follow your baby's comfort</b><span>On the day we plan the order of setups around how your baby is settling, feeding and sleeping.</span></div></li>
+      <li><div><b>Nothing is lost from your package</b><span>If a theme doesn't suit your baby, we swap it for a similar one, so you still get every theme and edited photo.</span></div></li>
+    </ol>
+  </div>
   <div class="notes">
     <p><b>Home service</b> is available for ₹2,000 extra.</p>
     <p><b>Studio only:</b> the bean bag pose and some setups, such as the swings and sky themes, are available only at our studio.</p>
@@ -394,6 +415,7 @@ document.addEventListener('submit',function(e){if(e.target.closest&&e.target.clo
     <details><summary>Do you offer newborn photoshoots at home?</summary><p>Yes, for ₹2,000 extra. A few setups are only possible in the studio, so we'll tell you which ones when you book.</p></details>
     <details><summary>Can parents be in the photos?</summary><p>Yes. Every package includes a family shoot with the parents.</p></details>
     <details><summary>Do I get all the photos?</summary><p>Yes. Every package includes all raw images, plus the number of edited photos listed in your package.</p></details>
+    <details><summary>What if my baby isn't comfortable in a theme I chose?</summary><p>It happens, and it's completely normal. We plan the session around your baby's comfort and start with the setups they settle in best. If a theme doesn't suit your baby on the day, we switch to a similar setup, so you still get the full number of themes and edited photos in your package.</p></details>
     <details><summary>Can I ask for poses I saw on Instagram or Pinterest?</summary><p>Yes, please share them with us before booking so we can plan the setups. We can't add new requests once the shoot is booked or during the session.</p></details>
   </div></section>
 
@@ -434,13 +456,13 @@ const IMG="img/newborn/";
 const WA="919035454533";
 const wa=t=>`https://wa.me/${WA}?text=${encodeURIComponent(t)}`;
 const STYLES=[
- {id:"classics",name:"Cosy Classics",tag:"Studio · baskets & bowls",d:"Knitted bonnets, soft wraps, wooden baskets and teddies. Warm, timeless newborn portraits.",img:["nb-009","nb-028","nb-029","nb-010","nb-057","nb-020","nb-019"]},
- {id:"themes",name:"Little Themes",tag:"Studio · themed setups",d:"Playful themes like the little graduate, peacock feathers and festive setups, with tiny props made for newborns.",img:["nb-024","nb-025","nb-032","nb-033","nb-021","nb-038","nb-041"]},
- {id:"sunshine",name:"Sunshine",tag:"Studio · yellow",d:"Bright yellow wraps, sunflowers and heart-shaped nests for a cheerful, happy look.",img:["nb-053","nb-013","nb-018","nb-022","nb-023"]},
- {id:"blooms",name:"Garden Blooms",tag:"Studio · florals",d:"Wooden nests framed with fresh tulips and roses, shot from above.",img:["nb-011","nb-012"]},
- {id:"skies",name:"Dreamy Skies",tag:"Studio only",d:"Clouds, moons, dreamcatchers and safely supported swings for a soft, storybook feel.",img:["nb-054","nb-055","nb-056","nb-026","nb-027","nb-044"]},
- {id:"beds",name:"Tiny Beds",tag:"Studio · props",d:"Miniature beds, blankets and natural tummy-time poses that show every tiny detail.",img:["nb-030","nb-031","nb-034","nb-035","nb-036","nb-037","nb-045"]},
- {id:"family",name:"Family & Backlit",tag:"Included in every package",d:"Parents and siblings with the baby on our boho set, plus graphic backlit silhouettes.",img:["nb-049","nb-048","nb-051","nb-052","nb-046","nb-047","nb-050"]},
+ {id:"classics",name:"Cosy Classics",tag:"Studio · baskets & bowls",d:"Knitted bonnets, soft wraps, wooden baskets and teddies. Warm, timeless newborn portraits.",img:["nbp-01","nbp-02","nbp-03","nbp-04","nbp-05","nbp-06","nbp-07","nbp-08","nbp-09"]},
+ {id:"themes",name:"Little Themes",tag:"Studio · themed setups",d:"Playful themes like the little chef and the little graduate, with tiny props made for newborns.",img:["nbp-10","nbp-11","nbp-12","nbp-13"]},
+ {id:"sunshine",name:"Sunshine",tag:"Studio · yellow",d:"Bright yellow wraps, sunflowers and heart-shaped nests for a cheerful, happy look.",img:["nbp-14","nbp-15","nbp-16","nbp-17","nbp-18","nbp-19","nbp-20"]},
+ {id:"blooms",name:"Garden Blooms",tag:"Studio · florals",d:"Wooden nests framed with fresh tulips and roses, shot from above.",img:["nbp-21","nbp-22","nbp-23","nbp-24"]},
+ {id:"skies",name:"Dreamy Skies",tag:"Studio only",d:"Clouds, moons, dreamcatchers and safely supported swings for a soft, storybook feel.",img:["nbp-25","nbp-26","nbp-27","nbp-28","nbp-29","nbp-30","nbp-31"]},
+ {id:"beds",name:"Tiny Beds",tag:"Studio · props",d:"Miniature beds, blankets and natural tummy-time poses that show every tiny detail.",img:["nbp-32","nbp-33","nbp-34","nbp-35"]},
+ {id:"family",name:"Family & Backlit",tag:"Included in every package",d:"Parents and siblings with the baby on our boho set, plus graphic backlit silhouettes.",img:["nbp-36","nbp-37","nbp-38","nbp-39","nbp-40","nbp-41"]},
 ];
 const STUDIO=["../maternity/studio-1","../maternity/studio-2","../maternity/studio-3","../maternity/studio-4"];
 const PACKS=[
@@ -498,7 +520,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!p.hidden)c
 var seen=false;try{seen=sessionStorage.getItem('pdOwn')==='1'}catch(e){}
 if(!seen){setTimeout(function(){p.hidden=false},2000)}})();
 </script>
-<script src="lead.js?v=20261111c" defer></script>
-<script src="festival.js?v=20261111c" defer></script>
+<script src="lead.js?v=20261113a" defer></script>
+<script src="festival.js?v=20261113a" defer></script>
 </body>
 </html>
