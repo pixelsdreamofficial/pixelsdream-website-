@@ -351,6 +351,10 @@ details[open] summary::after{transform:rotate(45deg)}
 .mpc .pr{display:flex;align-items:baseline;gap:8px}
 .mpc .pr b{font-family:var(--display);font-weight:400;font-size:44px;line-height:1;font-variant-numeric:tabular-nums}
 .mpc .pr span{font-size:14px;color:var(--muted)}
+.mpc .pr{flex-wrap:wrap}
+.mpc .pr s{font-family:var(--display);font-size:24px;color:var(--muted);text-decoration-thickness:2px;text-decoration-color:#b0413e}
+.mpc .worth{display:inline-block;align-self:flex-start;margin-top:-4px;background:#d9eedf;color:#17663a;font-size:13px;font-weight:700;padding:4px 10px;border-radius:999px}
+.mpc.prem .pr s{color:#cdb4c3}.mpc.prem .worth{background:rgba(233,207,155,.2);color:#f6c46a}
 .mpc ul{list-style:none;margin:0;padding:12px 0 0;border-top:1px solid var(--line);display:grid;gap:8px;font-size:15px}
 .mpc li{position:relative;padding-left:26px;line-height:1.4}
 .mpc li:before{content:"✓";position:absolute;left:0;top:1px;width:18px;height:18px;border-radius:50%;background:#d9eedf;color:#17663a;display:grid;place-items:center;font-size:11px;font-weight:700}
@@ -483,15 +487,15 @@ document.addEventListener('submit',function(e){if(e.target.closest&&e.target.clo
    <article class="mpc">
     <span class="rb">Most loved</span>
     <div class="ph n2"><img src="img/maternity/traditional-4-2.jpg" alt="Traditional maternity style" loading="lazy"><img src="img/maternity/vogue-5-1.jpg" alt="Studio Vogue maternity style" loading="lazy"><span>Any 2 styles</span></div>
-    <div class="bd"><h3>Standard</h3><div class="pr"><b>₹12,000</b><span>two styles</span></div>
-     <ul><li class="hl">Hair &amp; makeup, free</li><li>20 edited images</li><li>2 backlit shots, free</li><li>60–90 minute shoot</li><li>2 gowns<small>Traditional style is shot in a saree, with 1 gown for the other style</small></li><li>All RAW photos</li></ul>
+    <div class="bd"><h3>Standard</h3><div class="pr"><s>₹15,000</s><b>₹12,000</b><span>two styles</span></div><span class="worth">Makeup worth ₹3,000 included free</span>
+     <ul><li class="hl">Hair &amp; makeup worth ₹3,000, free</li><li>20 edited images</li><li>2 backlit shots, free</li><li>60–90 minute shoot</li><li>2 gowns<small>Traditional style is shot in a saree, with 1 gown for the other style</small></li><li>All RAW photos</li></ul>
      <a class="pbtn" href="#packages" data-pkg="2">Choose Standard</a></div>
    </article>
    <article class="mpc prem">
     <span class="rb">The full story</span>
     <div class="ph n3"><img src="img/maternity/backlit-single.jpg" alt="Backlit maternity silhouette" loading="lazy"><img src="img/maternity/texture-1-2.jpg" alt="Artistic Texture maternity style" loading="lazy"><img src="img/maternity/outdoor-1-1.jpg" alt="Outdoor maternity style" loading="lazy"><span>Any 3 styles</span></div>
-    <div class="bd"><h3>Premium</h3><div class="pr"><b>₹18,000</b><span>three styles</span></div>
-     <ul><li class="hl">Free 12×24 album<small>up to 15 sheets</small></li><li class="hl">Hair &amp; makeup, free</li><li>30 edited images</li><li>2 backlit shots, free</li><li>90–120 minute shoot</li><li>3 gowns</li><li>All RAW photos</li></ul>
+    <div class="bd"><h3>Premium</h3><div class="pr"><s>₹26,000</s><b>₹18,000</b><span>three styles</span></div><span class="worth">Album + makeup worth ₹8,000 included free</span>
+     <ul><li class="hl">12×24 album worth ₹5,000, free<small>up to 15 sheets</small></li><li class="hl">Hair &amp; makeup worth ₹3,000, free</li><li>30 edited images</li><li>2 backlit shots, free</li><li>90–120 minute shoot</li><li>3 gowns</li><li>All RAW photos</li></ul>
      <a class="pbtn" href="#packages" data-pkg="3">Choose Premium</a></div>
    </article>
   </div>
@@ -586,6 +590,7 @@ document.addEventListener('submit',function(e){if(e.target.closest&&e.target.clo
       <h3>Booking summary</h3>
       <ul class="lines" id="lines"></ul>
       <div class="total"><span>Total</span><b id="total">₹0</b></div>
+      <p id="worthNote" style="font-size:14px;color:#9fe0b4;margin-top:4px" hidden></p>
       <p class="adv" style="font-size:14px;color:#E9D3DD;margin-top:6px">₹2,000 advance confirms your date, adjusted in your total.</p>
     </div>
     <form class="form" id="checkout" novalidate>
@@ -731,8 +736,8 @@ function render(){
  const nS=nReg(),P=PKG[nS]||null,regs=STYLES.filter(st=>isReg(st.id)&&cart.styles.has(st.id)).map(st=>st.name);
  if(P){lines.push([`${P.n} package · ${nS} ${nS>1?"styles":"style"} (${regs.join(", ")})`,P.p]);total+=P.p;
   lines.push([`${P.img} edited images, 2 backlit shots, all RAW photos`,"inc"]);lines.push([`${P.t} · ${P.g}`,"inc"]);
-  if(nS>=2)lines.push(["Hair & makeup","inc"]);
-  if(nS>=3)lines.push(["12×24 album, up to 15 sheets","inc"]);}
+  if(nS>=2)lines.push(["Hair & makeup (worth ₹3,000)","free"]);
+  if(nS>=3)lines.push(["12×24 album, up to 15 sheets (worth ₹5,000)","free"]);}
  if(cart.styles.has("ai")){lines.push(["Signature Concept AI Artwork (5 images)",5000]);total+=5000}
  EXTRAS.forEach(x=>{const q=cart.extras[x.id];if(!q)return;if(x.id==="makeup"&&nS>=2)return;
   lines.push([x.qty?`${x.name} × ${q}`:x.name,x.p*q]);total+=x.p*q});
@@ -746,8 +751,9 @@ function render(){
  const gw=[...cart.gowns];
  document.querySelectorAll("[data-gown]").forEach(el=>{const on=cart.gowns.has(el.dataset.gown);el.setAttribute("aria-pressed",on);el.textContent=on?"✓ Selected":"+ Select";el.closest(".gown").classList.toggle("on",on)});
  const gp=document.getElementById("gpick");gp.hidden=!gw.length;document.getElementById("gpickTxt").textContent=gw.length===1?"1 gown selected":`${gw.length} gowns selected`;
- document.getElementById("lines").innerHTML=(lines.length?lines.map(([n,v])=>`<li><span>${n}</span><span>${v==="inc"?"Included":inr(v)}</span></li>`).join(""):'<li class="empty">Nothing added yet. Pick a style above.</li>')+(gw.length?`<li class="gl"><span>Gowns (included)</span><span>${gw.join(", ")}</span></li>`:"");
+ document.getElementById("lines").innerHTML=(lines.length?lines.map(([n,v])=>`<li><span>${n}</span><span>${v==="inc"?"Included":v==="free"?"Free":inr(v)}</span></li>`).join(""):'<li class="empty">Nothing added yet. Pick a style above.</li>')+(gw.length?`<li class="gl"><span>Gowns (included)</span><span>${gw.join(", ")}</span></li>`:"");
  document.getElementById("total").textContent=inr(total);
+ {const wn=document.getElementById("worthNote");const wv=nS>=3?26000:nS===2?15000:0;wn.hidden=!wv;if(wv)wn.innerHTML=`Package worth <s>${inr(wv)}</s>, you pay ${inr(PKG[nS].p)}`;}
  document.getElementById("barTotal").textContent=inr(total);
  document.getElementById("barCount").textContent=P?`${P.n} · ${nS} ${nS>1?"styles":"style"}`:"Choose styles";
  document.getElementById("barGo").textContent=ok0()?"Checkout":"Build your shoot";
@@ -756,11 +762,11 @@ function render(){
  ch.textContent=cart.styles.has("ai")?"AI Artwork is an add-on. Please pick at least one style with it.":"Pick at least one style to check out.";
  const name=document.getElementById("cName").value.trim(),date=document.getElementById("cDate").value,note=document.getElementById("cNote").value.trim();
  const msg=["Hi Pixels Dream! I'd like to book a maternity shoot."+(name?` My name is ${name}.`:""),"",
-  "My selection:",...lines.map(([n,v])=>`• ${n}: ${v==="inc"?"Included":inr(v)}`),`Total: ${inr(total)}`,gw.length?`\nGowns I like: ${gw.join(", ")}`:"",
+  "My selection:",...lines.map(([n,v])=>`• ${n}: ${v==="inc"?"Included":v==="free"?"Free":inr(v)}`),`Total: ${inr(total)}`+(nS>=3?" (worth ₹26,000)":nS===2?" (worth ₹15,000)":""),gw.length?`\nGowns I like: ${gw.join(", ")}`:"",
   date?`\nPreferred date: ${new Date(date+"T00:00").toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"})}${shootSlot?", "+shootSlot:""}`:shootSlot?`Preferred time: ${shootSlot}`:"",
   note?`Note: ${note}`:""].filter((x,i)=>x!==""||i===1).join("\n");
  go.href=wa(msg);go.target="_blank";go.rel="noopener";
- const cm=["Hi Pixels Dream! I'm planning a maternity shoot and have a few questions about the packages. Please call me."+(name?` My name is ${name}.`:""),...(lines.length?["\nWhat I'm looking at:",...lines.map(([n,v])=>`• ${n}: ${v==="inc"?"Included":inr(v)}`),`Total so far: ${inr(total)}`]:[]),gw.length?`\nGowns I like: ${gw.join(", ")}`:"",date?`\nPreferred date: ${new Date(date+"T00:00").toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"})}${shootSlot?", "+shootSlot:""}`:shootSlot?`Preferred time: ${shootSlot}`:"",note?`Note: ${note}`:""].concat([]).filter((x,i,a)=>x!==""||(i>0&&a[i-1]!=="")).join("\n");
+ const cm=["Hi Pixels Dream! I'm planning a maternity shoot and have a few questions about the packages. Please call me."+(name?` My name is ${name}.`:""),...(lines.length?["\nWhat I'm looking at:",...lines.map(([n,v])=>`• ${n}: ${v==="inc"?"Included":v==="free"?"Free":inr(v)}`),`Total so far: ${inr(total)}`]:[]),gw.length?`\nGowns I like: ${gw.join(", ")}`:"",date?`\nPreferred date: ${new Date(date+"T00:00").toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"})}${shootSlot?", "+shootSlot:""}`:shootSlot?`Preferred time: ${shootSlot}`:"",note?`Note: ${note}`:""].concat([]).filter((x,i,a)=>x!==""||(i>0&&a[i-1]!=="")).join("\n");
  const cc=document.getElementById("cCall");cc.href=wa(cm);cc.target="_blank";cc.rel="noopener";
  try{localStorage.setItem("pd-cart3",JSON.stringify({s:[...cart.styles],e:cart.extras,g:[...cart.gowns]}))}catch(e){}
 }
