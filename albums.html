@@ -11,8 +11,8 @@
 <meta property="og:image" content="https://www.pixelsdream.in/img/albums/royal.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261117a">
-<link rel="stylesheet" href="page.css?v=20261117a">
+<link rel="stylesheet" href="styles.css?v=20261117b">
+<link rel="stylesheet" href="page.css?v=20261117b">
 <style>
 .ahero{padding:26px 0 30px}
 .ahero h1{font-family:var(--serif);font-weight:400;font-size:clamp(42px,6.4vw,80px);line-height:1;color:var(--plum);letter-spacing:-.015em;max-width:14ch}
@@ -63,7 +63,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 },true);
 document.addEventListener('submit',function(e){if(e.target.closest&&e.target.closest('.cb'))gtag('event','callback_request',{page:location.pathname});},true);
 </script>
-<link rel="stylesheet" href="mobile.css?v=20261117a">
+<link rel="stylesheet" href="mobile.css?v=20261117b">
 </head>
 <body>
 
@@ -85,6 +85,11 @@ document.addEventListener('submit',function(e){if(e.target.closest&&e.target.clo
     </section>
     <nav class="chips" aria-label="Album types"><a class="chip" href="#standard">Standard</a><a class="chip" href="#classic">Classic</a><a class="chip" href="#premium-suitcase">Premium Suitcase</a><a class="chip" href="#premium-suede">Premium Suede</a><a class="chip" href="#royal">Royal</a><a class="chip" href="#elite">Elite</a><a class="chip" href="#magazine">Magazine albums</a></nav>
   </div>
+
+<section class="realalb" id="real-albums"><div class="wrap">
+  <div><span class="ra-k">Real albums we delivered</span><h2>Albums our families received</h2><p>Recent albums straight from our studio: a maternity album, a first birthday album and a newborn album. This is the print quality you get.</p></div>
+  <div class="ra-vids" style="--n:4"><figure><video muted loop playsinline preload="none" poster="img/albums/real/album-all.jpg" data-src="img/albums/real/album-all.mp4" aria-label="Recent albums video"></video><figcaption>Recent albums</figcaption></figure><figure><video muted loop playsinline preload="none" poster="img/albums/real/album-maternity.jpg" data-src="img/albums/real/album-maternity.mp4" aria-label="Maternity album video"></video><figcaption>Maternity album</figcaption></figure><figure><video muted loop playsinline preload="none" poster="img/albums/real/album-birthday.jpg" data-src="img/albums/real/album-birthday.mp4" aria-label="Birthday album video"></video><figcaption>Birthday album</figcaption></figure><figure><video muted loop playsinline preload="none" poster="img/albums/real/album-newborn.jpg" data-src="img/albums/real/album-newborn.mp4" aria-label="Newborn album video"></video><figcaption>Newborn album</figcaption></figure></div>
+</div></section>
 
   <section class="tier" id="standard"><div class="wrap">
     <div class="tg">
@@ -217,7 +222,8 @@ document.addEventListener('submit',function(e){if(e.target.closest&&e.target.clo
   document.querySelectorAll(".wa").forEach(function(a){if(a.dataset.msg)a.href=wa(a.dataset.msg);a.target="_blank";a.rel="noopener";});
 })();
 </script>
-<script src="lead.js?v=20261117a" defer></script>
-<script src="festival.js?v=20261117a" defer></script>
+<script src="realalb.js?v=20261117b" defer></script>
+<script src="lead.js?v=20261117b" defer></script>
+<script src="festival.js?v=20261117b" defer></script>
 </body>
 </html>

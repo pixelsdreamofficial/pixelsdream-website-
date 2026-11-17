@@ -92,3 +92,16 @@ a.btn-tur,.btn-tur{background:var(--turmeric);color:var(--plum)}
 .nav a,.dd-t,.hdr .btn{white-space:nowrap}
 @media (min-width:901px) and (max-width:1420px){.nav{gap:20px}}
 @media (min-width:901px) and (max-width:1180px){.nav{gap:14px;font-size:14.5px}.logo{font-size:18px}}
+/* Real albums (video) */
+.realalb{padding:64px 0}
+.realalb .wrap{display:grid;gap:28px;align-items:center}
+.ra-k{font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--turmeric)}
+.realalb h2{font-family:var(--serif);font-weight:400;font-size:clamp(32px,6vw,52px);line-height:1.05;color:var(--plum);margin:8px 0 12px;text-wrap:balance}
+.realalb p{color:var(--muted);max-width:52ch}
+.ra-link{display:inline-block;margin-top:14px;font-weight:600;color:var(--plum);border-bottom:2px solid var(--turmeric);padding:6px 0}
+.ra-vids{display:grid;grid-template-columns:repeat(var(--n,1),minmax(0,1fr));gap:14px;justify-self:center;width:100%;max-width:calc(var(--n,1) * 300px)}
+.ra-vids figure{margin:0;min-width:0}
+.ra-vids video{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:18px;background:#e8dcd7;box-shadow:0 24px 40px -24px rgba(43,21,36,.5)}
+.ra-vids figcaption{margin-top:8px;font-size:14px;font-weight:600;color:var(--plum);text-align:center}
+@media(min-width:900px){.realalb.one .wrap{grid-template-columns:1fr auto}.realalb.one .ra-vids{width:300px}}
+@media(max-width:700px){.ra-vids{grid-template-columns:repeat(min(var(--n,1),2),minmax(0,1fr));max-width:100%}.realalb.one .ra-vids{max-width:280px}}

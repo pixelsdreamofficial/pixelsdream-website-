@@ -11,7 +11,7 @@
 <meta property="og:image" content="https://www.pixelsdream.in/img/newborn/newborn-photoshoot-bangalore-01.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261117a">
+<link rel="stylesheet" href="styles.css?v=20261117b">
 <style>
 /* Layout: same family as the maternity page, retuned to soft sage. Hero portrait, setup galleries as swipeable square strips, prep checklist, priced packages. */
 :root{
@@ -291,7 +291,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 },true);
 document.addEventListener('submit',function(e){if(e.target.closest&&e.target.closest('.cb'))gtag('event','callback_request',{page:location.pathname});},true);
 </script>
-<link rel="stylesheet" href="mobile.css?v=20261117a">
+<link rel="stylesheet" href="mobile.css?v=20261117b">
 </head>
 <body>
 <header class="hdr"><div class="wrap">
@@ -382,6 +382,11 @@ document.addEventListener('submit',function(e){if(e.target.closest&&e.target.clo
   </div>
   <div class="strip" data-set="studio" aria-label="Studio photos"></div>
 </section>
+
+<section class="realalb one" id="real-albums"><div class="wrap">
+  <div><span class="ra-k">Real albums we delivered</span><h2>Their first days, in an album</h2><p>A newborn and family album we delivered recently. Your baby's first portraits, laid out page by page and printed to keep forever.</p><a class="ra-link" href="albums.html">See all album designs →</a></div>
+  <div class="ra-vids" style="--n:1"><figure><video muted loop playsinline preload="none" poster="img/albums/real/album-newborn.jpg" data-src="img/albums/real/album-newborn.mp4" aria-label="Newborn album video"></video><figcaption>Newborn album</figcaption></figure></div>
+</div></section>
 
 <section class="wrap packs" id="packages">
   <header>
@@ -520,7 +525,8 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!p.hidden)c
 var seen=false;try{seen=sessionStorage.getItem('pdOwn')==='1'}catch(e){}
 if(!seen){setTimeout(function(){p.hidden=false},2000)}})();
 </script>
-<script src="lead.js?v=20261117a" defer></script>
-<script src="festival.js?v=20261117a" defer></script>
+<script src="realalb.js?v=20261117b" defer></script>
+<script src="lead.js?v=20261117b" defer></script>
+<script src="festival.js?v=20261117b" defer></script>
 </body>
 </html>
